@@ -8,6 +8,10 @@ export {
   DeleteSceneEventSchema,
 } from "./schema/event/scene/delete-scene-event-schema";
 export {
+  updateSceneBackgroundEventSchema,
+  UpdateSceneBackgroundEventSchema,
+} from "./schema/event/scene/update-scene-background-event-schema";
+export {
   updateSceneNameEventSchema,
   UpdateSceneNameEventSchema,
 } from "./schema/event/scene/update-scene-name-event-schema";
