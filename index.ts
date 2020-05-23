@@ -1,5 +1,9 @@
 export { default as Json } from "./json";
 export {
+  createBackgroundEventSchema,
+  CreateBackgroundEventSchema,
+} from "./schema/event/background/create-background-event-schema";
+export {
   createSceneEventSchema,
   CreateSceneEventSchema,
 } from "./schema/event/scene/create-scene-event-schema";
