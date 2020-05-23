@@ -12,6 +12,10 @@ export {
   UpdateBackgroundNameEventSchema,
 } from "./schema/event/background/update-background-name-event-schema";
 export {
+  updateBackgroundSvgEventSchema,
+  UpdateBackgroundSvgEventSchema,
+} from "./schema/event/background/update-background-svg-event-schema";
+export {
   createSceneEventSchema,
   CreateSceneEventSchema,
 } from "./schema/event/scene/create-scene-event-schema";
