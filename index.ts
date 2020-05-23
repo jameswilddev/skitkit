@@ -64,4 +64,8 @@ export { nameSchema, NameSchema } from "./schema/name-schema";
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
 export { uuidSchema, UuidSchema } from "./schema/uuid-schema";
 export { EntityType } from "./types/entity-type";
+export { BackgroundState } from "./types/state/background-state";
+export { CharacterState } from "./types/state/character-state";
+export { EmoteState } from "./types/state/emote-state";
+export { SceneState } from "./types/state/scene-state";
 export { State } from "./types/state";

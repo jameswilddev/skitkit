@@ -1,31 +1,19 @@
-import { NameSchema } from "../../schema/name-schema";
-import { UuidSchema } from "../../schema/uuid-schema";
-import { SvgSchema } from "../../schema/svg-schema";
+import { EmoteState } from "./emote-state";
+import { SceneState } from "./scene-state";
+import { CharacterState } from "./character-state";
+import { BackgroundState } from "./background-state";
 
 export type State = {
   readonly backgrounds: {
-    readonly [backgroundUuid: string]: {
-      readonly name: NameSchema;
-      readonly svg: SvgSchema;
-    };
+    readonly [backgroundUuid: string]: BackgroundState;
   };
   readonly characters: {
-    readonly [characterUuid: string]: {
-      readonly name: NameSchema;
-      readonly emoteUuids: ReadonlyArray<UuidSchema>;
-    };
+    readonly [characterUuid: string]: CharacterState;
   };
   readonly emotes: {
-    readonly [emoteUuid: string]: {
-      readonly characterUuid: UuidSchema;
-      readonly name: NameSchema;
-      readonly svg: SvgSchema;
-    };
+    readonly [emoteUuid: string]: EmoteState;
   };
   readonly scenes: {
-    readonly [sceneUuid: string]: {
-      readonly name: NameSchema;
-      readonly backgroundUuid: UuidSchema;
-    };
+    readonly [sceneUuid: string]: SceneState;
   };
 };
