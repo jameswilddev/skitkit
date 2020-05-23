@@ -7,5 +7,9 @@ export {
   deleteSceneEventSchema,
   DeleteSceneEventSchema,
 } from "./schema/event/scene/delete-scene-event-schema";
+export {
+  renameSceneEventSchema,
+  RenameSceneEventSchema,
+} from "./schema/event/scene/rename-scene-event-schema";
 export { nameSchema, NameSchema } from "./schema/name-schema";
 export { uuidSchema, UuidSchema } from "./schema/uuid-schema";
