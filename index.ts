@@ -16,6 +16,18 @@ export {
   UpdateBackgroundSvgEventSchema,
 } from "./schema/event/background/update-background-svg-event-schema";
 export {
+  createCharacterEventSchema,
+  CreateCharacterEventSchema,
+} from "./schema/event/character/create-character-event-schema";
+export {
+  deleteCharacterEventSchema,
+  DeleteCharacterEventSchema,
+} from "./schema/event/character/delete-character-event-schema";
+export {
+  updateCharacterNameEventSchema,
+  UpdateCharacterNameEventSchema,
+} from "./schema/event/character/update-character-name-event-schema";
+export {
   createSceneEventSchema,
   CreateSceneEventSchema,
 } from "./schema/event/scene/create-scene-event-schema";
