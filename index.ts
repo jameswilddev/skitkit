@@ -28,6 +28,22 @@ export {
   UpdateCharacterNameEventSchema,
 } from "./schema/event/character/update-character-name-event-schema";
 export {
+  createEmoteEventSchema,
+  CreateEmoteEventSchema,
+} from "./schema/event/emote/create-emote-event-schema";
+export {
+  deleteEmoteEventSchema,
+  DeleteEmoteEventSchema,
+} from "./schema/event/emote/delete-emote-event-schema";
+export {
+  updateEmoteNameEventSchema,
+  UpdateEmoteNameEventSchema,
+} from "./schema/event/emote/update-emote-name-event-schema";
+export {
+  updateEmoteSvgEventSchema,
+  UpdateEmoteSvgEventSchema,
+} from "./schema/event/emote/update-emote-svg-event-schema";
+export {
   createSceneEventSchema,
   CreateSceneEventSchema,
 } from "./schema/event/scene/create-scene-event-schema";
