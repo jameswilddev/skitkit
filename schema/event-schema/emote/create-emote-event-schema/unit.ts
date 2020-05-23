@@ -38,11 +38,12 @@ export function validateCreateEmoteEventSchema(
       `${path}.type`,
       `createEmote`,
       overriddenErrors,
-      (type) => ({
-        type,
-        characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      })
+      (type) =>
+        factory({
+          type,
+          characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
+          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -61,11 +62,12 @@ export function validateCreateEmoteEventSchema(
       schema,
       `${path}.characterUuid`,
       overriddenErrors,
-      (characterUuid) => ({
-        type: `createEmote`,
-        characterUuid,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      })
+      (characterUuid) =>
+        factory({
+          type: `createEmote`,
+          characterUuid,
+          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -84,11 +86,12 @@ export function validateCreateEmoteEventSchema(
       schema,
       `${path}.emoteUuid`,
       overriddenErrors,
-      (emoteUuid) => ({
-        type: `createEmote`,
-        characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
-        emoteUuid,
-      })
+      (emoteUuid) =>
+        factory({
+          type: `createEmote`,
+          characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
+          emoteUuid,
+        })
     );
   });
 }

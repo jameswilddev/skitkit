@@ -36,10 +36,11 @@ export function validateCreateBackgroundEventSchema(
       `${path}.type`,
       `createBackground`,
       overriddenErrors,
-      (type) => ({
-        type,
-        backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      })
+      (type) =>
+        factory({
+          type,
+          backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -57,10 +58,11 @@ export function validateCreateBackgroundEventSchema(
       schema,
       `${path}.backgroundUuid`,
       overriddenErrors,
-      (backgroundUuid) => ({
-        type: `createBackground`,
-        backgroundUuid,
-      })
+      (backgroundUuid) =>
+        factory({
+          type: `createBackground`,
+          backgroundUuid,
+        })
     );
   });
 }

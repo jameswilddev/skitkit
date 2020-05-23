@@ -36,10 +36,11 @@ export function validateCreateSceneEventSchema(
       `${path}.type`,
       `createScene`,
       overriddenErrors,
-      (type) => ({
-        type,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      })
+      (type) =>
+        factory({
+          type,
+          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -57,10 +58,11 @@ export function validateCreateSceneEventSchema(
       schema,
       `${path}.sceneUuid`,
       overriddenErrors,
-      (sceneUuid) => ({
-        type: `createScene`,
-        sceneUuid,
-      })
+      (sceneUuid) =>
+        factory({
+          type: `createScene`,
+          sceneUuid,
+        })
     );
   });
 }

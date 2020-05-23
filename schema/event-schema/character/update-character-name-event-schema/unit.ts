@@ -39,11 +39,12 @@ export function validateUpdateCharacterNameEventSchema(
       `${path}.type`,
       `updateCharacterName`,
       overriddenErrors,
-      (type) => ({
-        type,
-        characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name: `Test Name`,
-      })
+      (type) =>
+        factory({
+          type,
+          characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          name: `Test Name`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -62,11 +63,12 @@ export function validateUpdateCharacterNameEventSchema(
       schema,
       `${path}.characterUuid`,
       overriddenErrors,
-      (characterUuid) => ({
-        type: `updateCharacterName`,
-        characterUuid,
-        name: `Test Name`,
-      })
+      (characterUuid) =>
+        factory({
+          type: `updateCharacterName`,
+          characterUuid,
+          name: `Test Name`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -85,11 +87,12 @@ export function validateUpdateCharacterNameEventSchema(
       schema,
       `${path}.name`,
       overriddenErrors,
-      (name) => ({
-        type: `updateCharacterName`,
-        characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name,
-      })
+      (name) =>
+        factory({
+          type: `updateCharacterName`,
+          characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          name,
+        })
     );
   });
 }

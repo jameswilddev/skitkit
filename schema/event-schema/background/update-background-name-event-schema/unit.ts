@@ -39,11 +39,12 @@ export function validateUpdateBackgroundNameEventSchema(
       `${path}.type`,
       `updateBackgroundName`,
       overriddenErrors,
-      (type) => ({
-        type,
-        backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name: `Test Name`,
-      })
+      (type) =>
+        factory({
+          type,
+          backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          name: `Test Name`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -62,11 +63,12 @@ export function validateUpdateBackgroundNameEventSchema(
       schema,
       `${path}.backgroundUuid`,
       overriddenErrors,
-      (backgroundUuid) => ({
-        type: `updateBackgroundName`,
-        backgroundUuid,
-        name: `Test Name`,
-      })
+      (backgroundUuid) =>
+        factory({
+          type: `updateBackgroundName`,
+          backgroundUuid,
+          name: `Test Name`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -85,11 +87,12 @@ export function validateUpdateBackgroundNameEventSchema(
       schema,
       `${path}.name`,
       overriddenErrors,
-      (name) => ({
-        type: `updateBackgroundName`,
-        backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name,
-      })
+      (name) =>
+        factory({
+          type: `updateBackgroundName`,
+          backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          name,
+        })
     );
   });
 }

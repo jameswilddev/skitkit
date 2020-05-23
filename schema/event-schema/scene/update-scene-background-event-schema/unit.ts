@@ -38,11 +38,12 @@ export function validateUpdateSceneBackgroundEventSchema(
       `${path}.type`,
       `updateSceneBackground`,
       overriddenErrors,
-      (type) => ({
-        type,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
-      })
+      (type) =>
+        factory({
+          type,
+          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -61,11 +62,12 @@ export function validateUpdateSceneBackgroundEventSchema(
       schema,
       `${path}.sceneUuid`,
       overriddenErrors,
-      (sceneUuid) => ({
-        type: `updateSceneBackground`,
-        sceneUuid,
-        backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
-      })
+      (sceneUuid) =>
+        factory({
+          type: `updateSceneBackground`,
+          sceneUuid,
+          backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -84,11 +86,12 @@ export function validateUpdateSceneBackgroundEventSchema(
       schema,
       `${path}.backgroundUuid`,
       overriddenErrors,
-      (backgroundUuid) => ({
-        type: `updateSceneBackground`,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        backgroundUuid,
-      })
+      (backgroundUuid) =>
+        factory({
+          type: `updateSceneBackground`,
+          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          backgroundUuid,
+        })
     );
   });
 }

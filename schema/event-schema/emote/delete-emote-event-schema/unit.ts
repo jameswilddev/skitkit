@@ -36,10 +36,11 @@ export function validateDeleteEmoteEventSchema(
       `${path}.type`,
       `deleteEmote`,
       overriddenErrors,
-      (type) => ({
-        type,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      })
+      (type) =>
+        factory({
+          type,
+          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -57,10 +58,11 @@ export function validateDeleteEmoteEventSchema(
       schema,
       `${path}.emoteUuid`,
       overriddenErrors,
-      (emoteUuid) => ({
-        type: `deleteEmote`,
-        emoteUuid,
-      })
+      (emoteUuid) =>
+        factory({
+          type: `deleteEmote`,
+          emoteUuid,
+        })
     );
   });
 }

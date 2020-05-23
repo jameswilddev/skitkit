@@ -36,10 +36,11 @@ export function validateDeleteSceneEventSchema(
       `${path}.type`,
       `deleteScene`,
       overriddenErrors,
-      (type) => ({
-        type,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      })
+      (type) =>
+        factory({
+          type,
+          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -57,10 +58,11 @@ export function validateDeleteSceneEventSchema(
       schema,
       `${path}.sceneUuid`,
       overriddenErrors,
-      (sceneUuid) => ({
-        type: `deleteScene`,
-        sceneUuid,
-      })
+      (sceneUuid) =>
+        factory({
+          type: `deleteScene`,
+          sceneUuid,
+        })
     );
   });
 }

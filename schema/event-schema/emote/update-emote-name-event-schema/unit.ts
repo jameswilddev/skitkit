@@ -39,11 +39,12 @@ export function validateUpdateEmoteNameEventSchema(
       `${path}.type`,
       `updateEmoteName`,
       overriddenErrors,
-      (type) => ({
-        type,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name: `Test Name`,
-      })
+      (type) =>
+        factory({
+          type,
+          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          name: `Test Name`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -62,11 +63,12 @@ export function validateUpdateEmoteNameEventSchema(
       schema,
       `${path}.emoteUuid`,
       overriddenErrors,
-      (emoteUuid) => ({
-        type: `updateEmoteName`,
-        emoteUuid,
-        name: `Test Name`,
-      })
+      (emoteUuid) =>
+        factory({
+          type: `updateEmoteName`,
+          emoteUuid,
+          name: `Test Name`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -85,11 +87,12 @@ export function validateUpdateEmoteNameEventSchema(
       schema,
       `${path}.name`,
       overriddenErrors,
-      (name) => ({
-        type: `updateEmoteName`,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name,
-      })
+      (name) =>
+        factory({
+          type: `updateEmoteName`,
+          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          name,
+        })
     );
   });
 }

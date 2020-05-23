@@ -39,11 +39,12 @@ export function validateUpdateSceneNameEventSchema(
       `${path}.type`,
       `updateSceneName`,
       overriddenErrors,
-      (type) => ({
-        type,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name: `Test Name`,
-      })
+      (type) =>
+        factory({
+          type,
+          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          name: `Test Name`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -62,11 +63,12 @@ export function validateUpdateSceneNameEventSchema(
       schema,
       `${path}.sceneUuid`,
       overriddenErrors,
-      (sceneUuid) => ({
-        type: `updateSceneName`,
-        sceneUuid,
-        name: `Test Name`,
-      })
+      (sceneUuid) =>
+        factory({
+          type: `updateSceneName`,
+          sceneUuid,
+          name: `Test Name`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -85,11 +87,12 @@ export function validateUpdateSceneNameEventSchema(
       schema,
       `${path}.name`,
       overriddenErrors,
-      (name) => ({
-        type: `updateSceneName`,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name,
-      })
+      (name) =>
+        factory({
+          type: `updateSceneName`,
+          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          name,
+        })
     );
   });
 }

@@ -36,10 +36,11 @@ export function validateCreateCharacterEventSchema(
       `${path}.type`,
       `createCharacter`,
       overriddenErrors,
-      (type) => ({
-        type,
-        characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      })
+      (type) =>
+        factory({
+          type,
+          characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -57,10 +58,11 @@ export function validateCreateCharacterEventSchema(
       schema,
       `${path}.characterUuid`,
       overriddenErrors,
-      (characterUuid) => ({
-        type: `createCharacter`,
-        characterUuid,
-      })
+      (characterUuid) =>
+        factory({
+          type: `createCharacter`,
+          characterUuid,
+        })
     );
   });
 }

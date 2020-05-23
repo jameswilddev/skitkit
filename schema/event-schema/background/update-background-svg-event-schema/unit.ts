@@ -39,11 +39,12 @@ export function validateUpdateBackgroundSvgEventSchema(
       `${path}.type`,
       `updateBackgroundSvg`,
       overriddenErrors,
-      (type) => ({
-        type,
-        backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        svg: `Test Svg`,
-      })
+      (type) =>
+        factory({
+          type,
+          backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          svg: `Test Svg`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -62,11 +63,12 @@ export function validateUpdateBackgroundSvgEventSchema(
       schema,
       `${path}.backgroundUuid`,
       overriddenErrors,
-      (backgroundUuid) => ({
-        type: `updateBackgroundSvg`,
-        backgroundUuid,
-        svg: `Test Svg`,
-      })
+      (backgroundUuid) =>
+        factory({
+          type: `updateBackgroundSvg`,
+          backgroundUuid,
+          svg: `Test Svg`,
+        })
     );
 
     schemaHelpers.rejectsMissingProperty(
@@ -85,11 +87,12 @@ export function validateUpdateBackgroundSvgEventSchema(
       schema,
       `${path}.svg`,
       overriddenErrors,
-      (svg) => ({
-        type: `updateBackgroundSvg`,
-        backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        svg,
-      })
+      (svg) =>
+        factory({
+          type: `updateBackgroundSvg`,
+          backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          svg,
+        })
     );
   });
 }
