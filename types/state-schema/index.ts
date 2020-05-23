@@ -1,6 +1,6 @@
-import { NameSchema } from "../name-schema";
-import { UuidSchema } from "../uuid-schema";
-import { SvgSchema } from "../svg-schema";
+import { NameSchema } from "../../schema/name-schema";
+import { UuidSchema } from "../../schema/uuid-schema";
+import { SvgSchema } from "../../schema/svg-schema";
 
 export type StateSchema = {
   readonly backgrounds: {
