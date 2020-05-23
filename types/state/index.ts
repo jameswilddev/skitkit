@@ -2,7 +2,7 @@ import { NameSchema } from "../../schema/name-schema";
 import { UuidSchema } from "../../schema/uuid-schema";
 import { SvgSchema } from "../../schema/svg-schema";
 
-export type StateSchema = {
+export type State = {
   readonly backgrounds: {
     readonly [backgroundUuid: string]: {
       readonly name: NameSchema;
