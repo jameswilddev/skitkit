@@ -55,3 +55,81 @@ export function rejects(
     });
   });
 }
+
+export function rejectsOtherThanExpectedString(
+  description: string,
+  schema: jsonschema.Schema,
+  path: string,
+  expected: string,
+  factory: (text: Json) => Json
+): void {
+  describe(description, () => {
+    rejects(`empty strings`, factory(``), schema, [
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`unexpected strings`, factory(`Test Unexpected String`), schema, [
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`preceded by white space`, factory(` ${expected}`), schema, [
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`followed by white space`, factory(`${expected} `), schema, [
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    if (expected !== expected.toUpperCase()) {
+      rejects(`in upper case`, factory(expected.toUpperCase()), schema, [
+        `${path} is not one of enum values: ${expected}`,
+      ]);
+    }
+
+    if (expected !== expected.toLowerCase()) {
+      rejects(`in lower case`, factory(expected.toLowerCase()), schema, [
+        `${path} is not one of enum values: ${expected}`,
+      ]);
+    }
+
+    rejects(`zero`, factory(0), schema, [
+      `${path} is not of a type(s) string`,
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`negative zero`, factory(-0), schema, [
+      `${path} is not of a type(s) string`,
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`positive integers`, factory(326), schema, [
+      `${path} is not of a type(s) string`,
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`negative integers`, factory(-326), schema, [
+      `${path} is not of a type(s) string`,
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`positive decimals`, factory(32.6), schema, [
+      `${path} is not of a type(s) string`,
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`negative decimals`, factory(-32.6), schema, [
+      `${path} is not of a type(s) string`,
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`empty arrays`, factory([]), schema, [
+      `${path} is not of a type(s) string`,
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+
+    rejects(`empty objects`, factory({}), schema, [
+      `${path} is not of a type(s) string`,
+      `${path} is not one of enum values: ${expected}`,
+    ]);
+  });
+}
