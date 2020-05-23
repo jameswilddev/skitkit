@@ -61,5 +61,6 @@ export {
 } from "./schema/event-schema/scene/update-scene-name-event-schema";
 export { eventSchema, EventSchema } from "./schema/event-schema";
 export { nameSchema, NameSchema } from "./schema/name-schema";
+export { StateSchema } from "./schema/state-schema";
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
 export { uuidSchema, UuidSchema } from "./schema/uuid-schema";
