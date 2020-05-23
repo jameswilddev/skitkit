@@ -100,6 +100,15 @@ export function validateNameSchema(
       [`${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`]
     );
 
+    schemaHelpers.accepts(`the length limit`, factory(`T`.repeat(50)), schema);
+
+    schemaHelpers.rejects(
+      `beyond the length limit`,
+      factory(`T`.repeat(51)),
+      schema,
+      [`${path} does not meet maximum length of 50`]
+    );
+
     schemaHelpers.rejects(`null`, factory(null), schema, [
       `${path} is not of a type(s) string`,
     ]);
