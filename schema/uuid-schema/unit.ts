@@ -2,12 +2,13 @@ import * as jsonschema from "jsonschema";
 import * as schemaHelpers from "../unit";
 import { Json, uuidSchema } from "../..";
 
-export function validateUuid(
+export function validateUuidSchema(
+  description: string,
   schema: jsonschema.Schema,
   path: string,
   factory: (uuid: Json) => Json
 ): void {
-  describe(`uuid`, () => {
+  describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
       factory(`a366e69c-d60e-4e27-bd18-7aea8257bcdb`),
@@ -119,4 +120,4 @@ export function validateUuid(
   });
 }
 
-validateUuid(uuidSchema, `instance`, (uuid) => uuid);
+validateUuidSchema(`uuidSchema`, uuidSchema, `instance`, (uuid) => uuid);
