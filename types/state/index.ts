@@ -25,7 +25,7 @@ export type State = {
   readonly scenes: {
     readonly [sceneUuid: string]: {
       readonly name: NameSchema;
-      readonly svg: SvgSchema;
+      readonly backgroundUuid: UuidSchema;
     };
   };
 };
