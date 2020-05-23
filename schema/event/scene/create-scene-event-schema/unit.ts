@@ -60,6 +60,12 @@ export function validateCreateSceneEventSchema(
   });
 }
 
+schemaHelpers.rejectsNonObjects(
+  `createSceneEventSchema`,
+  createSceneEventSchema,
+  `instance`
+);
+
 validateCreateSceneEventSchema(
   `createSceneEventSchema`,
   createSceneEventSchema,

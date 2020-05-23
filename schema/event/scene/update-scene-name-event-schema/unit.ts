@@ -87,6 +87,12 @@ export function validateUpdateSceneNameEventSchema(
   });
 }
 
+schemaHelpers.rejectsNonObjects(
+  `updateSceneNameEventSchema`,
+  updateSceneNameEventSchema,
+  `instance`
+);
+
 validateUpdateSceneNameEventSchema(
   `updateSceneNameEventSchema`,
   updateSceneNameEventSchema,

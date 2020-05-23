@@ -60,6 +60,12 @@ export function validateCreateBackgroundEventSchema(
   });
 }
 
+schemaHelpers.rejectsNonObjects(
+  `createBackgroundEventSchema`,
+  createBackgroundEventSchema,
+  `instance`
+);
+
 validateCreateBackgroundEventSchema(
   `createBackgroundEventSchema`,
   createBackgroundEventSchema,

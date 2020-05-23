@@ -56,6 +56,46 @@ export function rejects(
   });
 }
 
+export function rejectsNonObjects(
+  description: string,
+  schema: jsonschema.Schema,
+  path: string
+): void {
+  describe(description, () => {
+    rejects(`empty strings`, ``, schema, [
+      `${path} is not of a type(s) object`,
+    ]);
+
+    rejects(`non-empty strings`, `Test Non-Empty String`, schema, [
+      `${path} is not of a type(s) object`,
+    ]);
+
+    rejects(`zero`, 0, schema, [`${path} is not of a type(s) object`]);
+
+    rejects(`negative zero`, -0, schema, [
+      `${path} is not of a type(s) object`,
+    ]);
+
+    rejects(`positive integers`, 326, schema, [
+      `${path} is not of a type(s) object`,
+    ]);
+
+    rejects(`negative integers`, -326, schema, [
+      `${path} is not of a type(s) object`,
+    ]);
+
+    rejects(`positive decimals`, 32.6, schema, [
+      `${path} is not of a type(s) object`,
+    ]);
+
+    rejects(`negative decimals`, -32.6, schema, [
+      `${path} is not of a type(s) object`,
+    ]);
+
+    rejects(`empty arrays`, [], schema, [`${path} is not of a type(s) object`]);
+  });
+}
+
 export function rejectsMissingProperty(
   description: string,
   schema: jsonschema.Schema,

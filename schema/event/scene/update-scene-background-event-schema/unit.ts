@@ -86,6 +86,12 @@ export function validateUpdateSceneBackgroundEventSchema(
   });
 }
 
+schemaHelpers.rejectsNonObjects(
+  `updateSceneBackgroundEventSchema`,
+  updateSceneBackgroundEventSchema,
+  `instance`
+);
+
 validateUpdateSceneBackgroundEventSchema(
   `updateSceneBackgroundEventSchema`,
   updateSceneBackgroundEventSchema,

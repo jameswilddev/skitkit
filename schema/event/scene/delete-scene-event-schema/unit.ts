@@ -60,6 +60,12 @@ export function validateDeleteSceneEventSchema(
   });
 }
 
+schemaHelpers.rejectsNonObjects(
+  `deleteSceneEventSchema`,
+  deleteSceneEventSchema,
+  `instance`
+);
+
 validateDeleteSceneEventSchema(
   `deleteSceneEventSchema`,
   deleteSceneEventSchema,
