@@ -1,17 +1,13 @@
 import * as jsonschema from "jsonschema";
 import * as schemaHelpers from "../../../unit";
 import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
-import {
-  Json,
-  deleteSceneEventSchema,
-  DeleteSceneEventSchema,
-} from "../../../..";
+import { Json, deleteSceneEventSchema } from "../../../..";
 
 export function validateDeleteSceneEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
-  factory: (deleteSceneEvent: DeleteSceneEventSchema) => Json
+  factory: (deleteSceneEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
@@ -23,6 +19,15 @@ export function validateDeleteSceneEventSchema(
       schema
     );
 
+    schemaHelpers.rejectsMissingProperty(
+      `type`,
+      schema,
+      path,
+      factory({
+        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+      })
+    );
+
     schemaHelpers.rejectsOtherThanExpectedString(
       `type`,
       schema,
@@ -31,6 +36,15 @@ export function validateDeleteSceneEventSchema(
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+      })
+    );
+
+    schemaHelpers.rejectsMissingProperty(
+      `sceneUuid`,
+      schema,
+      path,
+      factory({
+        type: `deleteSceneEvent`,
       })
     );
 

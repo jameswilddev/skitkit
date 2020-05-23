@@ -56,6 +56,19 @@ export function rejects(
   });
 }
 
+export function rejectsMissingProperty(
+  description: string,
+  schema: jsonschema.Schema,
+  path: string,
+  instance: Json
+): void {
+  describe(description, () => {
+    rejects(`missing`, instance, schema, [
+      `${path} requires property "${description}"`,
+    ]);
+  });
+}
+
 export function rejectsOtherThanExpectedString(
   description: string,
   schema: jsonschema.Schema,

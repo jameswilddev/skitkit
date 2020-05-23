@@ -1,17 +1,13 @@
 import * as jsonschema from "jsonschema";
 import * as schemaHelpers from "../../../unit";
 import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
-import {
-  Json,
-  createSceneEventSchema,
-  CreateSceneEventSchema,
-} from "../../../..";
+import { Json, createSceneEventSchema } from "../../../..";
 
 export function validateCreateSceneEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
-  factory: (createSceneEvent: CreateSceneEventSchema) => Json
+  factory: (createSceneEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
@@ -23,6 +19,15 @@ export function validateCreateSceneEventSchema(
       schema
     );
 
+    schemaHelpers.rejectsMissingProperty(
+      `type`,
+      schema,
+      path,
+      factory({
+        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+      })
+    );
+
     schemaHelpers.rejectsOtherThanExpectedString(
       `type`,
       schema,
@@ -31,6 +36,15 @@ export function validateCreateSceneEventSchema(
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+      })
+    );
+
+    schemaHelpers.rejectsMissingProperty(
+      `sceneUuid`,
+      schema,
+      path,
+      factory({
+        type: `createSceneEvent`,
       })
     );
 

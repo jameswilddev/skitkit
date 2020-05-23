@@ -1,17 +1,13 @@
 import * as jsonschema from "jsonschema";
 import * as schemaHelpers from "../../../unit";
 import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
-import {
-  Json,
-  renameSceneEventSchema,
-  RenameSceneEventSchema,
-} from "../../../..";
+import { Json, renameSceneEventSchema } from "../../../..";
 
 export function validateRenameSceneEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
-  factory: (renameSceneEvent: RenameSceneEventSchema) => Json
+  factory: (renameSceneEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
@@ -24,6 +20,16 @@ export function validateRenameSceneEventSchema(
       schema
     );
 
+    schemaHelpers.rejectsMissingProperty(
+      `type`,
+      schema,
+      path,
+      factory({
+        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        name: `Test Name`,
+      })
+    );
+
     schemaHelpers.rejectsOtherThanExpectedString(
       `type`,
       schema,
@@ -32,6 +38,16 @@ export function validateRenameSceneEventSchema(
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        name: `Test Name`,
+      })
+    );
+
+    schemaHelpers.rejectsMissingProperty(
+      `sceneUuid`,
+      schema,
+      path,
+      factory({
+        type: `renameSceneEvent`,
         name: `Test Name`,
       })
     );
