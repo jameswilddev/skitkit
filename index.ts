@@ -8,6 +8,10 @@ export {
   DeleteBackgroundEventSchema,
 } from "./schema/event/background/delete-background-event-schema";
 export {
+  updateBackgroundNameEventSchema,
+  UpdateBackgroundNameEventSchema,
+} from "./schema/event/background/update-background-name-event-schema";
+export {
   createSceneEventSchema,
   CreateSceneEventSchema,
 } from "./schema/event/scene/create-scene-event-schema";
