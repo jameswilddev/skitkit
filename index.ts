@@ -1,3 +1,4 @@
+export { applyEvent } from "./apply-event";
 export { default as Json } from "./json";
 export {
   createBackgroundEventSchema,
