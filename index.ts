@@ -63,4 +63,5 @@ export { eventSchema, EventSchema } from "./schema/event-schema";
 export { nameSchema, NameSchema } from "./schema/name-schema";
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
 export { uuidSchema, UuidSchema } from "./schema/uuid-schema";
+export { EntityType } from "./types/entity-type";
 export { State } from "./types/state";
