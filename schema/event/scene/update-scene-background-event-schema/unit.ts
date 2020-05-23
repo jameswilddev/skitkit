@@ -7,6 +7,7 @@ export function validateUpdateSceneBackgroundEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (updateSceneBackgroundEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -24,6 +25,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
@@ -35,6 +37,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       schema,
       `${path}.type`,
       `updateSceneBackground`,
+      overriddenErrors,
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -46,6 +49,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       `sceneUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateSceneBackground`,
         backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
@@ -56,6 +60,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       `sceneUuid`,
       schema,
       `${path}.sceneUuid`,
+      overriddenErrors,
       (sceneUuid) => ({
         type: `updateSceneBackground`,
         sceneUuid,
@@ -67,6 +72,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       `backgroundUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateSceneBackground`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -77,6 +83,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
+      overriddenErrors,
       (backgroundUuid) => ({
         type: `updateSceneBackground`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -89,12 +96,14 @@ export function validateUpdateSceneBackgroundEventSchema(
 schemaHelpers.rejectsNonObjects(
   `updateSceneBackgroundEventSchema`,
   updateSceneBackgroundEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateUpdateSceneBackgroundEventSchema(
   `updateSceneBackgroundEventSchema`,
   updateSceneBackgroundEventSchema,
   `instance`,
+  null,
   (updateSceneBackgroundEvent) => updateSceneBackgroundEvent
 );

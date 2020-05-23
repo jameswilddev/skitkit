@@ -8,6 +8,7 @@ export function validateUpdateEmoteNameEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (updateEmoteNameEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -25,6 +26,7 @@ export function validateUpdateEmoteNameEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
@@ -36,6 +38,7 @@ export function validateUpdateEmoteNameEventSchema(
       schema,
       `${path}.type`,
       `updateEmoteName`,
+      overriddenErrors,
       (type) => ({
         type,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -47,6 +50,7 @@ export function validateUpdateEmoteNameEventSchema(
       `emoteUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateEmoteName`,
         name: `Test Name`,
@@ -57,6 +61,7 @@ export function validateUpdateEmoteNameEventSchema(
       `emoteUuid`,
       schema,
       `${path}.emoteUuid`,
+      overriddenErrors,
       (emoteUuid) => ({
         type: `updateEmoteName`,
         emoteUuid,
@@ -68,6 +73,7 @@ export function validateUpdateEmoteNameEventSchema(
       `name`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateEmoteName`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -78,6 +84,7 @@ export function validateUpdateEmoteNameEventSchema(
       `name`,
       schema,
       `${path}.name`,
+      overriddenErrors,
       (name) => ({
         type: `updateEmoteName`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -90,12 +97,14 @@ export function validateUpdateEmoteNameEventSchema(
 schemaHelpers.rejectsNonObjects(
   `updateEmoteNameEventSchema`,
   updateEmoteNameEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateUpdateEmoteNameEventSchema(
   `updateEmoteNameEventSchema`,
   updateEmoteNameEventSchema,
   `instance`,
+  null,
   (updateEmoteNameEvent) => updateEmoteNameEvent
 );

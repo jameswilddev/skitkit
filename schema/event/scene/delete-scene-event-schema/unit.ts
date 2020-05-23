@@ -7,6 +7,7 @@ export function validateDeleteSceneEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (deleteSceneEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -23,6 +24,7 @@ export function validateDeleteSceneEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -33,6 +35,7 @@ export function validateDeleteSceneEventSchema(
       schema,
       `${path}.type`,
       `deleteScene`,
+      overriddenErrors,
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -43,6 +46,7 @@ export function validateDeleteSceneEventSchema(
       `sceneUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `deleteScene`,
       })
@@ -52,6 +56,7 @@ export function validateDeleteSceneEventSchema(
       `sceneUuid`,
       schema,
       `${path}.sceneUuid`,
+      overriddenErrors,
       (sceneUuid) => ({
         type: `deleteScene`,
         sceneUuid,
@@ -63,12 +68,14 @@ export function validateDeleteSceneEventSchema(
 schemaHelpers.rejectsNonObjects(
   `deleteSceneEventSchema`,
   deleteSceneEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateDeleteSceneEventSchema(
   `deleteSceneEventSchema`,
   deleteSceneEventSchema,
   `instance`,
+  null,
   (deleteSceneEvent) => deleteSceneEvent
 );

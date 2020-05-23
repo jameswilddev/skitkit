@@ -7,6 +7,7 @@ export function validateDeleteBackgroundEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (deleteBackgroundEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -23,6 +24,7 @@ export function validateDeleteBackgroundEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -33,6 +35,7 @@ export function validateDeleteBackgroundEventSchema(
       schema,
       `${path}.type`,
       `deleteBackground`,
+      overriddenErrors,
       (type) => ({
         type,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -43,6 +46,7 @@ export function validateDeleteBackgroundEventSchema(
       `backgroundUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `deleteBackground`,
       })
@@ -52,6 +56,7 @@ export function validateDeleteBackgroundEventSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
+      overriddenErrors,
       (backgroundUuid) => ({
         type: `deleteBackground`,
         backgroundUuid,
@@ -63,12 +68,14 @@ export function validateDeleteBackgroundEventSchema(
 schemaHelpers.rejectsNonObjects(
   `deleteBackgroundEventSchema`,
   deleteBackgroundEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateDeleteBackgroundEventSchema(
   `deleteBackgroundEventSchema`,
   deleteBackgroundEventSchema,
   `instance`,
+  null,
   (deleteBackgroundEvent) => deleteBackgroundEvent
 );

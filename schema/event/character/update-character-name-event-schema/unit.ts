@@ -8,6 +8,7 @@ export function validateUpdateCharacterNameEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (updateCharacterNameEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -25,6 +26,7 @@ export function validateUpdateCharacterNameEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
@@ -36,6 +38,7 @@ export function validateUpdateCharacterNameEventSchema(
       schema,
       `${path}.type`,
       `updateCharacterName`,
+      overriddenErrors,
       (type) => ({
         type,
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -47,6 +50,7 @@ export function validateUpdateCharacterNameEventSchema(
       `characterUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateCharacterName`,
         name: `Test Name`,
@@ -57,6 +61,7 @@ export function validateUpdateCharacterNameEventSchema(
       `characterUuid`,
       schema,
       `${path}.characterUuid`,
+      overriddenErrors,
       (characterUuid) => ({
         type: `updateCharacterName`,
         characterUuid,
@@ -68,6 +73,7 @@ export function validateUpdateCharacterNameEventSchema(
       `name`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateCharacterName`,
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -78,6 +84,7 @@ export function validateUpdateCharacterNameEventSchema(
       `name`,
       schema,
       `${path}.name`,
+      overriddenErrors,
       (name) => ({
         type: `updateCharacterName`,
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -90,12 +97,14 @@ export function validateUpdateCharacterNameEventSchema(
 schemaHelpers.rejectsNonObjects(
   `updateCharacterNameEventSchema`,
   updateCharacterNameEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateUpdateCharacterNameEventSchema(
   `updateCharacterNameEventSchema`,
   updateCharacterNameEventSchema,
   `instance`,
+  null,
   (updateCharacterNameEvent) => updateCharacterNameEvent
 );

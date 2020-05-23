@@ -7,6 +7,7 @@ export function validateCreateEmoteEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (createEmoteEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -24,6 +25,7 @@ export function validateCreateEmoteEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -35,6 +37,7 @@ export function validateCreateEmoteEventSchema(
       schema,
       `${path}.type`,
       `createEmote`,
+      overriddenErrors,
       (type) => ({
         type,
         characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
@@ -46,6 +49,7 @@ export function validateCreateEmoteEventSchema(
       `characterUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `createEmote`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -56,6 +60,7 @@ export function validateCreateEmoteEventSchema(
       `characterUuid`,
       schema,
       `${path}.characterUuid`,
+      overriddenErrors,
       (characterUuid) => ({
         type: `createEmote`,
         characterUuid,
@@ -67,6 +72,7 @@ export function validateCreateEmoteEventSchema(
       `emoteUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `createEmote`,
         characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
@@ -77,6 +83,7 @@ export function validateCreateEmoteEventSchema(
       `emoteUuid`,
       schema,
       `${path}.emoteUuid`,
+      overriddenErrors,
       (emoteUuid) => ({
         type: `createEmote`,
         characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
@@ -89,12 +96,14 @@ export function validateCreateEmoteEventSchema(
 schemaHelpers.rejectsNonObjects(
   `createEmoteEventSchema`,
   createEmoteEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateCreateEmoteEventSchema(
   `createEmoteEventSchema`,
   createEmoteEventSchema,
   `instance`,
+  null,
   (createEmoteEvent) => createEmoteEvent
 );

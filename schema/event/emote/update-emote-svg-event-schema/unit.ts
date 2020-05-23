@@ -8,6 +8,7 @@ export function validateUpdateEmoteSvgEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (updateEmoteSvgEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -25,6 +26,7 @@ export function validateUpdateEmoteSvgEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         svg: `Test Svg`,
@@ -36,6 +38,7 @@ export function validateUpdateEmoteSvgEventSchema(
       schema,
       `${path}.type`,
       `updateEmoteSvg`,
+      overriddenErrors,
       (type) => ({
         type,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -47,6 +50,7 @@ export function validateUpdateEmoteSvgEventSchema(
       `emoteUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateEmoteSvg`,
         svg: `Test Svg`,
@@ -57,6 +61,7 @@ export function validateUpdateEmoteSvgEventSchema(
       `emoteUuid`,
       schema,
       `${path}.emoteUuid`,
+      overriddenErrors,
       (emoteUuid) => ({
         type: `updateEmoteSvg`,
         emoteUuid,
@@ -68,29 +73,38 @@ export function validateUpdateEmoteSvgEventSchema(
       `svg`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateEmoteSvg`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
     );
 
-    svgSchemaHelpers.validateSvgSchema(`svg`, schema, `${path}.svg`, (svg) => ({
-      type: `updateEmoteSvg`,
-      emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      svg,
-    }));
+    svgSchemaHelpers.validateSvgSchema(
+      `svg`,
+      schema,
+      `${path}.svg`,
+      overriddenErrors,
+      (svg) => ({
+        type: `updateEmoteSvg`,
+        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        svg,
+      })
+    );
   });
 }
 
 schemaHelpers.rejectsNonObjects(
   `updateEmoteSvgEventSchema`,
   updateEmoteSvgEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateUpdateEmoteSvgEventSchema(
   `updateEmoteSvgEventSchema`,
   updateEmoteSvgEventSchema,
   `instance`,
+  null,
   (updateEmoteSvgEvent) => updateEmoteSvgEvent
 );

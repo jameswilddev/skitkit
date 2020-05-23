@@ -7,6 +7,7 @@ export function validateCreateBackgroundEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (createBackgroundEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -23,6 +24,7 @@ export function validateCreateBackgroundEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -33,6 +35,7 @@ export function validateCreateBackgroundEventSchema(
       schema,
       `${path}.type`,
       `createBackground`,
+      overriddenErrors,
       (type) => ({
         type,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -43,6 +46,7 @@ export function validateCreateBackgroundEventSchema(
       `backgroundUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `createBackground`,
       })
@@ -52,6 +56,7 @@ export function validateCreateBackgroundEventSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
+      overriddenErrors,
       (backgroundUuid) => ({
         type: `createBackground`,
         backgroundUuid,
@@ -63,12 +68,14 @@ export function validateCreateBackgroundEventSchema(
 schemaHelpers.rejectsNonObjects(
   `createBackgroundEventSchema`,
   createBackgroundEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateCreateBackgroundEventSchema(
   `createBackgroundEventSchema`,
   createBackgroundEventSchema,
   `instance`,
+  null,
   (createBackgroundEvent) => createBackgroundEvent
 );

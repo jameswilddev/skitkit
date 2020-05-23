@@ -8,6 +8,7 @@ export function validateUpdateSceneNameEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (updateSceneNameEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -25,6 +26,7 @@ export function validateUpdateSceneNameEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
@@ -36,6 +38,7 @@ export function validateUpdateSceneNameEventSchema(
       schema,
       `${path}.type`,
       `updateSceneName`,
+      overriddenErrors,
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -47,6 +50,7 @@ export function validateUpdateSceneNameEventSchema(
       `sceneUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateSceneName`,
         name: `Test Name`,
@@ -57,6 +61,7 @@ export function validateUpdateSceneNameEventSchema(
       `sceneUuid`,
       schema,
       `${path}.sceneUuid`,
+      overriddenErrors,
       (sceneUuid) => ({
         type: `updateSceneName`,
         sceneUuid,
@@ -68,6 +73,7 @@ export function validateUpdateSceneNameEventSchema(
       `name`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateSceneName`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -78,6 +84,7 @@ export function validateUpdateSceneNameEventSchema(
       `name`,
       schema,
       `${path}.name`,
+      overriddenErrors,
       (name) => ({
         type: `updateSceneName`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -90,12 +97,14 @@ export function validateUpdateSceneNameEventSchema(
 schemaHelpers.rejectsNonObjects(
   `updateSceneNameEventSchema`,
   updateSceneNameEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateUpdateSceneNameEventSchema(
   `updateSceneNameEventSchema`,
   updateSceneNameEventSchema,
   `instance`,
+  null,
   (updateSceneNameEvent) => updateSceneNameEvent
 );

@@ -8,6 +8,7 @@ export function validateUpdateBackgroundNameEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (updateBackgroundNameEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -25,6 +26,7 @@ export function validateUpdateBackgroundNameEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
@@ -36,6 +38,7 @@ export function validateUpdateBackgroundNameEventSchema(
       schema,
       `${path}.type`,
       `updateBackgroundName`,
+      overriddenErrors,
       (type) => ({
         type,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -47,6 +50,7 @@ export function validateUpdateBackgroundNameEventSchema(
       `backgroundUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateBackgroundName`,
         name: `Test Name`,
@@ -57,6 +61,7 @@ export function validateUpdateBackgroundNameEventSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
+      overriddenErrors,
       (backgroundUuid) => ({
         type: `updateBackgroundName`,
         backgroundUuid,
@@ -68,6 +73,7 @@ export function validateUpdateBackgroundNameEventSchema(
       `name`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateBackgroundName`,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -78,6 +84,7 @@ export function validateUpdateBackgroundNameEventSchema(
       `name`,
       schema,
       `${path}.name`,
+      overriddenErrors,
       (name) => ({
         type: `updateBackgroundName`,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -90,12 +97,14 @@ export function validateUpdateBackgroundNameEventSchema(
 schemaHelpers.rejectsNonObjects(
   `updateBackgroundNameEventSchema`,
   updateBackgroundNameEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateUpdateBackgroundNameEventSchema(
   `updateBackgroundNameEventSchema`,
   updateBackgroundNameEventSchema,
   `instance`,
+  null,
   (updateBackgroundNameEvent) => updateBackgroundNameEvent
 );

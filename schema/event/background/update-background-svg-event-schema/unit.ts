@@ -8,6 +8,7 @@ export function validateUpdateBackgroundSvgEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (updateBackgroundSvgEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -25,6 +26,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         svg: `Test Svg`,
@@ -36,6 +38,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       schema,
       `${path}.type`,
       `updateBackgroundSvg`,
+      overriddenErrors,
       (type) => ({
         type,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -47,6 +50,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       `backgroundUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateBackgroundSvg`,
         svg: `Test Svg`,
@@ -57,6 +61,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
+      overriddenErrors,
       (backgroundUuid) => ({
         type: `updateBackgroundSvg`,
         backgroundUuid,
@@ -68,29 +73,38 @@ export function validateUpdateBackgroundSvgEventSchema(
       `svg`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `updateBackgroundSvg`,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
     );
 
-    svgSchemaHelpers.validateSvgSchema(`svg`, schema, `${path}.svg`, (svg) => ({
-      type: `updateBackgroundSvg`,
-      backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-      svg,
-    }));
+    svgSchemaHelpers.validateSvgSchema(
+      `svg`,
+      schema,
+      `${path}.svg`,
+      overriddenErrors,
+      (svg) => ({
+        type: `updateBackgroundSvg`,
+        backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        svg,
+      })
+    );
   });
 }
 
 schemaHelpers.rejectsNonObjects(
   `updateBackgroundSvgEventSchema`,
   updateBackgroundSvgEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateUpdateBackgroundSvgEventSchema(
   `updateBackgroundSvgEventSchema`,
   updateBackgroundSvgEventSchema,
   `instance`,
+  null,
   (updateBackgroundSvgEvent) => updateBackgroundSvgEvent
 );

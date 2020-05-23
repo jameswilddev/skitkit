@@ -7,6 +7,7 @@ export function validateDeleteCharacterEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (deleteCharacterEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -23,6 +24,7 @@ export function validateDeleteCharacterEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -33,6 +35,7 @@ export function validateDeleteCharacterEventSchema(
       schema,
       `${path}.type`,
       `deleteCharacter`,
+      overriddenErrors,
       (type) => ({
         type,
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -43,6 +46,7 @@ export function validateDeleteCharacterEventSchema(
       `characterUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `deleteCharacter`,
       })
@@ -52,6 +56,7 @@ export function validateDeleteCharacterEventSchema(
       `characterUuid`,
       schema,
       `${path}.characterUuid`,
+      overriddenErrors,
       (characterUuid) => ({
         type: `deleteCharacter`,
         characterUuid,
@@ -63,12 +68,14 @@ export function validateDeleteCharacterEventSchema(
 schemaHelpers.rejectsNonObjects(
   `deleteCharacterEventSchema`,
   deleteCharacterEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateDeleteCharacterEventSchema(
   `deleteCharacterEventSchema`,
   deleteCharacterEventSchema,
   `instance`,
+  null,
   (deleteCharacterEvent) => deleteCharacterEvent
 );

@@ -7,6 +7,7 @@ export function validateCreateCharacterEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
   factory: (createCharacterEvent: Json) => Json
 ): void {
   describe(description, () => {
@@ -23,6 +24,7 @@ export function validateCreateCharacterEventSchema(
       `type`,
       schema,
       path,
+      overriddenErrors,
       factory({
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -33,6 +35,7 @@ export function validateCreateCharacterEventSchema(
       schema,
       `${path}.type`,
       `createCharacter`,
+      overriddenErrors,
       (type) => ({
         type,
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -43,6 +46,7 @@ export function validateCreateCharacterEventSchema(
       `characterUuid`,
       schema,
       path,
+      overriddenErrors,
       factory({
         type: `createCharacter`,
       })
@@ -52,6 +56,7 @@ export function validateCreateCharacterEventSchema(
       `characterUuid`,
       schema,
       `${path}.characterUuid`,
+      overriddenErrors,
       (characterUuid) => ({
         type: `createCharacter`,
         characterUuid,
@@ -63,12 +68,14 @@ export function validateCreateCharacterEventSchema(
 schemaHelpers.rejectsNonObjects(
   `createCharacterEventSchema`,
   createCharacterEventSchema,
-  `instance`
+  `instance`,
+  null
 );
 
 validateCreateCharacterEventSchema(
   `createCharacterEventSchema`,
   createCharacterEventSchema,
   `instance`,
+  null,
   (createCharacterEvent) => createCharacterEvent
 );
