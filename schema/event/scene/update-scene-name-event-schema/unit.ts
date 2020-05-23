@@ -2,19 +2,19 @@ import * as jsonschema from "jsonschema";
 import * as schemaHelpers from "../../../unit";
 import * as nameSchemaHelpers from "../../../name-schema/unit";
 import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
-import { Json, renameSceneEventSchema } from "../../../..";
+import { Json, updateSceneNameEventSchema } from "../../../..";
 
-export function validateRenameSceneEventSchema(
+export function validateUpdateSceneNameEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
-  factory: (renameSceneEvent: Json) => Json
+  factory: (updateSceneNameEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
       factory({
-        type: `renameSceneEvent`,
+        type: `updateSceneName`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
       }),
@@ -35,7 +35,7 @@ export function validateRenameSceneEventSchema(
       `type`,
       schema,
       `${path}.type`,
-      `renameSceneEvent`,
+      `updateSceneName`,
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -48,7 +48,7 @@ export function validateRenameSceneEventSchema(
       schema,
       path,
       factory({
-        type: `renameSceneEvent`,
+        type: `updateSceneName`,
         name: `Test Name`,
       })
     );
@@ -58,7 +58,7 @@ export function validateRenameSceneEventSchema(
       schema,
       `${path}.sceneUuid`,
       (sceneUuid) => ({
-        type: `renameSceneEvent`,
+        type: `updateSceneName`,
         sceneUuid,
         name: `Test Name`,
       })
@@ -69,7 +69,7 @@ export function validateRenameSceneEventSchema(
       schema,
       path,
       factory({
-        type: `renameSceneEvent`,
+        type: `updateSceneName`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
     );
@@ -79,7 +79,7 @@ export function validateRenameSceneEventSchema(
       schema,
       `${path}.name`,
       (name) => ({
-        type: `renameSceneEvent`,
+        type: `updateSceneName`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name,
       })
@@ -87,9 +87,9 @@ export function validateRenameSceneEventSchema(
   });
 }
 
-validateRenameSceneEventSchema(
-  `renameSceneEvent`,
-  renameSceneEventSchema,
+validateUpdateSceneNameEventSchema(
+  `updateSceneNameEventSchema`,
+  updateSceneNameEventSchema,
   `instance`,
-  (renameSceneEvent) => renameSceneEvent
+  (updateSceneNameEvent) => updateSceneNameEvent
 );

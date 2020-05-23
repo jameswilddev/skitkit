@@ -9,13 +9,13 @@ export const createSceneEventSchema: jsonschema.Schema = {
   properties: {
     type: {
       type: `string`,
-      enum: [`createSceneEvent`],
+      enum: [`createScene`],
     },
     sceneUuid: uuidSchema,
   },
 };
 
 export type CreateSceneEventSchema = {
-  readonly type: `createSceneEvent`;
+  readonly type: `createScene`;
   readonly sceneUuid: UuidSchema;
 };

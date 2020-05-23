@@ -13,7 +13,7 @@ export function validateDeleteSceneEventSchema(
     schemaHelpers.accepts(
       `valid`,
       factory({
-        type: `deleteSceneEvent`,
+        type: `deleteScene`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       }),
       schema
@@ -32,7 +32,7 @@ export function validateDeleteSceneEventSchema(
       `type`,
       schema,
       `${path}.type`,
-      `deleteSceneEvent`,
+      `deleteScene`,
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -44,7 +44,7 @@ export function validateDeleteSceneEventSchema(
       schema,
       path,
       factory({
-        type: `deleteSceneEvent`,
+        type: `deleteScene`,
       })
     );
 
@@ -53,7 +53,7 @@ export function validateDeleteSceneEventSchema(
       schema,
       `${path}.sceneUuid`,
       (sceneUuid) => ({
-        type: `deleteSceneEvent`,
+        type: `deleteScene`,
         sceneUuid,
       })
     );
@@ -61,7 +61,7 @@ export function validateDeleteSceneEventSchema(
 }
 
 validateDeleteSceneEventSchema(
-  `deleteSceneEvent`,
+  `deleteSceneEventSchema`,
   deleteSceneEventSchema,
   `instance`,
   (deleteSceneEvent) => deleteSceneEvent

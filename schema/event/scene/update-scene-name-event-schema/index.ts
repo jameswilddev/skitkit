@@ -2,7 +2,7 @@ import * as jsonschema from "jsonschema";
 import { uuidSchema, UuidSchema } from "../../../uuid-schema";
 import { nameSchema, NameSchema } from "../../../name-schema";
 
-export const renameSceneEventSchema: jsonschema.Schema = {
+export const updateSceneNameEventSchema: jsonschema.Schema = {
   $schema: `http://json-schema.org/draft-04/schema#`,
   type: `object`,
   additionalProperties: false,
@@ -10,15 +10,15 @@ export const renameSceneEventSchema: jsonschema.Schema = {
   properties: {
     type: {
       type: `string`,
-      enum: [`renameSceneEvent`],
+      enum: [`updateSceneName`],
     },
     sceneUuid: uuidSchema,
     name: nameSchema,
   },
 };
 
-export type RenameSceneEventSchema = {
-  readonly type: `renameSceneEvent`;
+export type UpdateSceneNameEventSchema = {
+  readonly type: `updateSceneName`;
   readonly sceneUuid: UuidSchema;
   readonly name: NameSchema;
 };

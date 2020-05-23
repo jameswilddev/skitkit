@@ -13,7 +13,7 @@ export function validateCreateSceneEventSchema(
     schemaHelpers.accepts(
       `valid`,
       factory({
-        type: `createSceneEvent`,
+        type: `createScene`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       }),
       schema
@@ -32,7 +32,7 @@ export function validateCreateSceneEventSchema(
       `type`,
       schema,
       `${path}.type`,
-      `createSceneEvent`,
+      `createScene`,
       (type) => ({
         type,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -44,7 +44,7 @@ export function validateCreateSceneEventSchema(
       schema,
       path,
       factory({
-        type: `createSceneEvent`,
+        type: `createScene`,
       })
     );
 
@@ -53,7 +53,7 @@ export function validateCreateSceneEventSchema(
       schema,
       `${path}.sceneUuid`,
       (sceneUuid) => ({
-        type: `createSceneEvent`,
+        type: `createScene`,
         sceneUuid,
       })
     );
@@ -61,7 +61,7 @@ export function validateCreateSceneEventSchema(
 }
 
 validateCreateSceneEventSchema(
-  `createSceneEvent`,
+  `createSceneEventSchema`,
   createSceneEventSchema,
   `instance`,
   (createSceneEvent) => createSceneEvent
