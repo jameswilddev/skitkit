@@ -9,12 +9,12 @@ export function validateUpdateEmoteNameEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (updateEmoteNameEvent: Json) => Json
+  instanceFactory: (updateEmoteNameEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `updateEmoteName`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
@@ -27,7 +27,7 @@ export function validateUpdateEmoteNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
       })
@@ -40,7 +40,7 @@ export function validateUpdateEmoteNameEventSchema(
       `updateEmoteName`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           name: `Test Name`,
@@ -52,7 +52,7 @@ export function validateUpdateEmoteNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateEmoteName`,
         name: `Test Name`,
       })
@@ -64,7 +64,7 @@ export function validateUpdateEmoteNameEventSchema(
       `${path}.emoteUuid`,
       overriddenErrors,
       (emoteUuid) =>
-        factory({
+        instanceFactory({
           type: `updateEmoteName`,
           emoteUuid,
           name: `Test Name`,
@@ -76,7 +76,7 @@ export function validateUpdateEmoteNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateEmoteName`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -88,7 +88,7 @@ export function validateUpdateEmoteNameEventSchema(
       `${path}.name`,
       overriddenErrors,
       (name) =>
-        factory({
+        instanceFactory({
           type: `updateEmoteName`,
           emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           name,

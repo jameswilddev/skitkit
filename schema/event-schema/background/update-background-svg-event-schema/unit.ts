@@ -9,12 +9,12 @@ export function validateUpdateBackgroundSvgEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (updateBackgroundSvgEvent: Json) => Json
+  instanceFactory: (updateBackgroundSvgEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `updateBackgroundSvg`,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         svg: `Test Svg`,
@@ -27,7 +27,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         svg: `Test Svg`,
       })
@@ -40,7 +40,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       `updateBackgroundSvg`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           svg: `Test Svg`,
@@ -52,7 +52,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateBackgroundSvg`,
         svg: `Test Svg`,
       })
@@ -64,7 +64,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       `${path}.backgroundUuid`,
       overriddenErrors,
       (backgroundUuid) =>
-        factory({
+        instanceFactory({
           type: `updateBackgroundSvg`,
           backgroundUuid,
           svg: `Test Svg`,
@@ -76,7 +76,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateBackgroundSvg`,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -88,7 +88,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       `${path}.svg`,
       overriddenErrors,
       (svg) =>
-        factory({
+        instanceFactory({
           type: `updateBackgroundSvg`,
           backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           svg,

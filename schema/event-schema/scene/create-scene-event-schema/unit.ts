@@ -8,12 +8,12 @@ export function validateCreateSceneEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (createSceneEvent: Json) => Json
+  instanceFactory: (createSceneEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `createScene`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       }),
@@ -25,7 +25,7 @@ export function validateCreateSceneEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
     );
@@ -37,7 +37,7 @@ export function validateCreateSceneEventSchema(
       `createScene`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         })
@@ -48,7 +48,7 @@ export function validateCreateSceneEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `createScene`,
       })
     );
@@ -59,7 +59,7 @@ export function validateCreateSceneEventSchema(
       `${path}.sceneUuid`,
       overriddenErrors,
       (sceneUuid) =>
-        factory({
+        instanceFactory({
           type: `createScene`,
           sceneUuid,
         })

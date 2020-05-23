@@ -8,12 +8,12 @@ export function validateDeleteCharacterEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (deleteCharacterEvent: Json) => Json
+  instanceFactory: (deleteCharacterEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `deleteCharacter`,
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       }),
@@ -25,7 +25,7 @@ export function validateDeleteCharacterEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
     );
@@ -37,7 +37,7 @@ export function validateDeleteCharacterEventSchema(
       `deleteCharacter`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         })
@@ -48,7 +48,7 @@ export function validateDeleteCharacterEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `deleteCharacter`,
       })
     );
@@ -59,7 +59,7 @@ export function validateDeleteCharacterEventSchema(
       `${path}.characterUuid`,
       overriddenErrors,
       (characterUuid) =>
-        factory({
+        instanceFactory({
           type: `deleteCharacter`,
           characterUuid,
         })

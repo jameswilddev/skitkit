@@ -8,12 +8,12 @@ export function validateCreateBackgroundEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (createBackgroundEvent: Json) => Json
+  instanceFactory: (createBackgroundEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `createBackground`,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       }),
@@ -25,7 +25,7 @@ export function validateCreateBackgroundEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
     );
@@ -37,7 +37,7 @@ export function validateCreateBackgroundEventSchema(
       `createBackground`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         })
@@ -48,7 +48,7 @@ export function validateCreateBackgroundEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `createBackground`,
       })
     );
@@ -59,7 +59,7 @@ export function validateCreateBackgroundEventSchema(
       `${path}.backgroundUuid`,
       overriddenErrors,
       (backgroundUuid) =>
-        factory({
+        instanceFactory({
           type: `createBackground`,
           backgroundUuid,
         })

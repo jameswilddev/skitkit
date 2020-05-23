@@ -8,12 +8,12 @@ export function validateDeleteEmoteEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (deleteEmoteEvent: Json) => Json
+  instanceFactory: (deleteEmoteEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `deleteEmote`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       }),
@@ -25,7 +25,7 @@ export function validateDeleteEmoteEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
     );
@@ -37,7 +37,7 @@ export function validateDeleteEmoteEventSchema(
       `deleteEmote`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         })
@@ -48,7 +48,7 @@ export function validateDeleteEmoteEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `deleteEmote`,
       })
     );
@@ -59,7 +59,7 @@ export function validateDeleteEmoteEventSchema(
       `${path}.emoteUuid`,
       overriddenErrors,
       (emoteUuid) =>
-        factory({
+        instanceFactory({
           type: `deleteEmote`,
           emoteUuid,
         })

@@ -7,90 +7,90 @@ export function validateSvgSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (svg: Json) => Json
+  instanceFactory: (svg: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(`single character`, factory(`T`), schema);
+    schemaHelpers.accepts(`single character`, instanceFactory(`T`), schema);
 
     schemaHelpers.accepts(
       `the length limit`,
-      factory(`T`.repeat(1024 * 1024)),
+      instanceFactory(`T`.repeat(1024 * 1024)),
       schema
     );
 
     schemaHelpers.rejects(
       `beyond the length limit`,
-      factory(`T`.repeat(1024 * 1024 + 1)),
+      instanceFactory(`T`.repeat(1024 * 1024 + 1)),
       schema,
       overriddenErrors || [`${path} does not meet maximum length of 1048576`]
     );
 
     schemaHelpers.rejects(
       `null`,
-      factory(null),
+      instanceFactory(null),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty strings`,
-      factory(``),
+      instanceFactory(``),
       schema,
       overriddenErrors || [`${path} does not meet minimum length of 1`]
     );
 
     schemaHelpers.rejects(
       `zero`,
-      factory(0),
+      instanceFactory(0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative zero`,
-      factory(-0),
+      instanceFactory(-0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `positive integers`,
-      factory(326),
+      instanceFactory(326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative integers`,
-      factory(-326),
+      instanceFactory(-326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `positive decimals`,
-      factory(32.6),
+      instanceFactory(32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative decimals`,
-      factory(-32.6),
+      instanceFactory(-32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty arrays`,
-      factory([]),
+      instanceFactory([]),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty objects`,
-      factory({}),
+      instanceFactory({}),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );

@@ -151,33 +151,33 @@ export function rejectsOtherThanExpectedString(
   path: string,
   expected: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (text: Json) => Json
+  instanceFactory: (text: Json) => Json
 ): void {
   describe(description, () => {
     rejects(
       `empty strings`,
-      factory(``),
+      instanceFactory(``),
       schema,
       overriddenErrors || [`${path} is not one of enum values: ${expected}`]
     );
 
     rejects(
       `unexpected strings`,
-      factory(`Test Unexpected String`),
+      instanceFactory(`Test Unexpected String`),
       schema,
       overriddenErrors || [`${path} is not one of enum values: ${expected}`]
     );
 
     rejects(
       `preceded by white space`,
-      factory(` ${expected}`),
+      instanceFactory(` ${expected}`),
       schema,
       overriddenErrors || [`${path} is not one of enum values: ${expected}`]
     );
 
     rejects(
       `followed by white space`,
-      factory(`${expected} `),
+      instanceFactory(`${expected} `),
       schema,
       overriddenErrors || [`${path} is not one of enum values: ${expected}`]
     );
@@ -185,7 +185,7 @@ export function rejectsOtherThanExpectedString(
     if (expected !== expected.toUpperCase()) {
       rejects(
         `in upper case`,
-        factory(expected.toUpperCase()),
+        instanceFactory(expected.toUpperCase()),
         schema,
         overriddenErrors || [`${path} is not one of enum values: ${expected}`]
       );
@@ -194,7 +194,7 @@ export function rejectsOtherThanExpectedString(
     if (expected !== expected.toLowerCase()) {
       rejects(
         `in lower case`,
-        factory(expected.toLowerCase()),
+        instanceFactory(expected.toLowerCase()),
         schema,
         overriddenErrors || [`${path} is not one of enum values: ${expected}`]
       );
@@ -202,7 +202,7 @@ export function rejectsOtherThanExpectedString(
 
     rejects(
       `zero`,
-      factory(0),
+      instanceFactory(0),
       schema,
       overriddenErrors || [
         `${path} is not of a type(s) string`,
@@ -212,7 +212,7 @@ export function rejectsOtherThanExpectedString(
 
     rejects(
       `negative zero`,
-      factory(-0),
+      instanceFactory(-0),
       schema,
       overriddenErrors || [
         `${path} is not of a type(s) string`,
@@ -222,7 +222,7 @@ export function rejectsOtherThanExpectedString(
 
     rejects(
       `positive integers`,
-      factory(326),
+      instanceFactory(326),
       schema,
       overriddenErrors || [
         `${path} is not of a type(s) string`,
@@ -232,7 +232,7 @@ export function rejectsOtherThanExpectedString(
 
     rejects(
       `negative integers`,
-      factory(-326),
+      instanceFactory(-326),
       schema,
       overriddenErrors || [
         `${path} is not of a type(s) string`,
@@ -242,7 +242,7 @@ export function rejectsOtherThanExpectedString(
 
     rejects(
       `positive decimals`,
-      factory(32.6),
+      instanceFactory(32.6),
       schema,
       overriddenErrors || [
         `${path} is not of a type(s) string`,
@@ -252,7 +252,7 @@ export function rejectsOtherThanExpectedString(
 
     rejects(
       `negative decimals`,
-      factory(-32.6),
+      instanceFactory(-32.6),
       schema,
       overriddenErrors || [
         `${path} is not of a type(s) string`,
@@ -262,7 +262,7 @@ export function rejectsOtherThanExpectedString(
 
     rejects(
       `empty arrays`,
-      factory([]),
+      instanceFactory([]),
       schema,
       overriddenErrors || [
         `${path} is not of a type(s) string`,
@@ -272,7 +272,7 @@ export function rejectsOtherThanExpectedString(
 
     rejects(
       `empty objects`,
-      factory({}),
+      instanceFactory({}),
       schema,
       overriddenErrors || [
         `${path} is not of a type(s) string`,

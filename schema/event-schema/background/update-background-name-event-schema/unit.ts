@@ -9,12 +9,12 @@ export function validateUpdateBackgroundNameEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (updateBackgroundNameEvent: Json) => Json
+  instanceFactory: (updateBackgroundNameEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `updateBackgroundName`,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
@@ -27,7 +27,7 @@ export function validateUpdateBackgroundNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
       })
@@ -40,7 +40,7 @@ export function validateUpdateBackgroundNameEventSchema(
       `updateBackgroundName`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           name: `Test Name`,
@@ -52,7 +52,7 @@ export function validateUpdateBackgroundNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateBackgroundName`,
         name: `Test Name`,
       })
@@ -64,7 +64,7 @@ export function validateUpdateBackgroundNameEventSchema(
       `${path}.backgroundUuid`,
       overriddenErrors,
       (backgroundUuid) =>
-        factory({
+        instanceFactory({
           type: `updateBackgroundName`,
           backgroundUuid,
           name: `Test Name`,
@@ -76,7 +76,7 @@ export function validateUpdateBackgroundNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateBackgroundName`,
         backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -88,7 +88,7 @@ export function validateUpdateBackgroundNameEventSchema(
       `${path}.name`,
       overriddenErrors,
       (name) =>
-        factory({
+        instanceFactory({
           type: `updateBackgroundName`,
           backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           name,

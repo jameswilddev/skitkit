@@ -9,12 +9,12 @@ export function validateUpdateEmoteSvgEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (updateEmoteSvgEvent: Json) => Json
+  instanceFactory: (updateEmoteSvgEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `updateEmoteSvg`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         svg: `Test Svg`,
@@ -27,7 +27,7 @@ export function validateUpdateEmoteSvgEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         svg: `Test Svg`,
       })
@@ -40,7 +40,7 @@ export function validateUpdateEmoteSvgEventSchema(
       `updateEmoteSvg`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           svg: `Test Svg`,
@@ -52,7 +52,7 @@ export function validateUpdateEmoteSvgEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateEmoteSvg`,
         svg: `Test Svg`,
       })
@@ -64,7 +64,7 @@ export function validateUpdateEmoteSvgEventSchema(
       `${path}.emoteUuid`,
       overriddenErrors,
       (emoteUuid) =>
-        factory({
+        instanceFactory({
           type: `updateEmoteSvg`,
           emoteUuid,
           svg: `Test Svg`,
@@ -76,7 +76,7 @@ export function validateUpdateEmoteSvgEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateEmoteSvg`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -88,7 +88,7 @@ export function validateUpdateEmoteSvgEventSchema(
       `${path}.svg`,
       overriddenErrors,
       (svg) =>
-        factory({
+        instanceFactory({
           type: `updateEmoteSvg`,
           emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           svg,

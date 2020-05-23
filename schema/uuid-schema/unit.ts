@@ -7,25 +7,25 @@ export function validateUuidSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (uuid: Json) => Json
+  instanceFactory: (uuid: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory(`a366e69c-d60e-4e27-bd18-7aea8257bcdb`),
+      instanceFactory(`a366e69c-d60e-4e27-bd18-7aea8257bcdb`),
       schema
     );
 
     schemaHelpers.rejects(
       `null`,
-      factory(null),
+      instanceFactory(null),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty strings`,
-      factory(``),
+      instanceFactory(``),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"`,
@@ -34,7 +34,7 @@ export function validateUuidSchema(
 
     schemaHelpers.rejects(
       `capitalized uuids`,
-      factory(`A366E69C-D60E-4E27-BD18-7AEA8257BCDB`),
+      instanceFactory(`A366E69C-D60E-4E27-BD18-7AEA8257BCDB`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"`,
@@ -43,7 +43,7 @@ export function validateUuidSchema(
 
     schemaHelpers.rejects(
       `unhyphenated uuids`,
-      factory(`a366e69cd60e4e27bd187aea8257bcdb`),
+      instanceFactory(`a366e69cd60e4e27bd187aea8257bcdb`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"`,
@@ -52,7 +52,7 @@ export function validateUuidSchema(
 
     schemaHelpers.rejects(
       `braced uuids`,
-      factory(`{a366e69c-d60e-4e27-bd18-7aea8257bcdb}`),
+      instanceFactory(`{a366e69c-d60e-4e27-bd18-7aea8257bcdb}`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"`,
@@ -61,7 +61,7 @@ export function validateUuidSchema(
 
     schemaHelpers.rejects(
       `extended uuids`,
-      factory(`a366e69c-d60e-4e27-bd18-7aea8257bcdbe`),
+      instanceFactory(`a366e69c-d60e-4e27-bd18-7aea8257bcdbe`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"`,
@@ -70,7 +70,7 @@ export function validateUuidSchema(
 
     schemaHelpers.rejects(
       `truncated uuids`,
-      factory(`a366e69c-d60e-4e27-bd18-7aea8257bcd`),
+      instanceFactory(`a366e69c-d60e-4e27-bd18-7aea8257bcd`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"`,
@@ -79,7 +79,7 @@ export function validateUuidSchema(
 
     schemaHelpers.rejects(
       `uuids with preceding white space`,
-      factory(` a366e69c-d60e-4e27-bd18-7aea8257bcdb`),
+      instanceFactory(` a366e69c-d60e-4e27-bd18-7aea8257bcdb`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"`,
@@ -88,7 +88,7 @@ export function validateUuidSchema(
 
     schemaHelpers.rejects(
       `uuids with trailing white space`,
-      factory(`a366e69c-d60e-4e27-bd18-7aea8257bcdb `),
+      instanceFactory(`a366e69c-d60e-4e27-bd18-7aea8257bcdb `),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"`,
@@ -97,56 +97,56 @@ export function validateUuidSchema(
 
     schemaHelpers.rejects(
       `zero`,
-      factory(0),
+      instanceFactory(0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative zero`,
-      factory(-0),
+      instanceFactory(-0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `positive integers`,
-      factory(326),
+      instanceFactory(326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative integers`,
-      factory(-326),
+      instanceFactory(-326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `positive decimals`,
-      factory(32.6),
+      instanceFactory(32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative decimals`,
-      factory(-32.6),
+      instanceFactory(-32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty arrays`,
-      factory([]),
+      instanceFactory([]),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty objects`,
-      factory({}),
+      instanceFactory({}),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );

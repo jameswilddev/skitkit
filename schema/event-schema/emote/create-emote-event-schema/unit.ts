@@ -8,12 +8,12 @@ export function validateCreateEmoteEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (createEmoteEvent: Json) => Json
+  instanceFactory: (createEmoteEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `createEmote`,
         characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -26,7 +26,7 @@ export function validateCreateEmoteEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -39,7 +39,7 @@ export function validateCreateEmoteEventSchema(
       `createEmote`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
           emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -51,7 +51,7 @@ export function validateCreateEmoteEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `createEmote`,
         emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -63,7 +63,7 @@ export function validateCreateEmoteEventSchema(
       `${path}.characterUuid`,
       overriddenErrors,
       (characterUuid) =>
-        factory({
+        instanceFactory({
           type: `createEmote`,
           characterUuid,
           emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
@@ -75,7 +75,7 @@ export function validateCreateEmoteEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `createEmote`,
         characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
       })
@@ -87,7 +87,7 @@ export function validateCreateEmoteEventSchema(
       `${path}.emoteUuid`,
       overriddenErrors,
       (emoteUuid) =>
-        factory({
+        instanceFactory({
           type: `createEmote`,
           characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
           emoteUuid,

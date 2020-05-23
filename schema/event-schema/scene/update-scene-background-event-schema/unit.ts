@@ -8,12 +8,12 @@ export function validateUpdateSceneBackgroundEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (updateSceneBackgroundEvent: Json) => Json
+  instanceFactory: (updateSceneBackgroundEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `updateSceneBackground`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
@@ -26,7 +26,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
       })
@@ -39,7 +39,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       `updateSceneBackground`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
@@ -51,7 +51,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateSceneBackground`,
         backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
       })
@@ -63,7 +63,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       `${path}.sceneUuid`,
       overriddenErrors,
       (sceneUuid) =>
-        factory({
+        instanceFactory({
           type: `updateSceneBackground`,
           sceneUuid,
           backgroundUuid: `8870dec9-04b8-4d55-adc1-51d70a84a1a4`,
@@ -75,7 +75,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateSceneBackground`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -87,7 +87,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       `${path}.backgroundUuid`,
       overriddenErrors,
       (backgroundUuid) =>
-        factory({
+        instanceFactory({
           type: `updateSceneBackground`,
           sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           backgroundUuid,

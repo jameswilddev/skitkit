@@ -9,12 +9,12 @@ export function validateUpdateCharacterNameEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (updateCharacterNameEvent: Json) => Json
+  instanceFactory: (updateCharacterNameEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `updateCharacterName`,
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
@@ -27,7 +27,7 @@ export function validateUpdateCharacterNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
       })
@@ -40,7 +40,7 @@ export function validateUpdateCharacterNameEventSchema(
       `updateCharacterName`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           name: `Test Name`,
@@ -52,7 +52,7 @@ export function validateUpdateCharacterNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateCharacterName`,
         name: `Test Name`,
       })
@@ -64,7 +64,7 @@ export function validateUpdateCharacterNameEventSchema(
       `${path}.characterUuid`,
       overriddenErrors,
       (characterUuid) =>
-        factory({
+        instanceFactory({
           type: `updateCharacterName`,
           characterUuid,
           name: `Test Name`,
@@ -76,7 +76,7 @@ export function validateUpdateCharacterNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateCharacterName`,
         characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -88,7 +88,7 @@ export function validateUpdateCharacterNameEventSchema(
       `${path}.name`,
       overriddenErrors,
       (name) =>
-        factory({
+        instanceFactory({
           type: `updateCharacterName`,
           characterUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           name,

@@ -7,14 +7,14 @@ export function validateNameSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (name: Json) => Json
+  instanceFactory: (name: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(`single character`, factory(`T`), schema);
+    schemaHelpers.accepts(`single character`, instanceFactory(`T`), schema);
 
     schemaHelpers.rejects(
       `single white space character`,
-      factory(` `),
+      instanceFactory(` `),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -23,7 +23,7 @@ export function validateNameSchema(
 
     schemaHelpers.rejects(
       `single character with preceding white space`,
-      factory(` T`),
+      instanceFactory(` T`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -32,18 +32,18 @@ export function validateNameSchema(
 
     schemaHelpers.rejects(
       `single character with trailing white space`,
-      factory(`T `),
+      instanceFactory(`T `),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
       ]
     );
 
-    schemaHelpers.accepts(`two characters`, factory(`Te`), schema);
+    schemaHelpers.accepts(`two characters`, instanceFactory(`Te`), schema);
 
     schemaHelpers.rejects(
       `two white space characters`,
-      factory(`  `),
+      instanceFactory(`  `),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -52,7 +52,7 @@ export function validateNameSchema(
 
     schemaHelpers.rejects(
       `two characters with preceding white space`,
-      factory(` Te`),
+      instanceFactory(` Te`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -61,23 +61,23 @@ export function validateNameSchema(
 
     schemaHelpers.rejects(
       `two characters with trailing white space`,
-      factory(`Te `),
+      instanceFactory(`Te `),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
       ]
     );
 
-    schemaHelpers.accepts(`three characters`, factory(`Tes`), schema);
+    schemaHelpers.accepts(`three characters`, instanceFactory(`Tes`), schema);
     schemaHelpers.accepts(
       `three characters containing white space`,
-      factory(`T s`),
+      instanceFactory(`T s`),
       schema
     );
 
     schemaHelpers.rejects(
       `three white space characters`,
-      factory(`   `),
+      instanceFactory(`   `),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -86,7 +86,7 @@ export function validateNameSchema(
 
     schemaHelpers.rejects(
       `three characters with preceding white space`,
-      factory(` Tes`),
+      instanceFactory(` Tes`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -95,7 +95,7 @@ export function validateNameSchema(
 
     schemaHelpers.rejects(
       `three characters with trailing white space`,
-      factory(`Tes `),
+      instanceFactory(`Tes `),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -104,13 +104,13 @@ export function validateNameSchema(
 
     schemaHelpers.accepts(
       `many characters`,
-      factory(`Test Valid Name`),
+      instanceFactory(`Test Valid Name`),
       schema
     );
 
     schemaHelpers.rejects(
       `many characters with preceding white space`,
-      factory(` Test Valid Name`),
+      instanceFactory(` Test Valid Name`),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -119,32 +119,36 @@ export function validateNameSchema(
 
     schemaHelpers.rejects(
       `many characters with trailing white space`,
-      factory(`Test Valid Name `),
+      instanceFactory(`Test Valid Name `),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
       ]
     );
 
-    schemaHelpers.accepts(`the length limit`, factory(`T`.repeat(50)), schema);
+    schemaHelpers.accepts(
+      `the length limit`,
+      instanceFactory(`T`.repeat(50)),
+      schema
+    );
 
     schemaHelpers.rejects(
       `beyond the length limit`,
-      factory(`T`.repeat(51)),
+      instanceFactory(`T`.repeat(51)),
       schema,
       overriddenErrors || [`${path} does not meet maximum length of 50`]
     );
 
     schemaHelpers.rejects(
       `null`,
-      factory(null),
+      instanceFactory(null),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty strings`,
-      factory(``),
+      instanceFactory(``),
       schema,
       overriddenErrors || [
         `${path} does not match pattern "^\\\\S(?:.*\\\\S)?$"`,
@@ -153,56 +157,56 @@ export function validateNameSchema(
 
     schemaHelpers.rejects(
       `zero`,
-      factory(0),
+      instanceFactory(0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative zero`,
-      factory(-0),
+      instanceFactory(-0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `positive integers`,
-      factory(326),
+      instanceFactory(326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative integers`,
-      factory(-326),
+      instanceFactory(-326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `positive decimals`,
-      factory(32.6),
+      instanceFactory(32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `negative decimals`,
-      factory(-32.6),
+      instanceFactory(-32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty arrays`,
-      factory([]),
+      instanceFactory([]),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
     schemaHelpers.rejects(
       `empty objects`,
-      factory({}),
+      instanceFactory({}),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );

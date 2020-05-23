@@ -9,12 +9,12 @@ export function validateUpdateSceneNameEventSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  factory: (updateSceneNameEvent: Json) => Json
+  instanceFactory: (updateSceneNameEvent: Json) => Json
 ): void {
   describe(description, () => {
     schemaHelpers.accepts(
       `valid`,
-      factory({
+      instanceFactory({
         type: `updateSceneName`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
@@ -27,7 +27,7 @@ export function validateUpdateSceneNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         name: `Test Name`,
       })
@@ -40,7 +40,7 @@ export function validateUpdateSceneNameEventSchema(
       `updateSceneName`,
       overriddenErrors,
       (type) =>
-        factory({
+        instanceFactory({
           type,
           sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           name: `Test Name`,
@@ -52,7 +52,7 @@ export function validateUpdateSceneNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateSceneName`,
         name: `Test Name`,
       })
@@ -64,7 +64,7 @@ export function validateUpdateSceneNameEventSchema(
       `${path}.sceneUuid`,
       overriddenErrors,
       (sceneUuid) =>
-        factory({
+        instanceFactory({
           type: `updateSceneName`,
           sceneUuid,
           name: `Test Name`,
@@ -76,7 +76,7 @@ export function validateUpdateSceneNameEventSchema(
       schema,
       path,
       overriddenErrors,
-      factory({
+      instanceFactory({
         type: `updateSceneName`,
         sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
@@ -88,7 +88,7 @@ export function validateUpdateSceneNameEventSchema(
       `${path}.name`,
       overriddenErrors,
       (name) =>
-        factory({
+        instanceFactory({
           type: `updateSceneName`,
           sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           name,
