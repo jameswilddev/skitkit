@@ -41,7 +41,7 @@
     "buildTypeScript": "tsc",
     "buildJasmineUnit": "jasmine --config=unit.jasmine.json",
     "buildNyc": "nyc --check-coverage --all --exclude \"**/unit.*\" --exclude \"editor/index.js\" --exclude \"editor/webpack.config.js\" --lines 100 --functions 100 --branches 100 --statements 100 npm run-script buildJasmineUnit",
-    "test": "npm-run-all buildClean buildTypeScript",
+    "test": "npm-run-all buildClean buildTypeScript buildNyc",
     "lint": "eslint \"**/*.ts\"",
     "webpack": "webpack --mode=production --config ./editor/webpack.config.js"
   },
