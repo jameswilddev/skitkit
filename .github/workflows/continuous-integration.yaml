@@ -16,6 +16,7 @@ jobs:
     - run: npm run-script lint
     - run: npm run-script buildTypeScript
     - run: npm run-script buildNyc
+    - run: npm run-script webpack
   release:
     if: github.ref == 'refs/heads/production' && github.repository == 'jameswilddev/skitkit'
     needs: build
@@ -31,3 +32,4 @@ jobs:
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+    - run: npm run-script webpack
