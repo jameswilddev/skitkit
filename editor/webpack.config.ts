@@ -23,6 +23,7 @@ export default {
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, `logo.svg`),
       prefix: ``,
+      outputPath: path.join(`..`, `dist`),
       favicons: {
         appName: `skitkit`,
         appShortName: `skitkit`,
@@ -51,7 +52,7 @@ export default {
       title: `skitkit`,
     }),
     new MiniCssExtractPlugin({
-      filename: path.join(__dirname, `temp`, `index.css`),
+      filename: path.join(`index.css`),
     }),
   ],
 };
