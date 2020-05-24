@@ -4,7 +4,7 @@ html
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1")
     each tag in htmlWebpackPlugin.tags.headTags
-      if ![`link`, `style`, `script`].includes(tag.tagName)
+      if ![`link`, `style`, `script`].includes(tag.tagName) || tag.tagName === `link` && tag.attributes.rel !== `stylesheet`
         | !{tag}
     title #{htmlWebpackPlugin.options.title}
     each cssFile in htmlWebpackPlugin.files.css
