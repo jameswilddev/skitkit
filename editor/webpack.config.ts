@@ -25,8 +25,8 @@ export default {
       prefix: ``,
       outputPath: path.join(`..`, `dist`),
       favicons: {
-        appName: `skitkit`,
-        appShortName: `skitkit`,
+        appName: `SkitKit`,
+        appShortName: `SkitKit`,
         appDescription: `A kit for making your skits litǃ`,
         developerName: `SUNRUSE`,
         developerURL: `https://www.sunruse.co.uk`,
