@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1")
+    title #{htmlWebpackPlugin.options.title}
+    each cssFile in htmlWebpackPlugin.files.css
+      style !{compilation.assets[cssFile.substr(htmlWebpackPlugin.files.publicPath.length)].source()}
+    each jsFile in htmlWebpackPlugin.files.js
+      script !{compilation.assets[jsFile.substr(htmlWebpackPlugin.files.publicPath.length)].source()}
+  body
+    header
+      h1 skitkit
+      nav
+        a games
+    article
+      .empty-list-message You have not created any games.
+    footer
+      button New Game

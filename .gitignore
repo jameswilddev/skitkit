@@ -2,3 +2,5 @@ node_modules
 .nyc_output
 *.js
 *.d.ts
+editor/dist
+editor/temp
