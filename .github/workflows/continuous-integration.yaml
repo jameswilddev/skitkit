@@ -17,6 +17,7 @@ jobs:
     - run: npm run-script buildTypeScript
     - run: npm run-script buildNyc
     - run: npm run-script webpack
+      if: matrix.os != 'macos-10.15'
   release:
     if: github.ref == 'refs/heads/production' && github.repository == 'jameswilddev/skitkit'
     needs: build
