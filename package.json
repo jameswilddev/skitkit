@@ -37,7 +37,8 @@
     "**/*.js",
     "**/*.d.ts",
     "!**/unit.js",
-    "!**/unit.d.ts"
+    "!**/unit.d.ts",
+    "!editor"
   ],
   "dependencies": {
     "jsonschema": "1.2.6"
