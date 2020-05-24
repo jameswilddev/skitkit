@@ -31,9 +31,9 @@ export default {
         developerName: `SUNRUSE`,
         developerURL: `https://www.sunruse.co.uk`,
         lang: `en-US`,
-        background: `#735b26`,
+        background: `#422`,
         // eslint-disable-next-line @typescript-eslint/camelcase
-        theme_color: `#735b26`,
+        theme_color: `#422`,
         appleStatusBarStyle: `black`,
         display: `standalone`,
         orientation: `any`,
