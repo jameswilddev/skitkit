@@ -426,4 +426,59 @@ describe(`LocalStorageHelper`, () => {
       );
     });
   });
+
+  describe(`listKeys`, () => {
+    let localStorageGetItem: jasmine.Spy;
+    let localStorageSetItem: jasmine.Spy;
+    let localStorageRemoveItem: jasmine.Spy;
+    let result: ReadonlyArray<string>;
+
+    beforeAll(() => {
+      localStorageGetItem = jasmine.createSpy(`localStorageGetItem`);
+      localStorageSetItem = jasmine.createSpy(`localStorageSetItem`);
+      localStorageRemoveItem = jasmine.createSpy(`localStorageRemoveItem`);
+
+      const existingLocalStorage = patchableGlobal.localStorage;
+
+      try {
+        patchableGlobal.localStorage = {
+          getItem: localStorageGetItem,
+          setItem: localStorageSetItem,
+          removeItem: localStorageRemoveItem,
+          "Test Key PrefixtestKeyA": `Test Value A`,
+          "Test Other Key PrefixtestKeyC": `Test Value C`,
+          "Test Key PrefixtestKeyD": `Test Value D`,
+          "Test Other Key PrefixtestKeyF": `Test Value F`,
+          "Test Other Key PrefixtestKeyE": `Test Value E`,
+          "Test Key PrefixtestKeyB": `Test Value B`,
+        };
+
+        const localStorageHelper = new LocalStorageHelper<Schema>(
+          `Test Helper Name`,
+          `Test Key Prefix`,
+          schema
+        );
+
+        result = localStorageHelper.listKeys();
+      } finally {
+        patchableGlobal.localStorage = existingLocalStorage;
+      }
+    });
+
+    it(`returns the applicable key suffixes`, () => {
+      expect(result).toEqual([`testKeyA`, `testKeyB`, `testKeyD`]);
+    });
+
+    it(`does not call localStorage.getItem`, () => {
+      expect(localStorageGetItem).not.toHaveBeenCalled();
+    });
+
+    it(`does not call localStorage.setItem`, () => {
+      expect(localStorageSetItem).not.toHaveBeenCalled();
+    });
+
+    it(`does not call localStorage.removeItem`, () => {
+      expect(localStorageRemoveItem).not.toHaveBeenCalled();
+    });
+  });
 });

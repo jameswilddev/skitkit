@@ -55,4 +55,11 @@ export class LocalStorageHelper<T extends Json>
   removeItem(key: string): void {
     localStorage.removeItem(`${this.keyPrefix}${key}`);
   }
+
+  listKeys(): ReadonlyArray<string> {
+    return Object.keys(localStorage)
+      .filter((key) => key.startsWith(this.keyPrefix))
+      .map((key) => key.slice(this.keyPrefix.length))
+      .sort();
+  }
 }
