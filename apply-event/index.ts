@@ -165,6 +165,20 @@ export function applyEvent(
           },
         };
       } else {
+        const lines: { [lineUuid: string]: LineState } = {};
+
+        for (const lineUuid in state.lines) {
+          const line = state.lines[lineUuid];
+
+          lines[lineUuid] = {
+            ...line,
+            characters: {
+              ...line.characters,
+              [event.characterUuid]: { emoteUuid: event.characterUuid },
+            },
+          };
+        }
+
         return {
           successful: true,
           state: {
@@ -184,6 +198,7 @@ export function applyEvent(
                 svg: placeholderSvg,
               },
             },
+            lines,
           },
         };
       }
@@ -217,12 +232,34 @@ export function applyEvent(
           }
         }
 
+        const lines: { [sceneUuid: string]: LineState } = {};
+
+        for (const lineUuid in state.lines) {
+          const line = state.lines[lineUuid];
+
+          const characters: {
+            [characterUuid: string]: { readonly emoteUuid: UuidSchema };
+          } = {};
+
+          for (const characterUuid in line.characters) {
+            if (characterUuid !== event.characterUuid) {
+              characters[characterUuid] = line.characters[characterUuid];
+            }
+          }
+
+          lines[lineUuid] = {
+            ...line,
+            characters,
+          };
+        }
+
         return {
           successful: true,
           state: {
             ...state,
             characters,
             emotes,
+            lines,
           },
         };
       }
@@ -310,33 +347,54 @@ export function applyEvent(
         };
       } else {
         const emote = state.emotes[event.emoteUuid];
-        const character = state.characters[emote.characterUuid];
 
-        const emotes: { [emoteUuid: string]: EmoteState } = {};
+        const lines = Object.entries(state.lines).filter(
+          (line) =>
+            line[1].characters[emote.characterUuid].emoteUuid ===
+            event.emoteUuid
+        );
 
-        for (const emoteUuid in state.emotes) {
-          if (emoteUuid !== event.emoteUuid) {
-            emotes[emoteUuid] = state.emotes[emoteUuid];
-          }
-        }
-
-        const emoteUuids = character.emoteUuids.slice();
-        emoteUuids.splice(emoteUuids.indexOf(event.emoteUuid), 1);
-
-        return {
-          successful: true,
-          state: {
-            ...state,
-            characters: {
-              ...state.characters,
-              [emote.characterUuid]: {
-                ...character,
-                emoteUuids,
-              },
+        if (lines.length !== 0) {
+          return {
+            successful: false,
+            error: {
+              type: `entityIsReferenced`,
+              referencedEntityType: `emote`,
+              referencedUuid: event.emoteUuid,
+              referencingEntityType: `line`,
+              referencingUuid: lines[0][0],
             },
-            emotes,
-          },
-        };
+          };
+        } else {
+          const emote = state.emotes[event.emoteUuid];
+          const character = state.characters[emote.characterUuid];
+
+          const emotes: { [emoteUuid: string]: EmoteState } = {};
+
+          for (const emoteUuid in state.emotes) {
+            if (emoteUuid !== event.emoteUuid) {
+              emotes[emoteUuid] = state.emotes[emoteUuid];
+            }
+          }
+
+          const emoteUuids = character.emoteUuids.slice();
+          emoteUuids.splice(emoteUuids.indexOf(event.emoteUuid), 1);
+
+          return {
+            successful: true,
+            state: {
+              ...state,
+              characters: {
+                ...state.characters,
+                [emote.characterUuid]: {
+                  ...character,
+                  emoteUuids,
+                },
+              },
+              emotes,
+            },
+          };
+        }
       }
 
     case `updateEmoteName`:
@@ -419,6 +477,24 @@ export function applyEvent(
           },
         };
       } else {
+        const characters: {
+          [characterUuid: string]: { readonly emoteUuid: UuidSchema };
+        } = {};
+
+        for (const characterUuid in state.characters) {
+          const character = state.characters[characterUuid];
+
+          const emoteUuid = character.emoteUuids
+            .slice()
+            .sort((a, b) =>
+              state.emotes[a].name.localeCompare(state.emotes[b].name)
+            )[0];
+
+          characters[characterUuid] = {
+            emoteUuid,
+          };
+        }
+
         return {
           successful: true,
           state: {
@@ -428,6 +504,7 @@ export function applyEvent(
               [event.sceneUuid]: {
                 sceneUuid: event.sceneUuid,
                 text: `(this line is yet to be written)`,
+                characters,
               },
             },
             scenes: {

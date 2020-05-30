@@ -64,26 +64,74 @@ describe(`applyEvent`, () => {
       "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
         sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
         text: `Test Line Text A A`,
+        characters: {
+          "b3605166-7722-40d8-bea5-084b708f232b": {
+            emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+          },
+          "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+            emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+          },
+        },
       },
       "b041457d-eb71-4b95-a0d6-f5f95c722099": {
         sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
         text: `Test Line Text B A`,
+        characters: {
+          "b3605166-7722-40d8-bea5-084b708f232b": {
+            emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+          },
+          "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+            emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+          },
+        },
       },
       "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
         sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
         text: `Test Line Text A B`,
+        characters: {
+          "b3605166-7722-40d8-bea5-084b708f232b": {
+            emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+          },
+          "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+            emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+          },
+        },
       },
       "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
         sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
         text: `Test Line Text A C`,
+        characters: {
+          "b3605166-7722-40d8-bea5-084b708f232b": {
+            emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+          },
+          "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+            emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+          },
+        },
       },
       "cf09fd34-f6c4-4333-9251-8541136df97d": {
         sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
         text: `Test Line Text B B`,
+        characters: {
+          "b3605166-7722-40d8-bea5-084b708f232b": {
+            emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+          },
+          "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+            emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+          },
+        },
       },
       "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
         sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
         text: `Test Line Text A D`,
+        characters: {
+          "b3605166-7722-40d8-bea5-084b708f232b": {
+            emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+          },
+          "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+            emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+          },
+        },
       },
     },
     scenes: {
@@ -221,26 +269,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -373,26 +469,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -512,26 +656,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -651,26 +843,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -814,26 +1054,92 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+                "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
+                  emoteUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+                "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
+                  emoteUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+                "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
+                  emoteUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+                "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
+                  emoteUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+                "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
+                  emoteUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+                "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
+                  emoteUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
+                },
+              },
             },
           },
           scenes: {
@@ -934,26 +1240,56 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+              },
             },
           },
           scenes: {
@@ -1073,26 +1409,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -1236,26 +1620,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -1302,11 +1734,30 @@ describe(`applyEvent`, () => {
     );
 
     scenario(
-      `when the emote exists`,
+      `when the emote exists and is referenced by a line`,
       previousState,
       {
         type: `deleteEmote`,
-        emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+        emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+      },
+      {
+        successful: false,
+        error: {
+          type: `entityIsReferenced`,
+          referencedEntityType: `emote`,
+          referencedUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+          referencingEntityType: `line`,
+          referencingUuid: `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+        },
+      }
+    );
+
+    scenario(
+      `when the emote exists and is not referenced by any lines`,
+      previousState,
+      {
+        type: `deleteEmote`,
+        emoteUuid: `7659d45f-f986-4b3b-9552-acc302567666`,
       },
       {
         successful: true,
@@ -1330,13 +1781,15 @@ describe(`applyEvent`, () => {
               name: `Test Character A Name`,
               emoteUuids: [
                 `19408a33-a366-4879-8a9a-26f19c6a9037`,
-                `7659d45f-f986-4b3b-9552-acc302567666`,
                 `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
               ],
             },
             "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
               name: `Test Character B Name`,
-              emoteUuids: [`05f82a94-24f1-42c4-8469-4a864cd29956`],
+              emoteUuids: [
+                `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                `05f82a94-24f1-42c4-8469-4a864cd29956`,
+              ],
             },
           },
           emotes: {
@@ -1345,10 +1798,10 @@ describe(`applyEvent`, () => {
               name: `Test Emote A A Name`,
               svg: `Test Emote A A Svg`,
             },
-            "7659d45f-f986-4b3b-9552-acc302567666": {
-              characterUuid: `b3605166-7722-40d8-bea5-084b708f232b`,
-              name: `Test Emote A B Name`,
-              svg: `Test Emote A B Svg`,
+            "bb858818-ce29-4277-aafc-e1a2a1eef567": {
+              characterUuid: `a7c1ef75-0b1c-4757-a71b-f7acf510441e`,
+              name: `Test Emote B A Name`,
+              svg: `Test Emote B A Svg`,
             },
             "05f82a94-24f1-42c4-8469-4a864cd29956": {
               characterUuid: `a7c1ef75-0b1c-4757-a71b-f7acf510441e`,
@@ -1365,26 +1818,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -1504,26 +2005,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -1643,26 +2192,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -1743,26 +2340,74 @@ describe(`applyEvent`, () => {
           "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
             sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
             text: `Test Line Text A A`,
+            characters: {
+              "b3605166-7722-40d8-bea5-084b708f232b": {
+                emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+              },
+              "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+              },
+            },
           },
           "b041457d-eb71-4b95-a0d6-f5f95c722099": {
             sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
             text: `Test Line Text B A`,
+            characters: {
+              "b3605166-7722-40d8-bea5-084b708f232b": {
+                emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+              },
+              "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+              },
+            },
           },
           "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
             sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
             text: `Test Line Text A B`,
+            characters: {
+              "b3605166-7722-40d8-bea5-084b708f232b": {
+                emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+              },
+              "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+              },
+            },
           },
           "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
             sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
             text: `Test Line Text A C`,
+            characters: {
+              "b3605166-7722-40d8-bea5-084b708f232b": {
+                emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+              },
+              "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+              },
+            },
           },
           "cf09fd34-f6c4-4333-9251-8541136df97d": {
             sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
             text: `Test Line Text B B`,
+            characters: {
+              "b3605166-7722-40d8-bea5-084b708f232b": {
+                emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+              },
+              "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+              },
+            },
           },
           "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
             sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
             text: `Test Line Text A D`,
+            characters: {
+              "b3605166-7722-40d8-bea5-084b708f232b": {
+                emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+              },
+              "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+              },
+            },
           },
         },
         scenes: {
@@ -1905,30 +2550,86 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
               sceneUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
               text: `(this line is yet to be written)`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -2051,18 +2752,50 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -2192,26 +2925,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
@@ -2331,26 +3112,74 @@ describe(`applyEvent`, () => {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B A`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `19408a33-a366-4879-8a9a-26f19c6a9037`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A C`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
               text: `Test Line Text B B`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `05f82a94-24f1-42c4-8469-4a864cd29956`,
+                },
+              },
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
               text: `Test Line Text A D`,
+              characters: {
+                "b3605166-7722-40d8-bea5-084b708f232b": {
+                  emoteUuid: `b3a44063-56bf-4b7b-a5e9-1ca783427b15`,
+                },
+                "a7c1ef75-0b1c-4757-a71b-f7acf510441e": {
+                  emoteUuid: `bb858818-ce29-4277-aafc-e1a2a1eef567`,
+                },
+              },
             },
           },
           scenes: {
