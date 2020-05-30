@@ -5,6 +5,7 @@ import { EventApplicationResult } from "../types/event-application-result";
 import { BackgroundState } from "../types/state/background-state";
 import { CharacterState } from "../types/state/character-state";
 import { EmoteState } from "../types/state/emote-state";
+import { LineCharacterState } from "../types/state/line-state/line-character-state";
 import { LineState } from "../types/state/line-state";
 import { SceneState } from "../types/state/scene-state";
 
@@ -238,7 +239,7 @@ export function applyEvent(
           const line = state.lines[lineUuid];
 
           const characters: {
-            [characterUuid: string]: { readonly emoteUuid: UuidSchema };
+            [characterUuid: string]: LineCharacterState;
           } = {};
 
           for (const characterUuid in line.characters) {
@@ -478,7 +479,7 @@ export function applyEvent(
         };
       } else {
         const characters: {
-          [characterUuid: string]: { readonly emoteUuid: UuidSchema };
+          [characterUuid: string]: LineCharacterState;
         } = {};
 
         for (const characterUuid in state.characters) {
