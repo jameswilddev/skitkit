@@ -427,6 +427,7 @@ export function applyEvent(
               ...state.lines,
               [event.sceneUuid]: {
                 sceneUuid: event.sceneUuid,
+                text: `(this line is yet to be written)`,
               },
             },
             scenes: {

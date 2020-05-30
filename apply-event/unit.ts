@@ -63,21 +63,27 @@ describe(`applyEvent`, () => {
     lines: {
       "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
         sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+        text: `Test Line Text A A`,
       },
       "b041457d-eb71-4b95-a0d6-f5f95c722099": {
         sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+        text: `Test Line Text B A`,
       },
       "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
         sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+        text: `Test Line Text A B`,
       },
       "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
         sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+        text: `Test Line Text A C`,
       },
       "cf09fd34-f6c4-4333-9251-8541136df97d": {
         sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+        text: `Test Line Text B B`,
       },
       "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
         sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+        text: `Test Line Text A D`,
       },
     },
     scenes: {
@@ -214,21 +220,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -360,21 +372,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -493,21 +511,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -626,21 +650,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -783,21 +813,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -897,21 +933,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -1030,21 +1072,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -1187,21 +1235,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -1310,21 +1364,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -1443,21 +1503,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -1576,21 +1642,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -1670,21 +1742,27 @@ describe(`applyEvent`, () => {
         lines: {
           "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
             sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            text: `Test Line Text A A`,
           },
           "b041457d-eb71-4b95-a0d6-f5f95c722099": {
             sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            text: `Test Line Text B A`,
           },
           "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
             sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            text: `Test Line Text A B`,
           },
           "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
             sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            text: `Test Line Text A C`,
           },
           "cf09fd34-f6c4-4333-9251-8541136df97d": {
             sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            text: `Test Line Text B B`,
           },
           "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
             sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            text: `Test Line Text A D`,
           },
         },
         scenes: {
@@ -1826,24 +1904,31 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
             "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
               sceneUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
+              text: `(this line is yet to be written)`,
             },
           },
           scenes: {
@@ -1965,15 +2050,19 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -2102,21 +2191,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
@@ -2235,21 +2330,27 @@ describe(`applyEvent`, () => {
           lines: {
             "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A A`,
             },
             "b041457d-eb71-4b95-a0d6-f5f95c722099": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B A`,
             },
             "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A B`,
             },
             "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A C`,
             },
             "cf09fd34-f6c4-4333-9251-8541136df97d": {
               sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+              text: `Test Line Text B B`,
             },
             "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
               sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+              text: `Test Line Text A D`,
             },
           },
           scenes: {
