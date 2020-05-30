@@ -1,5 +1,6 @@
 import { EmoteState } from "./emote-state";
 import { SceneState } from "./scene-state";
+import { LineState } from "./line-state";
 import { CharacterState } from "./character-state";
 import { BackgroundState } from "./background-state";
 
@@ -15,5 +16,8 @@ export type State = {
   };
   readonly scenes: {
     readonly [sceneUuid: string]: SceneState;
+  };
+  readonly lines: {
+    readonly [lineUuid: string]: LineState;
   };
 };

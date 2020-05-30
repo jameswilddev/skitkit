@@ -70,5 +70,6 @@ export { EventApplicationResult } from "./types/event-application-result";
 export { BackgroundState } from "./types/state/background-state";
 export { CharacterState } from "./types/state/character-state";
 export { EmoteState } from "./types/state/emote-state";
+export { LineState } from "./types/state/line-state";
 export { SceneState } from "./types/state/scene-state";
 export { State } from "./types/state";

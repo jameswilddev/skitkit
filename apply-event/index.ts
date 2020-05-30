@@ -5,6 +5,7 @@ import { EventApplicationResult } from "../types/event-application-result";
 import { BackgroundState } from "../types/state/background-state";
 import { CharacterState } from "../types/state/character-state";
 import { EmoteState } from "../types/state/emote-state";
+import { LineState } from "../types/state/line-state";
 import { SceneState } from "../types/state/scene-state";
 
 const placeholderSvg = `<svg xmlns="http://www.w3.org/2000/svg" height="256" width="256"><defs><linearGradient y2="256" x2="256" y1="0" x1="0" id="A" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="red"/><stop offset=".375" stop-color="#ff0"/><stop offset=".5" stop-color="#0f0"/><stop offset=".625" stop-color="#0ff"/><stop offset="1" stop-color="#00f"/></linearGradient></defs><rect x="0" y="0" width="256" height="256" fill="url(#A)"/><rect x="16" y="16" width="224" height="224" fill="#fff"/><text y="128" x="128" font-size="16" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">PLACEHOLDER</text></svg>`;
@@ -14,7 +15,7 @@ export function applyEvent(
   event: EventSchema
 ): EventApplicationResult {
   function exists(
-    entityType: `backgrounds` | `characters` | `emotes` | `scenes`,
+    entityType: `backgrounds` | `characters` | `emotes` | `lines` | `scenes`,
     uuid: UuidSchema
   ): boolean {
     return Object.prototype.hasOwnProperty.call(state[entityType], uuid);
@@ -400,6 +401,15 @@ export function applyEvent(
             uuid: event.sceneUuid,
           },
         };
+      } else if (exists(`lines`, event.sceneUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityAlreadyExists`,
+            entityType: `line`,
+            uuid: event.sceneUuid,
+          },
+        };
       } else if (Object.keys(state.backgrounds).length === 0) {
         return {
           successful: false,
@@ -413,6 +423,12 @@ export function applyEvent(
           successful: true,
           state: {
             ...state,
+            lines: {
+              ...state.lines,
+              [event.sceneUuid]: {
+                sceneUuid: event.sceneUuid,
+              },
+            },
             scenes: {
               ...state.scenes,
               [event.sceneUuid]: {
@@ -420,6 +436,7 @@ export function applyEvent(
                 backgroundUuid: Object.entries(state.backgrounds).sort((a, b) =>
                   a[1].name.localeCompare(b[1].name)
                 )[0][0],
+                lineUuids: [event.sceneUuid],
               },
             },
           },
@@ -437,6 +454,16 @@ export function applyEvent(
           },
         };
       } else {
+        const lines: { [lineUuid: string]: LineState } = {};
+
+        for (const lineUuid in state.lines) {
+          const line = state.lines[lineUuid];
+
+          if (line.sceneUuid !== event.sceneUuid) {
+            lines[lineUuid] = line;
+          }
+        }
+
         const scenes: { [emoteUuid: string]: SceneState } = {};
 
         for (const sceneUuid in state.scenes) {
@@ -449,6 +476,7 @@ export function applyEvent(
           successful: true,
           state: {
             ...state,
+            lines,
             scenes,
           },
         };

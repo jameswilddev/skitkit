@@ -60,14 +60,44 @@ describe(`applyEvent`, () => {
         svg: `Test Emote A C Svg`,
       },
     },
+    lines: {
+      "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+        sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+      },
+      "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+        sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+      },
+      "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+        sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+      },
+      "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+        sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+      },
+      "cf09fd34-f6c4-4333-9251-8541136df97d": {
+        sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+      },
+      "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+        sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+      },
+    },
     scenes: {
       "7bf8f58c-2631-4bc0-98b7-2935671af646": {
         name: `Test Scene A Name`,
         backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+        lineUuids: [
+          `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+          `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+          `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+          `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+        ],
       },
       "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
         name: `Test Scene B Name`,
         backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+        lineUuids: [
+          `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+          `cf09fd34-f6c4-4333-9251-8541136df97d`,
+        ],
       },
     },
   };
@@ -181,14 +211,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -297,14 +357,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -400,14 +490,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -503,14 +623,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -630,14 +780,44 @@ describe(`applyEvent`, () => {
               svg: `<svg xmlns="http://www.w3.org/2000/svg" height="256" width="256"><defs><linearGradient y2="256" x2="256" y1="0" x1="0" id="A" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="red"/><stop offset=".375" stop-color="#ff0"/><stop offset=".5" stop-color="#0f0"/><stop offset=".625" stop-color="#0ff"/><stop offset="1" stop-color="#00f"/></linearGradient></defs><rect x="0" y="0" width="256" height="256" fill="url(#A)"/><rect x="16" y="16" width="224" height="224" fill="#fff"/><text y="128" x="128" font-size="16" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">PLACEHOLDER</text></svg>`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -714,14 +894,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -817,14 +1027,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -944,14 +1184,44 @@ describe(`applyEvent`, () => {
               svg: `<svg xmlns="http://www.w3.org/2000/svg" height="256" width="256"><defs><linearGradient y2="256" x2="256" y1="0" x1="0" id="A" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="red"/><stop offset=".375" stop-color="#ff0"/><stop offset=".5" stop-color="#0f0"/><stop offset=".625" stop-color="#0ff"/><stop offset="1" stop-color="#00f"/></linearGradient></defs><rect x="0" y="0" width="256" height="256" fill="url(#A)"/><rect x="16" y="16" width="224" height="224" fill="#fff"/><text y="128" x="128" font-size="16" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">PLACEHOLDER</text></svg>`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -1037,14 +1307,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -1140,14 +1440,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -1243,14 +1573,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -1307,14 +1667,44 @@ describe(`applyEvent`, () => {
             svg: `Test Emote A C Svg`,
           },
         },
+        lines: {
+          "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+            sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+          },
+          "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+            sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+          },
+          "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+            sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+          },
+          "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+            sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+          },
+          "cf09fd34-f6c4-4333-9251-8541136df97d": {
+            sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+          },
+          "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+            sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+          },
+        },
         scenes: {
           "7bf8f58c-2631-4bc0-98b7-2935671af646": {
             name: `Test Scene A Name`,
             backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+            lineUuids: [
+              `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+              `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+              `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+              `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+            ],
           },
           "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
             name: `Test Scene B Name`,
             backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+            lineUuids: [
+              `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+              `cf09fd34-f6c4-4333-9251-8541136df97d`,
+            ],
           },
         },
       },
@@ -1344,6 +1734,23 @@ describe(`applyEvent`, () => {
           type: `entityAlreadyExists`,
           entityType: `scene`,
           uuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+        },
+      }
+    );
+
+    scenario(
+      `when the line already exists`,
+      previousState,
+      {
+        type: `createScene`,
+        sceneUuid: `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+      },
+      {
+        successful: false,
+        error: {
+          type: `entityAlreadyExists`,
+          entityType: `line`,
+          uuid: `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
         },
       }
     );
@@ -1416,18 +1823,52 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
+              sceneUuid: `0caec469-eaad-4bca-81ed-50ca4994c4bf`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
             "0caec469-eaad-4bca-81ed-50ca4994c4bf": {
               name: `Untitled Scene`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [`0caec469-eaad-4bca-81ed-50ca4994c4bf`],
             },
           },
         },
@@ -1521,10 +1962,30 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
           },
         },
@@ -1638,14 +2099,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Scene B Name`,
               backgroundUuid: `16d51cce-90ae-44ee-8b28-9987d0692547`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
@@ -1741,14 +2232,44 @@ describe(`applyEvent`, () => {
               svg: `Test Emote A C Svg`,
             },
           },
+          lines: {
+            "87ab1aa3-de6d-46f5-9927-1807c4894e54": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "b041457d-eb71-4b95-a0d6-f5f95c722099": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "4306f2df-7aa7-42ac-b3d5-0dd61caf0004": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "bab0f2da-8de8-4034-bd05-e81ff5405f63": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+            "cf09fd34-f6c4-4333-9251-8541136df97d": {
+              sceneUuid: `5588a02c-9078-404f-a50c-f1b32ea1f32b`,
+            },
+            "7a3e8d1b-9472-43ce-b70e-3a34b52f49ab": {
+              sceneUuid: `7bf8f58c-2631-4bc0-98b7-2935671af646`,
+            },
+          },
           scenes: {
             "7bf8f58c-2631-4bc0-98b7-2935671af646": {
               name: `Test Scene A Name`,
               backgroundUuid: `357f38d8-5fbe-41d1-baf8-851d4dfccf86`,
+              lineUuids: [
+                `7a3e8d1b-9472-43ce-b70e-3a34b52f49ab`,
+                `4306f2df-7aa7-42ac-b3d5-0dd61caf0004`,
+                `bab0f2da-8de8-4034-bd05-e81ff5405f63`,
+                `87ab1aa3-de6d-46f5-9927-1807c4894e54`,
+              ],
             },
             "5588a02c-9078-404f-a50c-f1b32ea1f32b": {
               name: `Test Updated Name`,
               backgroundUuid: `3644b39f-a928-4114-9dbc-8a502d99af0d`,
+              lineUuids: [
+                `b041457d-eb71-4b95-a0d6-f5f95c722099`,
+                `cf09fd34-f6c4-4333-9251-8541136df97d`,
+              ],
             },
           },
         },
