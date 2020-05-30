@@ -409,7 +409,7 @@ export function validateUnpaddedString(
       `beyond the length limit`,
       instanceFactory(`T`.repeat(length + 1)),
       schema,
-      overriddenErrors || [`${path} does not meet maximum length of 50`]
+      overriddenErrors || [`${path} does not meet maximum length of ${length}`]
     );
 
     rejects(
