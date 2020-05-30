@@ -450,6 +450,32 @@ export function applyEvent(
         };
       }
 
+    case `updateLineText`:
+      if (!exists(`lines`, event.lineUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityDoesNotExist`,
+            entityType: `line`,
+            uuid: event.lineUuid,
+          },
+        };
+      } else {
+        return {
+          successful: true,
+          state: {
+            ...state,
+            lines: {
+              ...state.lines,
+              [event.lineUuid]: {
+                ...state.lines[event.lineUuid],
+                text: event.text,
+              },
+            },
+          },
+        };
+      }
+
     case `createScene`:
       if (exists(`scenes`, event.sceneUuid)) {
         return {

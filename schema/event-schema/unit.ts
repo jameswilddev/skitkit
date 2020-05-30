@@ -9,6 +9,7 @@ import * as CreateEmoteEventSchemaHelpers from "./emote/create-emote-event-schem
 import * as DeleteEmoteEventSchemaHelpers from "./emote/delete-emote-event-schema/unit";
 import * as UpdateEmoteNameEventSchemaHelpers from "./emote/update-emote-name-event-schema/unit";
 import * as UpdateEmoteSvgEventSchemaHelpers from "./emote/update-emote-svg-event-schema/unit";
+import * as UpdateLineTextEventSchemaHelpers from "./line/update-line-text-event-schema/unit";
 import * as CreateSceneEventSchemaHelpers from "./scene/create-scene-event-schema/unit";
 import * as DeleteSceneEventSchemaHelpers from "./scene/delete-scene-event-schema/unit";
 import * as UpdateSceneBackgroundEventSchemaHelpers from "./scene/update-scene-background-event-schema/unit";
@@ -17,7 +18,7 @@ import * as SchemaHelpers from "../unit";
 import { eventSchema } from "../..";
 
 SchemaHelpers.rejectsNonObjects(`eventSchema`, eventSchema, `instance`, [
-  `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+  `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
 ]);
 
 CreateBackgroundEventSchemaHelpers.validateCreateBackgroundEventSchema(
@@ -25,7 +26,7 @@ CreateBackgroundEventSchemaHelpers.validateCreateBackgroundEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (createBackgroundEvent) => createBackgroundEvent
 );
@@ -35,7 +36,7 @@ DeleteBackgroundEventSchemaHelpers.validateDeleteBackgroundEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (deleteBackgroundEvent) => deleteBackgroundEvent
 );
@@ -45,7 +46,7 @@ UpdateBackgroundNameEventSchemaHelpers.validateUpdateBackgroundNameEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (updateBackgroundNameEvent) => updateBackgroundNameEvent
 );
@@ -55,7 +56,7 @@ UpdateBackgroundSvgEventSchemaHelpers.validateUpdateBackgroundSvgEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (updateBackgroundSvgEvent) => updateBackgroundSvgEvent
 );
@@ -65,7 +66,7 @@ CreateCharacterEventSchemaHelpers.validateCreateCharacterEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (createCharacterEvent) => createCharacterEvent
 );
@@ -75,7 +76,7 @@ DeleteCharacterEventSchemaHelpers.validateDeleteCharacterEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (deleteCharacterEvent) => deleteCharacterEvent
 );
@@ -85,7 +86,7 @@ UpdateCharacterNameEventSchemaHelpers.validateUpdateCharacterNameEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (updateCharacterNameEvent) => updateCharacterNameEvent
 );
@@ -95,7 +96,7 @@ CreateEmoteEventSchemaHelpers.validateCreateEmoteEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (createEmoteEvent) => createEmoteEvent
 );
@@ -105,7 +106,7 @@ DeleteEmoteEventSchemaHelpers.validateDeleteEmoteEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (deleteEmoteEvent) => deleteEmoteEvent
 );
@@ -115,7 +116,7 @@ UpdateEmoteNameEventSchemaHelpers.validateUpdateEmoteNameEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (updateEmoteNameEvent) => updateEmoteNameEvent
 );
@@ -125,9 +126,19 @@ UpdateEmoteSvgEventSchemaHelpers.validateUpdateEmoteSvgEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (updateEmoteSvgEvent) => updateEmoteSvgEvent
+);
+
+UpdateLineTextEventSchemaHelpers.validateUpdateLineTextEventSchema(
+  `eventSchema updateLineTextEvent`,
+  eventSchema,
+  `instance`,
+  [
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
+  ],
+  (updateLineTextEvent) => updateLineTextEvent
 );
 
 CreateSceneEventSchemaHelpers.validateCreateSceneEventSchema(
@@ -135,7 +146,7 @@ CreateSceneEventSchemaHelpers.validateCreateSceneEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (createSceneEvent) => createSceneEvent
 );
@@ -145,7 +156,7 @@ DeleteSceneEventSchemaHelpers.validateDeleteSceneEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (deleteSceneEvent) => deleteSceneEvent
 );
@@ -155,7 +166,7 @@ UpdateSceneBackgroundEventSchemaHelpers.validateUpdateSceneBackgroundEventSchema
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (updateSceneBackgroundEvent) => updateSceneBackgroundEvent
 );
@@ -165,7 +176,7 @@ UpdateSceneNameEventSchemaHelpers.validateUpdateSceneNameEventSchema(
   eventSchema,
   `instance`,
   [
-    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14]`,
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
   ],
   (updateSceneNameEvent) => updateSceneNameEvent
 );
