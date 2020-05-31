@@ -349,6 +349,21 @@ export function applyEvent(
       } else {
         const emote = state.emotes[event.emoteUuid];
 
+        const character = state.characters[emote.characterUuid];
+
+        if (character.emoteUuids.length === 1) {
+          return {
+            successful: false,
+            error: {
+              type: `entityIsLastChild`,
+              parentEntityType: `character`,
+              parentUuid: emote.characterUuid,
+              childEntityType: `emote`,
+              childUuid: event.emoteUuid,
+            },
+          };
+        }
+
         const lines = Object.entries(state.lines).filter(
           (line) =>
             line[1].characters[emote.characterUuid].emoteUuid ===
