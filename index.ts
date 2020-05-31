@@ -45,6 +45,10 @@ export {
   UpdateEmoteSvgEventSchema,
 } from "./schema/event-schema/emote/update-emote-svg-event-schema";
 export {
+  updateLineTextEventSchema,
+  UpdateLineTextEventSchema,
+} from "./schema/event-schema/line/update-line-text-event-schema";
+export {
   createSceneEventSchema,
   CreateSceneEventSchema,
 } from "./schema/event-schema/scene/create-scene-event-schema";
@@ -70,5 +74,7 @@ export { EventApplicationResult } from "./types/event-application-result";
 export { BackgroundState } from "./types/state/background-state";
 export { CharacterState } from "./types/state/character-state";
 export { EmoteState } from "./types/state/emote-state";
+export { LineCharacterState } from "./types/state/line-state/line-character-state";
+export { LineState } from "./types/state/line-state";
 export { SceneState } from "./types/state/scene-state";
 export { State } from "./types/state";

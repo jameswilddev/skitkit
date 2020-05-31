@@ -1,6 +1,11 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, updateSceneBackgroundEventSchema } from "../../../..";
 
 export function validateUpdateSceneBackgroundEventSchema(
@@ -11,7 +16,7 @@ export function validateUpdateSceneBackgroundEventSchema(
   instanceFactory: (updateSceneBackgroundEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `updateSceneBackground`,
@@ -21,7 +26,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -32,7 +37,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -46,7 +51,7 @@ export function validateUpdateSceneBackgroundEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `sceneUuid`,
       schema,
       path,
@@ -57,7 +62,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `sceneUuid`,
       schema,
       `${path}.sceneUuid`,
@@ -70,7 +75,7 @@ export function validateUpdateSceneBackgroundEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `backgroundUuid`,
       schema,
       path,
@@ -81,7 +86,7 @@ export function validateUpdateSceneBackgroundEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
@@ -96,7 +101,7 @@ export function validateUpdateSceneBackgroundEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `updateSceneBackgroundEventSchema`,
   updateSceneBackgroundEventSchema,
   `instance`,

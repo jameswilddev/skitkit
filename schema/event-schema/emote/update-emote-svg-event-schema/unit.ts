@@ -1,7 +1,12 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as svgSchemaHelpers from "../../../svg-schema/unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
+import { validateSvgSchema } from "../../../svg-schema/unit";
 import { Json, updateEmoteSvgEventSchema } from "../../../..";
 
 export function validateUpdateEmoteSvgEventSchema(
@@ -12,7 +17,7 @@ export function validateUpdateEmoteSvgEventSchema(
   instanceFactory: (updateEmoteSvgEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `updateEmoteSvg`,
@@ -22,7 +27,7 @@ export function validateUpdateEmoteSvgEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -33,7 +38,7 @@ export function validateUpdateEmoteSvgEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -47,7 +52,7 @@ export function validateUpdateEmoteSvgEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `emoteUuid`,
       schema,
       path,
@@ -58,7 +63,7 @@ export function validateUpdateEmoteSvgEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `emoteUuid`,
       schema,
       `${path}.emoteUuid`,
@@ -71,7 +76,7 @@ export function validateUpdateEmoteSvgEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `svg`,
       schema,
       path,
@@ -82,22 +87,17 @@ export function validateUpdateEmoteSvgEventSchema(
       })
     );
 
-    svgSchemaHelpers.validateSvgSchema(
-      `svg`,
-      schema,
-      `${path}.svg`,
-      overriddenErrors,
-      (svg) =>
-        instanceFactory({
-          type: `updateEmoteSvg`,
-          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-          svg,
-        })
+    validateSvgSchema(`svg`, schema, `${path}.svg`, overriddenErrors, (svg) =>
+      instanceFactory({
+        type: `updateEmoteSvg`,
+        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        svg,
+      })
     );
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `updateEmoteSvgEventSchema`,
   updateEmoteSvgEventSchema,
   `instance`,

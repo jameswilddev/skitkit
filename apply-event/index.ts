@@ -5,6 +5,8 @@ import { EventApplicationResult } from "../types/event-application-result";
 import { BackgroundState } from "../types/state/background-state";
 import { CharacterState } from "../types/state/character-state";
 import { EmoteState } from "../types/state/emote-state";
+import { LineCharacterState } from "../types/state/line-state/line-character-state";
+import { LineState } from "../types/state/line-state";
 import { SceneState } from "../types/state/scene-state";
 
 const placeholderSvg = `<svg xmlns="http://www.w3.org/2000/svg" height="256" width="256"><defs><linearGradient y2="256" x2="256" y1="0" x1="0" id="A" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="red"/><stop offset=".375" stop-color="#ff0"/><stop offset=".5" stop-color="#0f0"/><stop offset=".625" stop-color="#0ff"/><stop offset="1" stop-color="#00f"/></linearGradient></defs><rect x="0" y="0" width="256" height="256" fill="url(#A)"/><rect x="16" y="16" width="224" height="224" fill="#fff"/><text y="128" x="128" font-size="16" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">PLACEHOLDER</text></svg>`;
@@ -14,7 +16,7 @@ export function applyEvent(
   event: EventSchema
 ): EventApplicationResult {
   function exists(
-    entityType: `backgrounds` | `characters` | `emotes` | `scenes`,
+    entityType: `backgrounds` | `characters` | `emotes` | `lines` | `scenes`,
     uuid: UuidSchema
   ): boolean {
     return Object.prototype.hasOwnProperty.call(state[entityType], uuid);
@@ -164,6 +166,20 @@ export function applyEvent(
           },
         };
       } else {
+        const lines: { [lineUuid: string]: LineState } = {};
+
+        for (const lineUuid in state.lines) {
+          const line = state.lines[lineUuid];
+
+          lines[lineUuid] = {
+            ...line,
+            characters: {
+              ...line.characters,
+              [event.characterUuid]: { emoteUuid: event.characterUuid },
+            },
+          };
+        }
+
         return {
           successful: true,
           state: {
@@ -183,6 +199,7 @@ export function applyEvent(
                 svg: placeholderSvg,
               },
             },
+            lines,
           },
         };
       }
@@ -216,12 +233,34 @@ export function applyEvent(
           }
         }
 
+        const lines: { [sceneUuid: string]: LineState } = {};
+
+        for (const lineUuid in state.lines) {
+          const line = state.lines[lineUuid];
+
+          const characters: {
+            [characterUuid: string]: LineCharacterState;
+          } = {};
+
+          for (const characterUuid in line.characters) {
+            if (characterUuid !== event.characterUuid) {
+              characters[characterUuid] = line.characters[characterUuid];
+            }
+          }
+
+          lines[lineUuid] = {
+            ...line,
+            characters,
+          };
+        }
+
         return {
           successful: true,
           state: {
             ...state,
             characters,
             emotes,
+            lines,
           },
         };
       }
@@ -309,33 +348,54 @@ export function applyEvent(
         };
       } else {
         const emote = state.emotes[event.emoteUuid];
-        const character = state.characters[emote.characterUuid];
 
-        const emotes: { [emoteUuid: string]: EmoteState } = {};
+        const lines = Object.entries(state.lines).filter(
+          (line) =>
+            line[1].characters[emote.characterUuid].emoteUuid ===
+            event.emoteUuid
+        );
 
-        for (const emoteUuid in state.emotes) {
-          if (emoteUuid !== event.emoteUuid) {
-            emotes[emoteUuid] = state.emotes[emoteUuid];
-          }
-        }
-
-        const emoteUuids = character.emoteUuids.slice();
-        emoteUuids.splice(emoteUuids.indexOf(event.emoteUuid), 1);
-
-        return {
-          successful: true,
-          state: {
-            ...state,
-            characters: {
-              ...state.characters,
-              [emote.characterUuid]: {
-                ...character,
-                emoteUuids,
-              },
+        if (lines.length !== 0) {
+          return {
+            successful: false,
+            error: {
+              type: `entityIsReferenced`,
+              referencedEntityType: `emote`,
+              referencedUuid: event.emoteUuid,
+              referencingEntityType: `line`,
+              referencingUuid: lines[0][0],
             },
-            emotes,
-          },
-        };
+          };
+        } else {
+          const emote = state.emotes[event.emoteUuid];
+          const character = state.characters[emote.characterUuid];
+
+          const emotes: { [emoteUuid: string]: EmoteState } = {};
+
+          for (const emoteUuid in state.emotes) {
+            if (emoteUuid !== event.emoteUuid) {
+              emotes[emoteUuid] = state.emotes[emoteUuid];
+            }
+          }
+
+          const emoteUuids = character.emoteUuids.slice();
+          emoteUuids.splice(emoteUuids.indexOf(event.emoteUuid), 1);
+
+          return {
+            successful: true,
+            state: {
+              ...state,
+              characters: {
+                ...state.characters,
+                [emote.characterUuid]: {
+                  ...character,
+                  emoteUuids,
+                },
+              },
+              emotes,
+            },
+          };
+        }
       }
 
     case `updateEmoteName`:
@@ -390,6 +450,32 @@ export function applyEvent(
         };
       }
 
+    case `updateLineText`:
+      if (!exists(`lines`, event.lineUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityDoesNotExist`,
+            entityType: `line`,
+            uuid: event.lineUuid,
+          },
+        };
+      } else {
+        return {
+          successful: true,
+          state: {
+            ...state,
+            lines: {
+              ...state.lines,
+              [event.lineUuid]: {
+                ...state.lines[event.lineUuid],
+                text: event.text,
+              },
+            },
+          },
+        };
+      }
+
     case `createScene`:
       if (exists(`scenes`, event.sceneUuid)) {
         return {
@@ -397,6 +483,15 @@ export function applyEvent(
           error: {
             type: `entityAlreadyExists`,
             entityType: `scene`,
+            uuid: event.sceneUuid,
+          },
+        };
+      } else if (exists(`lines`, event.sceneUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityAlreadyExists`,
+            entityType: `line`,
             uuid: event.sceneUuid,
           },
         };
@@ -409,10 +504,36 @@ export function applyEvent(
           },
         };
       } else {
+        const characters: {
+          [characterUuid: string]: LineCharacterState;
+        } = {};
+
+        for (const characterUuid in state.characters) {
+          const character = state.characters[characterUuid];
+
+          const emoteUuid = character.emoteUuids
+            .slice()
+            .sort((a, b) =>
+              state.emotes[a].name.localeCompare(state.emotes[b].name)
+            )[0];
+
+          characters[characterUuid] = {
+            emoteUuid,
+          };
+        }
+
         return {
           successful: true,
           state: {
             ...state,
+            lines: {
+              ...state.lines,
+              [event.sceneUuid]: {
+                sceneUuid: event.sceneUuid,
+                text: `(this line is yet to be written)`,
+                characters,
+              },
+            },
             scenes: {
               ...state.scenes,
               [event.sceneUuid]: {
@@ -420,6 +541,7 @@ export function applyEvent(
                 backgroundUuid: Object.entries(state.backgrounds).sort((a, b) =>
                   a[1].name.localeCompare(b[1].name)
                 )[0][0],
+                lineUuids: [event.sceneUuid],
               },
             },
           },
@@ -437,6 +559,16 @@ export function applyEvent(
           },
         };
       } else {
+        const lines: { [lineUuid: string]: LineState } = {};
+
+        for (const lineUuid in state.lines) {
+          const line = state.lines[lineUuid];
+
+          if (line.sceneUuid !== event.sceneUuid) {
+            lines[lineUuid] = line;
+          }
+        }
+
         const scenes: { [emoteUuid: string]: SceneState } = {};
 
         for (const sceneUuid in state.scenes) {
@@ -449,6 +581,7 @@ export function applyEvent(
           successful: true,
           state: {
             ...state,
+            lines,
             scenes,
           },
         };

@@ -1,7 +1,12 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as nameSchemaHelpers from "../../../name-schema/unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
+import { validateNameSchema } from "../../../name-schema/unit";
 import { Json, updateSceneNameEventSchema } from "../../../..";
 
 export function validateUpdateSceneNameEventSchema(
@@ -12,7 +17,7 @@ export function validateUpdateSceneNameEventSchema(
   instanceFactory: (updateSceneNameEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `updateSceneName`,
@@ -22,7 +27,7 @@ export function validateUpdateSceneNameEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -33,7 +38,7 @@ export function validateUpdateSceneNameEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -47,7 +52,7 @@ export function validateUpdateSceneNameEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `sceneUuid`,
       schema,
       path,
@@ -58,7 +63,7 @@ export function validateUpdateSceneNameEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `sceneUuid`,
       schema,
       `${path}.sceneUuid`,
@@ -71,7 +76,7 @@ export function validateUpdateSceneNameEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `name`,
       schema,
       path,
@@ -82,7 +87,7 @@ export function validateUpdateSceneNameEventSchema(
       })
     );
 
-    nameSchemaHelpers.validateNameSchema(
+    validateNameSchema(
       `name`,
       schema,
       `${path}.name`,
@@ -97,7 +102,7 @@ export function validateUpdateSceneNameEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `updateSceneNameEventSchema`,
   updateSceneNameEventSchema,
   `instance`,

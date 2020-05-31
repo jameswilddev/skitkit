@@ -1,6 +1,11 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, createEmoteEventSchema } from "../../../..";
 
 export function validateCreateEmoteEventSchema(
@@ -11,7 +16,7 @@ export function validateCreateEmoteEventSchema(
   instanceFactory: (createEmoteEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `createEmote`,
@@ -21,7 +26,7 @@ export function validateCreateEmoteEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -32,7 +37,7 @@ export function validateCreateEmoteEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -46,7 +51,7 @@ export function validateCreateEmoteEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `characterUuid`,
       schema,
       path,
@@ -57,7 +62,7 @@ export function validateCreateEmoteEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `characterUuid`,
       schema,
       `${path}.characterUuid`,
@@ -70,7 +75,7 @@ export function validateCreateEmoteEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `emoteUuid`,
       schema,
       path,
@@ -81,7 +86,7 @@ export function validateCreateEmoteEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `emoteUuid`,
       schema,
       `${path}.emoteUuid`,
@@ -96,7 +101,7 @@ export function validateCreateEmoteEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `createEmoteEventSchema`,
   createEmoteEventSchema,
   `instance`,

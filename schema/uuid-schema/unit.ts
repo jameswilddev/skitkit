@@ -1,5 +1,5 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../unit";
+import { accepts, rejects } from "../unit";
 import { Json, uuidSchema } from "../..";
 
 export function validateUuidSchema(
@@ -10,20 +10,20 @@ export function validateUuidSchema(
   instanceFactory: (uuid: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory(`a366e69c-d60e-4e27-bd18-7aea8257bcdb`),
       schema
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `null`,
       instanceFactory(null),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `empty strings`,
       instanceFactory(``),
       schema,
@@ -32,7 +32,7 @@ export function validateUuidSchema(
       ]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `capitalized uuids`,
       instanceFactory(`A366E69C-D60E-4E27-BD18-7AEA8257BCDB`),
       schema,
@@ -41,7 +41,7 @@ export function validateUuidSchema(
       ]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `unhyphenated uuids`,
       instanceFactory(`a366e69cd60e4e27bd187aea8257bcdb`),
       schema,
@@ -50,7 +50,7 @@ export function validateUuidSchema(
       ]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `braced uuids`,
       instanceFactory(`{a366e69c-d60e-4e27-bd18-7aea8257bcdb}`),
       schema,
@@ -59,7 +59,7 @@ export function validateUuidSchema(
       ]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `extended uuids`,
       instanceFactory(`a366e69c-d60e-4e27-bd18-7aea8257bcdbe`),
       schema,
@@ -68,7 +68,7 @@ export function validateUuidSchema(
       ]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `truncated uuids`,
       instanceFactory(`a366e69c-d60e-4e27-bd18-7aea8257bcd`),
       schema,
@@ -77,7 +77,7 @@ export function validateUuidSchema(
       ]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `uuids with preceding white space`,
       instanceFactory(` a366e69c-d60e-4e27-bd18-7aea8257bcdb`),
       schema,
@@ -86,7 +86,7 @@ export function validateUuidSchema(
       ]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `uuids with trailing white space`,
       instanceFactory(`a366e69c-d60e-4e27-bd18-7aea8257bcdb `),
       schema,
@@ -95,56 +95,56 @@ export function validateUuidSchema(
       ]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `zero`,
       instanceFactory(0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `negative zero`,
       instanceFactory(-0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `positive integers`,
       instanceFactory(326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `negative integers`,
       instanceFactory(-326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `positive decimals`,
       instanceFactory(32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `negative decimals`,
       instanceFactory(-32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `empty arrays`,
       instanceFactory([]),
       schema,
       overriddenErrors || [`${path} is not of a type(s) string`]
     );
 
-    schemaHelpers.rejects(
+    rejects(
       `empty objects`,
       instanceFactory({}),
       schema,
