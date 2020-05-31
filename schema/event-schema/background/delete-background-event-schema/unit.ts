@@ -76,7 +76,8 @@ rejectsNonObjects(
   `deleteBackgroundEventSchema`,
   deleteBackgroundEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateDeleteBackgroundEventSchema(

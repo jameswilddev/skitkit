@@ -106,7 +106,8 @@ rejectsNonObjects(
   `updateSceneNameEventSchema`,
   updateSceneNameEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateSceneNameEventSchema(

@@ -17,9 +17,15 @@ import { validateUpdateSceneNameEventSchema } from "./scene/update-scene-name-ev
 import { rejectsNonObjects } from "../unit";
 import { eventSchema } from "../..";
 
-rejectsNonObjects(`eventSchema`, eventSchema, `instance`, [
-  `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
-]);
+rejectsNonObjects(
+  `eventSchema`,
+  eventSchema,
+  `instance`,
+  [
+    `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
+  ],
+  (nonObject) => nonObject
+);
 
 validateCreateBackgroundEventSchema(
   `eventSchema createBackgroundEvent`,

@@ -76,7 +76,8 @@ rejectsNonObjects(
   `createBackgroundEventSchema`,
   createBackgroundEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateCreateBackgroundEventSchema(

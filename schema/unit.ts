@@ -60,68 +60,69 @@ export function rejectsNonObjects(
   description: string,
   schema: jsonschema.Schema,
   path: string,
-  overriddenErrors: null | ReadonlyArray<string>
+  overriddenErrors: null | ReadonlyArray<string>,
+  instanceFactory: (nonObject: Json) => Json
 ): void {
   describe(description, () => {
     rejects(
       `empty strings`,
-      ``,
+      instanceFactory(``),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );
 
     rejects(
       `non-empty strings`,
-      `Test Non-Empty String`,
+      instanceFactory(`Test Non-Empty String`),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );
 
     rejects(
       `zero`,
-      0,
+      instanceFactory(0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );
 
     rejects(
       `negative zero`,
-      -0,
+      instanceFactory(-0),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );
 
     rejects(
       `positive integers`,
-      326,
+      instanceFactory(326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );
 
     rejects(
       `negative integers`,
-      -326,
+      instanceFactory(-326),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );
 
     rejects(
       `positive decimals`,
-      32.6,
+      instanceFactory(32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );
 
     rejects(
       `negative decimals`,
-      -32.6,
+      instanceFactory(-32.6),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );
 
     rejects(
       `empty arrays`,
-      [],
+      instanceFactory([]),
       schema,
       overriddenErrors || [`${path} is not of a type(s) object`]
     );

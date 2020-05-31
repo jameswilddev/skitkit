@@ -101,7 +101,8 @@ rejectsNonObjects(
   `updateEmoteSvgEventSchema`,
   updateEmoteSvgEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateEmoteSvgEventSchema(

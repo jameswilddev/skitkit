@@ -106,7 +106,8 @@ rejectsNonObjects(
   `updateCharacterNameEventSchema`,
   updateCharacterNameEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateCharacterNameEventSchema(

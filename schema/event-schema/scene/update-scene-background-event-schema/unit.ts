@@ -105,7 +105,8 @@ rejectsNonObjects(
   `updateSceneBackgroundEventSchema`,
   updateSceneBackgroundEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateSceneBackgroundEventSchema(

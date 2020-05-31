@@ -76,7 +76,8 @@ rejectsNonObjects(
   `createSceneEventSchema`,
   createSceneEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateCreateSceneEventSchema(

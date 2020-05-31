@@ -106,7 +106,8 @@ rejectsNonObjects(
   `updateEmoteNameEventSchema`,
   updateEmoteNameEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateEmoteNameEventSchema(

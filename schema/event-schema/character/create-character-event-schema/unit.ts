@@ -76,7 +76,8 @@ rejectsNonObjects(
   `createCharacterEventSchema`,
   createCharacterEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateCreateCharacterEventSchema(
