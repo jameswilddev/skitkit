@@ -1,6 +1,12 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  validateUnpaddedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, updateLineTextEventSchema } from "../../../..";
 
 export function validateUpdateLineTextEventSchema(
@@ -11,7 +17,7 @@ export function validateUpdateLineTextEventSchema(
   instanceFactory: (updateLineTextEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `updateLineText`,
@@ -21,7 +27,7 @@ export function validateUpdateLineTextEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -32,7 +38,7 @@ export function validateUpdateLineTextEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -46,7 +52,7 @@ export function validateUpdateLineTextEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `lineUuid`,
       schema,
       path,
@@ -57,7 +63,7 @@ export function validateUpdateLineTextEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `lineUuid`,
       schema,
       `${path}.lineUuid`,
@@ -70,7 +76,7 @@ export function validateUpdateLineTextEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `text`,
       schema,
       path,
@@ -81,7 +87,7 @@ export function validateUpdateLineTextEventSchema(
       })
     );
 
-    schemaHelpers.validateUnpaddedString(
+    validateUnpaddedString(
       `text`,
       schema,
       `${path}.text`,
@@ -97,7 +103,7 @@ export function validateUpdateLineTextEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `updateLineTextEventSchema`,
   updateLineTextEventSchema,
   `instance`,

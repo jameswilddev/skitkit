@@ -1,7 +1,12 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as nameSchemaHelpers from "../../../name-schema/unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
+import { validateNameSchema } from "../../../name-schema/unit";
 import { Json, updateEmoteNameEventSchema } from "../../../..";
 
 export function validateUpdateEmoteNameEventSchema(
@@ -12,7 +17,7 @@ export function validateUpdateEmoteNameEventSchema(
   instanceFactory: (updateEmoteNameEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `updateEmoteName`,
@@ -22,7 +27,7 @@ export function validateUpdateEmoteNameEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -33,7 +38,7 @@ export function validateUpdateEmoteNameEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -47,7 +52,7 @@ export function validateUpdateEmoteNameEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `emoteUuid`,
       schema,
       path,
@@ -58,7 +63,7 @@ export function validateUpdateEmoteNameEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `emoteUuid`,
       schema,
       `${path}.emoteUuid`,
@@ -71,7 +76,7 @@ export function validateUpdateEmoteNameEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `name`,
       schema,
       path,
@@ -82,7 +87,7 @@ export function validateUpdateEmoteNameEventSchema(
       })
     );
 
-    nameSchemaHelpers.validateNameSchema(
+    validateNameSchema(
       `name`,
       schema,
       `${path}.name`,
@@ -97,7 +102,7 @@ export function validateUpdateEmoteNameEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `updateEmoteNameEventSchema`,
   updateEmoteNameEventSchema,
   `instance`,

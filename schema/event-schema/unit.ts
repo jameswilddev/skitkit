@@ -1,27 +1,27 @@
-import * as CreateBackgroundEventSchemaHelpers from "./background/create-background-event-schema/unit";
-import * as DeleteBackgroundEventSchemaHelpers from "./background/delete-background-event-schema/unit";
-import * as UpdateBackgroundNameEventSchemaHelpers from "./background/update-background-name-event-schema/unit";
-import * as UpdateBackgroundSvgEventSchemaHelpers from "./background/update-background-svg-event-schema/unit";
-import * as CreateCharacterEventSchemaHelpers from "./character/create-character-event-schema/unit";
-import * as DeleteCharacterEventSchemaHelpers from "./character/delete-character-event-schema/unit";
-import * as UpdateCharacterNameEventSchemaHelpers from "./character/update-character-name-event-schema/unit";
-import * as CreateEmoteEventSchemaHelpers from "./emote/create-emote-event-schema/unit";
-import * as DeleteEmoteEventSchemaHelpers from "./emote/delete-emote-event-schema/unit";
-import * as UpdateEmoteNameEventSchemaHelpers from "./emote/update-emote-name-event-schema/unit";
-import * as UpdateEmoteSvgEventSchemaHelpers from "./emote/update-emote-svg-event-schema/unit";
-import * as UpdateLineTextEventSchemaHelpers from "./line/update-line-text-event-schema/unit";
-import * as CreateSceneEventSchemaHelpers from "./scene/create-scene-event-schema/unit";
-import * as DeleteSceneEventSchemaHelpers from "./scene/delete-scene-event-schema/unit";
-import * as UpdateSceneBackgroundEventSchemaHelpers from "./scene/update-scene-background-event-schema/unit";
-import * as UpdateSceneNameEventSchemaHelpers from "./scene/update-scene-name-event-schema/unit";
-import * as SchemaHelpers from "../unit";
+import { validateCreateBackgroundEventSchema } from "./background/create-background-event-schema/unit";
+import { validateDeleteBackgroundEventSchema } from "./background/delete-background-event-schema/unit";
+import { validateUpdateBackgroundNameEventSchema } from "./background/update-background-name-event-schema/unit";
+import { validateUpdateBackgroundSvgEventSchema } from "./background/update-background-svg-event-schema/unit";
+import { validateCreateCharacterEventSchema } from "./character/create-character-event-schema/unit";
+import { validateDeleteCharacterEventSchema } from "./character/delete-character-event-schema/unit";
+import { validateUpdateCharacterNameEventSchema } from "./character/update-character-name-event-schema/unit";
+import { validateCreateEmoteEventSchema } from "./emote/create-emote-event-schema/unit";
+import { validateDeleteEmoteEventSchema } from "./emote/delete-emote-event-schema/unit";
+import { validateUpdateEmoteNameEventSchema } from "./emote/update-emote-name-event-schema/unit";
+import { validateUpdateEmoteSvgEventSchema } from "./emote/update-emote-svg-event-schema/unit";
+import { validateUpdateLineTextEventSchema } from "./line/update-line-text-event-schema/unit";
+import { validateCreateSceneEventSchema } from "./scene/create-scene-event-schema/unit";
+import { validateDeleteSceneEventSchema } from "./scene/delete-scene-event-schema/unit";
+import { validateUpdateSceneBackgroundEventSchema } from "./scene/update-scene-background-event-schema/unit";
+import { validateUpdateSceneNameEventSchema } from "./scene/update-scene-name-event-schema/unit";
+import { rejectsNonObjects } from "../unit";
 import { eventSchema } from "../..";
 
-SchemaHelpers.rejectsNonObjects(`eventSchema`, eventSchema, `instance`, [
+rejectsNonObjects(`eventSchema`, eventSchema, `instance`, [
   `instance is not exactly one from [subschema 0],[subschema 1],[subschema 2],[subschema 3],[subschema 4],[subschema 5],[subschema 6],[subschema 7],[subschema 8],[subschema 9],[subschema 10],[subschema 11],[subschema 12],[subschema 13],[subschema 14],[subschema 15]`,
 ]);
 
-CreateBackgroundEventSchemaHelpers.validateCreateBackgroundEventSchema(
+validateCreateBackgroundEventSchema(
   `eventSchema createBackgroundEvent`,
   eventSchema,
   `instance`,
@@ -31,7 +31,7 @@ CreateBackgroundEventSchemaHelpers.validateCreateBackgroundEventSchema(
   (createBackgroundEvent) => createBackgroundEvent
 );
 
-DeleteBackgroundEventSchemaHelpers.validateDeleteBackgroundEventSchema(
+validateDeleteBackgroundEventSchema(
   `eventSchema deleteBackgroundEvent`,
   eventSchema,
   `instance`,
@@ -41,7 +41,7 @@ DeleteBackgroundEventSchemaHelpers.validateDeleteBackgroundEventSchema(
   (deleteBackgroundEvent) => deleteBackgroundEvent
 );
 
-UpdateBackgroundNameEventSchemaHelpers.validateUpdateBackgroundNameEventSchema(
+validateUpdateBackgroundNameEventSchema(
   `eventSchema updateBackgroundNameEvent`,
   eventSchema,
   `instance`,
@@ -51,7 +51,7 @@ UpdateBackgroundNameEventSchemaHelpers.validateUpdateBackgroundNameEventSchema(
   (updateBackgroundNameEvent) => updateBackgroundNameEvent
 );
 
-UpdateBackgroundSvgEventSchemaHelpers.validateUpdateBackgroundSvgEventSchema(
+validateUpdateBackgroundSvgEventSchema(
   `eventSchema updateBackgroundSvgEvent`,
   eventSchema,
   `instance`,
@@ -61,7 +61,7 @@ UpdateBackgroundSvgEventSchemaHelpers.validateUpdateBackgroundSvgEventSchema(
   (updateBackgroundSvgEvent) => updateBackgroundSvgEvent
 );
 
-CreateCharacterEventSchemaHelpers.validateCreateCharacterEventSchema(
+validateCreateCharacterEventSchema(
   `eventSchema createCharacterEvent`,
   eventSchema,
   `instance`,
@@ -71,7 +71,7 @@ CreateCharacterEventSchemaHelpers.validateCreateCharacterEventSchema(
   (createCharacterEvent) => createCharacterEvent
 );
 
-DeleteCharacterEventSchemaHelpers.validateDeleteCharacterEventSchema(
+validateDeleteCharacterEventSchema(
   `eventSchema deleteCharacterEvent`,
   eventSchema,
   `instance`,
@@ -81,7 +81,7 @@ DeleteCharacterEventSchemaHelpers.validateDeleteCharacterEventSchema(
   (deleteCharacterEvent) => deleteCharacterEvent
 );
 
-UpdateCharacterNameEventSchemaHelpers.validateUpdateCharacterNameEventSchema(
+validateUpdateCharacterNameEventSchema(
   `eventSchema updateCharacterNameEvent`,
   eventSchema,
   `instance`,
@@ -91,7 +91,7 @@ UpdateCharacterNameEventSchemaHelpers.validateUpdateCharacterNameEventSchema(
   (updateCharacterNameEvent) => updateCharacterNameEvent
 );
 
-CreateEmoteEventSchemaHelpers.validateCreateEmoteEventSchema(
+validateCreateEmoteEventSchema(
   `eventSchema createEmoteEvent`,
   eventSchema,
   `instance`,
@@ -101,7 +101,7 @@ CreateEmoteEventSchemaHelpers.validateCreateEmoteEventSchema(
   (createEmoteEvent) => createEmoteEvent
 );
 
-DeleteEmoteEventSchemaHelpers.validateDeleteEmoteEventSchema(
+validateDeleteEmoteEventSchema(
   `eventSchema deleteEmoteEvent`,
   eventSchema,
   `instance`,
@@ -111,7 +111,7 @@ DeleteEmoteEventSchemaHelpers.validateDeleteEmoteEventSchema(
   (deleteEmoteEvent) => deleteEmoteEvent
 );
 
-UpdateEmoteNameEventSchemaHelpers.validateUpdateEmoteNameEventSchema(
+validateUpdateEmoteNameEventSchema(
   `eventSchema updateEmoteNameEvent`,
   eventSchema,
   `instance`,
@@ -121,7 +121,7 @@ UpdateEmoteNameEventSchemaHelpers.validateUpdateEmoteNameEventSchema(
   (updateEmoteNameEvent) => updateEmoteNameEvent
 );
 
-UpdateEmoteSvgEventSchemaHelpers.validateUpdateEmoteSvgEventSchema(
+validateUpdateEmoteSvgEventSchema(
   `eventSchema updateEmoteSvgEvent`,
   eventSchema,
   `instance`,
@@ -131,7 +131,7 @@ UpdateEmoteSvgEventSchemaHelpers.validateUpdateEmoteSvgEventSchema(
   (updateEmoteSvgEvent) => updateEmoteSvgEvent
 );
 
-UpdateLineTextEventSchemaHelpers.validateUpdateLineTextEventSchema(
+validateUpdateLineTextEventSchema(
   `eventSchema updateLineTextEvent`,
   eventSchema,
   `instance`,
@@ -141,7 +141,7 @@ UpdateLineTextEventSchemaHelpers.validateUpdateLineTextEventSchema(
   (updateLineTextEvent) => updateLineTextEvent
 );
 
-CreateSceneEventSchemaHelpers.validateCreateSceneEventSchema(
+validateCreateSceneEventSchema(
   `eventSchema createSceneEvent`,
   eventSchema,
   `instance`,
@@ -151,7 +151,7 @@ CreateSceneEventSchemaHelpers.validateCreateSceneEventSchema(
   (createSceneEvent) => createSceneEvent
 );
 
-DeleteSceneEventSchemaHelpers.validateDeleteSceneEventSchema(
+validateDeleteSceneEventSchema(
   `eventSchema deleteSceneEvent`,
   eventSchema,
   `instance`,
@@ -161,7 +161,7 @@ DeleteSceneEventSchemaHelpers.validateDeleteSceneEventSchema(
   (deleteSceneEvent) => deleteSceneEvent
 );
 
-UpdateSceneBackgroundEventSchemaHelpers.validateUpdateSceneBackgroundEventSchema(
+validateUpdateSceneBackgroundEventSchema(
   `eventSchema updateSceneNameEvent`,
   eventSchema,
   `instance`,
@@ -171,7 +171,7 @@ UpdateSceneBackgroundEventSchemaHelpers.validateUpdateSceneBackgroundEventSchema
   (updateSceneBackgroundEvent) => updateSceneBackgroundEvent
 );
 
-UpdateSceneNameEventSchemaHelpers.validateUpdateSceneNameEventSchema(
+validateUpdateSceneNameEventSchema(
   `eventSchema updateSceneNameEvent`,
   eventSchema,
   `instance`,

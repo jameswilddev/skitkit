@@ -1,6 +1,11 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, deleteCharacterEventSchema } from "../../../..";
 
 export function validateDeleteCharacterEventSchema(
@@ -11,7 +16,7 @@ export function validateDeleteCharacterEventSchema(
   instanceFactory: (deleteCharacterEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `deleteCharacter`,
@@ -20,7 +25,7 @@ export function validateDeleteCharacterEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -30,7 +35,7 @@ export function validateDeleteCharacterEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -43,7 +48,7 @@ export function validateDeleteCharacterEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `characterUuid`,
       schema,
       path,
@@ -53,7 +58,7 @@ export function validateDeleteCharacterEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `characterUuid`,
       schema,
       `${path}.characterUuid`,
@@ -67,7 +72,7 @@ export function validateDeleteCharacterEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `deleteCharacterEventSchema`,
   deleteCharacterEventSchema,
   `instance`,

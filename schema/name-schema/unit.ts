@@ -1,5 +1,5 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../unit";
+import { validateUnpaddedString } from "../unit";
 import { Json, nameSchema } from "../..";
 
 export function validateNameSchema(
@@ -9,7 +9,7 @@ export function validateNameSchema(
   overriddenErrors: null | ReadonlyArray<string>,
   instanceFactory: (name: Json) => Json
 ): void {
-  schemaHelpers.validateUnpaddedString(
+  validateUnpaddedString(
     description,
     schema,
     path,
