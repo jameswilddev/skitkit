@@ -465,6 +465,53 @@ export function applyEvent(
         };
       }
 
+    case `updateLineCharacterEmote`:
+      if (!exists(`lines`, event.lineUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityDoesNotExist`,
+            entityType: `line`,
+            uuid: event.lineUuid,
+          },
+        };
+      }
+
+      if (!exists(`emotes`, event.emoteUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityDoesNotExist`,
+            entityType: `emote`,
+            uuid: event.emoteUuid,
+          },
+        };
+      }
+
+      const line = state.lines[event.lineUuid];
+
+      const characterUuid = state.emotes[event.emoteUuid].characterUuid;
+
+      return {
+        successful: true,
+        state: {
+          ...state,
+          lines: {
+            ...state.lines,
+            [event.lineUuid]: {
+              ...line,
+              characters: {
+                ...line.characters,
+                [characterUuid]: {
+                  ...line.characters[characterUuid],
+                  emoteUuid: event.emoteUuid,
+                },
+              },
+            },
+          },
+        },
+      };
+
     case `updateLineText`:
       if (!exists(`lines`, event.lineUuid)) {
         return {

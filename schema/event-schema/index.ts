@@ -43,6 +43,10 @@ import {
   UpdateEmoteSvgEventSchema,
 } from "./emote/update-emote-svg-event-schema";
 import {
+  updateLineCharacterEmoteEventSchema,
+  UpdateLineCharacterEmoteEventSchema,
+} from "./line/update-line-character-emote-event-schema";
+import {
   updateLineTextEventSchema,
   UpdateLineTextEventSchema,
 } from "./line/update-line-text-event-schema";
@@ -77,6 +81,7 @@ export const eventSchema = {
     deleteEmoteEventSchema,
     updateEmoteNameEventSchema,
     updateEmoteSvgEventSchema,
+    updateLineCharacterEmoteEventSchema,
     updateLineTextEventSchema,
     createSceneEventSchema,
     deleteSceneEventSchema,
@@ -97,6 +102,7 @@ export type EventSchema =
   | DeleteEmoteEventSchema
   | UpdateEmoteNameEventSchema
   | UpdateEmoteSvgEventSchema
+  | UpdateLineCharacterEmoteEventSchema
   | UpdateLineTextEventSchema
   | CreateSceneEventSchema
   | DeleteSceneEventSchema
