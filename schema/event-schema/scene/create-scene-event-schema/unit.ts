@@ -4,13 +4,10 @@ import {
   rejectsMissingProperty,
   rejectsOtherThanExpectedString,
   rejectsNonObjects,
-  rejects,
 } from "../../../unit";
-import {
-  validateUuidSchema,
-  forEachInvalidUuid,
-} from "../../../uuid-schema/unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, createSceneEventSchema } from "../../../..";
+import { validateUuidUuidMapSchema } from "../../../uuid-uuid-map-schema/unit";
 
 export function validateCreateSceneEventSchema(
   description: string,
@@ -150,7 +147,7 @@ export function validateCreateSceneEventSchema(
       })
     );
 
-    rejectsNonObjects(
+    validateUuidUuidMapSchema(
       `characterEmoteUuids`,
       schema,
       `${path}.characterEmoteUuids`,
@@ -162,43 +159,6 @@ export function validateCreateSceneEventSchema(
           backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
           characterEmoteUuids,
         })
-    );
-
-    forEachInvalidUuid((description, value) => {
-      rejects(
-        `characterEmoteUuids key ${description}`,
-        instanceFactory({
-          type: `createScene`,
-          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-          backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
-          characterEmoteUuids: {
-            "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
-            [value]: `d982f79e-c16e-4224-85d9-b93946257052`,
-            "6afb0c21-c2e2-414e-a40d-c2fd116f82c7": `4ce28459-6d17-4f33-b63d-3de7969a84cb`,
-          },
-        }),
-        schema,
-        overriddenErrors || [
-          `instance.characterEmoteUuids additionalProperty "${value}" exists in instance when not allowed`,
-        ]
-      );
-    });
-
-    validateUuidSchema(
-      `characterEmoteUuids value`,
-      schema,
-      `${path}.characterEmoteUuids.b3c27180-f8f9-4bbf-94a3-b50df6056114`,
-      overriddenErrors,
-      (emoteUuid) => ({
-        type: `createScene`,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
-        characterEmoteUuids: {
-          "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
-          "b3c27180-f8f9-4bbf-94a3-b50df6056114": emoteUuid,
-          "6afb0c21-c2e2-414e-a40d-c2fd116f82c7": `4ce28459-6d17-4f33-b63d-3de7969a84cb`,
-        },
-      })
     );
   });
 }
