@@ -509,17 +509,71 @@ export function applyEvent(
         } = {};
 
         for (const characterUuid in state.characters) {
-          const character = state.characters[characterUuid];
+          if (
+            Object.prototype.hasOwnProperty.call(
+              event.characterEmoteUuids,
+              characterUuid
+            )
+          ) {
+            const emoteUuid = event.characterEmoteUuids[characterUuid];
 
-          const emoteUuid = character.emoteUuids
-            .slice()
-            .sort((a, b) =>
-              state.emotes[a].name.localeCompare(state.emotes[b].name)
-            )[0];
+            if (!exists(`emotes`, emoteUuid)) {
+              const character = state.characters[characterUuid];
 
-          characters[characterUuid] = {
-            emoteUuid,
-          };
+              characters[characterUuid] = {
+                emoteUuid: character.emoteUuids
+                  .slice()
+                  .sort((a, b) =>
+                    state.emotes[a].name.localeCompare(state.emotes[b].name)
+                  )[0],
+              };
+            } else {
+              const emote = state.emotes[emoteUuid];
+
+              if (emote.characterUuid !== characterUuid) {
+                return {
+                  successful: false,
+                  error: {
+                    type: `noRelationshipBetweenEntities`,
+                    entities: [
+                      {
+                        entityType: `character`,
+                        uuid: characterUuid,
+                      },
+                      {
+                        entityType: `emote`,
+                        uuid: emoteUuid,
+                      },
+                    ],
+                  },
+                };
+              } else {
+                characters[characterUuid] = {
+                  emoteUuid,
+                };
+              }
+            }
+          } else {
+            const character = state.characters[characterUuid];
+
+            characters[characterUuid] = {
+              emoteUuid: character.emoteUuids
+                .slice()
+                .sort((a, b) =>
+                  state.emotes[a].name.localeCompare(state.emotes[b].name)
+                )[0],
+            };
+          }
+        }
+
+        let backgroundUuid: UuidSchema;
+
+        if (exists(`backgrounds`, event.backgroundUuid)) {
+          backgroundUuid = event.backgroundUuid;
+        } else {
+          backgroundUuid = Object.entries(state.backgrounds).sort((a, b) =>
+            a[1].name.localeCompare(b[1].name)
+          )[0][0];
         }
 
         return {
@@ -538,9 +592,7 @@ export function applyEvent(
               ...state.scenes,
               [event.sceneUuid]: {
                 name: `Untitled Scene`,
-                backgroundUuid: Object.entries(state.backgrounds).sort((a, b) =>
-                  a[1].name.localeCompare(b[1].name)
-                )[0][0],
+                backgroundUuid,
                 lineUuids: [event.sceneUuid],
               },
             },

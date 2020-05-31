@@ -22,4 +22,11 @@ export type EventApplicationError =
   | {
       readonly type: `noEntitiesExist`;
       readonly entityType: EntityType;
+    }
+  | {
+      readonly type: `noRelationshipBetweenEntities`;
+      readonly entities: ReadonlyArray<{
+        readonly entityType: EntityType;
+        readonly uuid: UuidSchema;
+      }>;
     };
