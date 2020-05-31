@@ -2451,7 +2451,7 @@ describe(`applyEvent`, () => {
     );
   });
 
-  describe(`updateLineText`, () => {
+  describe(`updateLineCharacterEmote`, () => {
     scenario(
       `when the line does not exist`,
       previousState,
