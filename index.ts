@@ -45,6 +45,10 @@ export {
   UpdateEmoteSvgEventSchema,
 } from "./schema/event-schema/emote/update-emote-svg-event-schema";
 export {
+  createStartingLineEventSchema,
+  CreateStartingLineEventSchema,
+} from "./schema/event-schema/line/create-starting-line-event-schema";
+export {
   updateLineCharacterEmoteEventSchema,
   UpdateLineCharacterEmoteEventSchema,
 } from "./schema/event-schema/line/update-line-character-emote-event-schema";

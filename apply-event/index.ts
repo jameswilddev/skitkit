@@ -465,6 +465,104 @@ export function applyEvent(
         };
       }
 
+    case `createStartingLine`:
+      if (!exists(`scenes`, event.sceneUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityDoesNotExist`,
+            entityType: `scene`,
+            uuid: event.sceneUuid,
+          },
+        };
+      }
+
+      if (exists(`lines`, event.lineUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityAlreadyExists`,
+            entityType: `line`,
+            uuid: event.lineUuid,
+          },
+        };
+      }
+
+      const characters: {
+        [characterUuid: string]: LineCharacterState;
+      } = {};
+
+      const scene = state.scenes[event.sceneUuid];
+
+      const nextLine = state.lines[scene.lineUuids[0]];
+
+      for (const characterUuid in state.characters) {
+        const nextLineCharacter = nextLine.characters[characterUuid];
+
+        if (
+          Object.prototype.hasOwnProperty.call(
+            event.characterEmoteUuids,
+            characterUuid
+          )
+        ) {
+          const emoteUuid = event.characterEmoteUuids[characterUuid];
+
+          if (!exists(`emotes`, emoteUuid)) {
+            characters[characterUuid] = nextLineCharacter;
+          } else {
+            const emote = state.emotes[emoteUuid];
+
+            if (emote.characterUuid !== characterUuid) {
+              return {
+                successful: false,
+                error: {
+                  type: `noRelationshipBetweenEntities`,
+                  entities: [
+                    {
+                      entityType: `character`,
+                      uuid: characterUuid,
+                    },
+                    {
+                      entityType: `emote`,
+                      uuid: emoteUuid,
+                    },
+                  ],
+                },
+              };
+            } else {
+              characters[characterUuid] = {
+                ...nextLineCharacter,
+                emoteUuid,
+              };
+            }
+          }
+        } else {
+          characters[characterUuid] = nextLineCharacter;
+        }
+      }
+
+      return {
+        successful: true,
+        state: {
+          ...state,
+          lines: {
+            ...state.lines,
+            [event.lineUuid]: {
+              sceneUuid: event.sceneUuid,
+              text: `(this line is yet to be written)`,
+              characters,
+            },
+          },
+          scenes: {
+            ...state.scenes,
+            [event.sceneUuid]: {
+              ...scene,
+              lineUuids: [event.lineUuid, ...scene.lineUuids],
+            },
+          },
+        },
+      };
+
     case `updateLineCharacterEmote`:
       if (!exists(`lines`, event.lineUuid)) {
         return {
