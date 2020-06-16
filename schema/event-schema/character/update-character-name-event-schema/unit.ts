@@ -1,7 +1,12 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as nameSchemaHelpers from "../../../name-schema/unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
+import { validateNameSchema } from "../../../name-schema/unit";
 import { Json, updateCharacterNameEventSchema } from "../../../..";
 
 export function validateUpdateCharacterNameEventSchema(
@@ -12,7 +17,7 @@ export function validateUpdateCharacterNameEventSchema(
   instanceFactory: (updateCharacterNameEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `updateCharacterName`,
@@ -22,7 +27,7 @@ export function validateUpdateCharacterNameEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -33,7 +38,7 @@ export function validateUpdateCharacterNameEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -47,7 +52,7 @@ export function validateUpdateCharacterNameEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `characterUuid`,
       schema,
       path,
@@ -58,7 +63,7 @@ export function validateUpdateCharacterNameEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `characterUuid`,
       schema,
       `${path}.characterUuid`,
@@ -71,7 +76,7 @@ export function validateUpdateCharacterNameEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `name`,
       schema,
       path,
@@ -82,7 +87,7 @@ export function validateUpdateCharacterNameEventSchema(
       })
     );
 
-    nameSchemaHelpers.validateNameSchema(
+    validateNameSchema(
       `name`,
       schema,
       `${path}.name`,
@@ -97,11 +102,12 @@ export function validateUpdateCharacterNameEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `updateCharacterNameEventSchema`,
   updateCharacterNameEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateCharacterNameEventSchema(

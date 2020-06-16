@@ -1,6 +1,11 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, deleteEmoteEventSchema } from "../../../..";
 
 export function validateDeleteEmoteEventSchema(
@@ -11,7 +16,7 @@ export function validateDeleteEmoteEventSchema(
   instanceFactory: (deleteEmoteEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `deleteEmote`,
@@ -20,7 +25,7 @@ export function validateDeleteEmoteEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -30,7 +35,7 @@ export function validateDeleteEmoteEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -43,7 +48,7 @@ export function validateDeleteEmoteEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `emoteUuid`,
       schema,
       path,
@@ -53,7 +58,7 @@ export function validateDeleteEmoteEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `emoteUuid`,
       schema,
       `${path}.emoteUuid`,
@@ -67,11 +72,12 @@ export function validateDeleteEmoteEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `deleteEmoteEventSchema`,
   deleteEmoteEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateDeleteEmoteEventSchema(

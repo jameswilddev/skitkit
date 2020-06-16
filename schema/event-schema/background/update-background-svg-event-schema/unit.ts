@@ -1,7 +1,12 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as svgSchemaHelpers from "../../../svg-schema/unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateSvgSchema } from "../../../svg-schema/unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, updateBackgroundSvgEventSchema } from "../../../..";
 
 export function validateUpdateBackgroundSvgEventSchema(
@@ -12,7 +17,7 @@ export function validateUpdateBackgroundSvgEventSchema(
   instanceFactory: (updateBackgroundSvgEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `updateBackgroundSvg`,
@@ -22,7 +27,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -33,7 +38,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -47,7 +52,7 @@ export function validateUpdateBackgroundSvgEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `backgroundUuid`,
       schema,
       path,
@@ -58,7 +63,7 @@ export function validateUpdateBackgroundSvgEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
@@ -71,7 +76,7 @@ export function validateUpdateBackgroundSvgEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `svg`,
       schema,
       path,
@@ -82,26 +87,22 @@ export function validateUpdateBackgroundSvgEventSchema(
       })
     );
 
-    svgSchemaHelpers.validateSvgSchema(
-      `svg`,
-      schema,
-      `${path}.svg`,
-      overriddenErrors,
-      (svg) =>
-        instanceFactory({
-          type: `updateBackgroundSvg`,
-          backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-          svg,
-        })
+    validateSvgSchema(`svg`, schema, `${path}.svg`, overriddenErrors, (svg) =>
+      instanceFactory({
+        type: `updateBackgroundSvg`,
+        backgroundUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        svg,
+      })
     );
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `updateBackgroundSvgEventSchema`,
   updateBackgroundSvgEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateBackgroundSvgEventSchema(

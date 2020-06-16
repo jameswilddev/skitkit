@@ -1,1 +1,6 @@
-export type EntityType = `background` | `character` | `emote` | `scene`;
+export type EntityType =
+  | `background`
+  | `character`
+  | `emote`
+  | `line`
+  | `scene`;

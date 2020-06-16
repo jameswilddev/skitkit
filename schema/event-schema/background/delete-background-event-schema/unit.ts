@@ -1,6 +1,11 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, deleteBackgroundEventSchema } from "../../../..";
 
 export function validateDeleteBackgroundEventSchema(
@@ -11,7 +16,7 @@ export function validateDeleteBackgroundEventSchema(
   instanceFactory: (deleteBackgroundEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `deleteBackground`,
@@ -20,7 +25,7 @@ export function validateDeleteBackgroundEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -30,7 +35,7 @@ export function validateDeleteBackgroundEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -43,7 +48,7 @@ export function validateDeleteBackgroundEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `backgroundUuid`,
       schema,
       path,
@@ -53,7 +58,7 @@ export function validateDeleteBackgroundEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
@@ -67,11 +72,12 @@ export function validateDeleteBackgroundEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `deleteBackgroundEventSchema`,
   deleteBackgroundEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateDeleteBackgroundEventSchema(

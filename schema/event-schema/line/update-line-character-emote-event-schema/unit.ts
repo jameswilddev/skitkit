@@ -6,22 +6,22 @@ import {
   rejectsNonObjects,
 } from "../../../unit";
 import { validateUuidSchema } from "../../../uuid-schema/unit";
-import { Json, createEmoteEventSchema } from "../../../..";
+import { Json, updateLineCharacterEmoteEventSchema } from "../../../..";
 
-export function validateCreateEmoteEventSchema(
+export function validateUpdateLineCharacterEmoteEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  instanceFactory: (createEmoteEvent: Json) => Json
+  instanceFactory: (updateLineCharacterEmoteEvent: Json) => Json
 ): void {
   describe(description, () => {
     accepts(
       `valid`,
       instanceFactory({
-        type: `createEmote`,
-        characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        type: `updateLineCharacterEmote`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        emoteUuid: `abb928c7-51a7-4138-a3b8-1ad78a1773d8`,
       }),
       schema
     );
@@ -32,8 +32,8 @@ export function validateCreateEmoteEventSchema(
       path,
       overriddenErrors,
       instanceFactory({
-        characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        emoteUuid: `abb928c7-51a7-4138-a3b8-1ad78a1773d8`,
       })
     );
 
@@ -41,37 +41,37 @@ export function validateCreateEmoteEventSchema(
       `type`,
       schema,
       `${path}.type`,
-      `createEmote`,
+      `updateLineCharacterEmote`,
       overriddenErrors,
       (type) =>
         instanceFactory({
           type,
-          characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
-          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          emoteUuid: `abb928c7-51a7-4138-a3b8-1ad78a1773d8`,
         })
     );
 
     rejectsMissingProperty(
-      `characterUuid`,
+      `lineUuid`,
       schema,
       path,
       overriddenErrors,
       instanceFactory({
-        type: `createEmote`,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        type: `updateLineCharacterEmote`,
+        emoteUuid: `abb928c7-51a7-4138-a3b8-1ad78a1773d8`,
       })
     );
 
     validateUuidSchema(
-      `characterUuid`,
+      `lineUuid`,
       schema,
-      `${path}.characterUuid`,
+      `${path}.lineUuid`,
       overriddenErrors,
-      (characterUuid) =>
+      (lineUuid) =>
         instanceFactory({
-          type: `createEmote`,
-          characterUuid,
-          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          type: `updateLineCharacterEmote`,
+          lineUuid,
+          emoteUuid: `abb928c7-51a7-4138-a3b8-1ad78a1773d8`,
         })
     );
 
@@ -81,8 +81,8 @@ export function validateCreateEmoteEventSchema(
       path,
       overriddenErrors,
       instanceFactory({
-        type: `createEmote`,
-        characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
+        type: `updateLineCharacterEmote`,
+        lineUuid: `0062cfb9-92fe-45a2-bb71-4fb4290c3882`,
       })
     );
 
@@ -93,8 +93,8 @@ export function validateCreateEmoteEventSchema(
       overriddenErrors,
       (emoteUuid) =>
         instanceFactory({
-          type: `createEmote`,
-          characterUuid: `01d58b64-ae31-43c0-ab7e-1ab1a99b7e30`,
+          type: `updateLineCharacterEmote`,
+          lineUuid: `0062cfb9-92fe-45a2-bb71-4fb4290c3882`,
           emoteUuid,
         })
     );
@@ -102,17 +102,17 @@ export function validateCreateEmoteEventSchema(
 }
 
 rejectsNonObjects(
-  `createEmoteEventSchema`,
-  createEmoteEventSchema,
+  `updateLineCharacterEmoteEventSchema`,
+  updateLineCharacterEmoteEventSchema,
   `instance`,
   null,
   (nonObject) => nonObject
 );
 
-validateCreateEmoteEventSchema(
-  `createEmoteEventSchema`,
-  createEmoteEventSchema,
+validateUpdateLineCharacterEmoteEventSchema(
+  `updateLineCharacterEmoteEventSchema`,
+  updateLineCharacterEmoteEventSchema,
   `instance`,
   null,
-  (createEmoteEvent) => createEmoteEvent
+  (updateLineCharacterEmoteEvent) => updateLineCharacterEmoteEvent
 );

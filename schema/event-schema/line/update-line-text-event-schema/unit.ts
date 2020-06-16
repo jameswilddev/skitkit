@@ -3,26 +3,26 @@ import {
   accepts,
   rejectsMissingProperty,
   rejectsOtherThanExpectedString,
+  validateUnpaddedString,
   rejectsNonObjects,
 } from "../../../unit";
 import { validateUuidSchema } from "../../../uuid-schema/unit";
-import { validateNameSchema } from "../../../name-schema/unit";
-import { Json, updateEmoteNameEventSchema } from "../../../..";
+import { Json, updateLineTextEventSchema } from "../../../..";
 
-export function validateUpdateEmoteNameEventSchema(
+export function validateUpdateLineTextEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  instanceFactory: (updateEmoteNameEvent: Json) => Json
+  instanceFactory: (updateLineTextEvent: Json) => Json
 ): void {
   describe(description, () => {
     accepts(
       `valid`,
       instanceFactory({
-        type: `updateEmoteName`,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name: `Test Name`,
+        type: `updateLineText`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        text: `Test Text`,
       }),
       schema
     );
@@ -33,8 +33,8 @@ export function validateUpdateEmoteNameEventSchema(
       path,
       overriddenErrors,
       instanceFactory({
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        name: `Test Name`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        text: `Test Text`,
       })
     );
 
@@ -42,78 +42,79 @@ export function validateUpdateEmoteNameEventSchema(
       `type`,
       schema,
       `${path}.type`,
-      `updateEmoteName`,
+      `updateLineText`,
       overriddenErrors,
       (type) =>
         instanceFactory({
           type,
-          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-          name: `Test Name`,
+          lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          text: `Test Text`,
         })
     );
 
     rejectsMissingProperty(
-      `emoteUuid`,
+      `lineUuid`,
       schema,
       path,
       overriddenErrors,
       instanceFactory({
-        type: `updateEmoteName`,
-        name: `Test Name`,
+        type: `updateLineText`,
+        text: `Test Text`,
       })
     );
 
     validateUuidSchema(
-      `emoteUuid`,
+      `lineUuid`,
       schema,
-      `${path}.emoteUuid`,
+      `${path}.lineUuid`,
       overriddenErrors,
-      (emoteUuid) =>
+      (lineUuid) =>
         instanceFactory({
-          type: `updateEmoteName`,
-          emoteUuid,
-          name: `Test Name`,
+          type: `updateLineText`,
+          lineUuid,
+          text: `Test Text`,
         })
     );
 
     rejectsMissingProperty(
-      `name`,
+      `text`,
       schema,
       path,
       overriddenErrors,
       instanceFactory({
-        type: `updateEmoteName`,
-        emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        type: `updateLineText`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
       })
     );
 
-    validateNameSchema(
-      `name`,
+    validateUnpaddedString(
+      `text`,
       schema,
-      `${path}.name`,
+      `${path}.text`,
+      1000,
       overriddenErrors,
-      (name) =>
+      (text) =>
         instanceFactory({
-          type: `updateEmoteName`,
-          emoteUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-          name,
+          type: `updateLineText`,
+          lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+          text,
         })
     );
   });
 }
 
 rejectsNonObjects(
-  `updateEmoteNameEventSchema`,
-  updateEmoteNameEventSchema,
+  `updateLineTextEventSchema`,
+  updateLineTextEventSchema,
   `instance`,
   null,
   (nonObject) => nonObject
 );
 
-validateUpdateEmoteNameEventSchema(
-  `updateEmoteNameEventSchema`,
-  updateEmoteNameEventSchema,
+validateUpdateLineTextEventSchema(
+  `updateLineTextEventSchema`,
+  updateLineTextEventSchema,
   `instance`,
   null,
-  (updateEmoteNameEvent) => updateEmoteNameEvent
+  (updateLineTextEvent) => updateLineTextEvent
 );

@@ -1,6 +1,11 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
 import { Json, createBackgroundEventSchema } from "../../../..";
 
 export function validateCreateBackgroundEventSchema(
@@ -11,7 +16,7 @@ export function validateCreateBackgroundEventSchema(
   instanceFactory: (createBackgroundEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `createBackground`,
@@ -20,7 +25,7 @@ export function validateCreateBackgroundEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -30,7 +35,7 @@ export function validateCreateBackgroundEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -43,7 +48,7 @@ export function validateCreateBackgroundEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `backgroundUuid`,
       schema,
       path,
@@ -53,7 +58,7 @@ export function validateCreateBackgroundEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
@@ -67,11 +72,12 @@ export function validateCreateBackgroundEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `createBackgroundEventSchema`,
   createBackgroundEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateCreateBackgroundEventSchema(

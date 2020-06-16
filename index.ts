@@ -45,6 +45,18 @@ export {
   UpdateEmoteSvgEventSchema,
 } from "./schema/event-schema/emote/update-emote-svg-event-schema";
 export {
+  createStartingLineEventSchema,
+  CreateStartingLineEventSchema,
+} from "./schema/event-schema/line/create-starting-line-event-schema";
+export {
+  updateLineCharacterEmoteEventSchema,
+  UpdateLineCharacterEmoteEventSchema,
+} from "./schema/event-schema/line/update-line-character-emote-event-schema";
+export {
+  updateLineTextEventSchema,
+  UpdateLineTextEventSchema,
+} from "./schema/event-schema/line/update-line-text-event-schema";
+export {
   createSceneEventSchema,
   CreateSceneEventSchema,
 } from "./schema/event-schema/scene/create-scene-event-schema";
@@ -64,11 +76,17 @@ export { eventSchema, EventSchema } from "./schema/event-schema";
 export { nameSchema, NameSchema } from "./schema/name-schema";
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
 export { uuidSchema, UuidSchema } from "./schema/uuid-schema";
+export {
+  uuidUuidMapSchema,
+  UuidUuidMapSchema,
+} from "./schema/uuid-uuid-map-schema";
 export { EntityType } from "./types/entity-type";
 export { EventApplicationError } from "./types/event-application-result/event-application-error";
 export { EventApplicationResult } from "./types/event-application-result";
 export { BackgroundState } from "./types/state/background-state";
 export { CharacterState } from "./types/state/character-state";
 export { EmoteState } from "./types/state/emote-state";
+export { LineCharacterState } from "./types/state/line-state/line-character-state";
+export { LineState } from "./types/state/line-state";
 export { SceneState } from "./types/state/scene-state";
 export { State } from "./types/state";

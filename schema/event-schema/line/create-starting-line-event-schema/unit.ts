@@ -6,29 +6,29 @@ import {
   rejectsNonObjects,
 } from "../../../unit";
 import { validateUuidSchema } from "../../../uuid-schema/unit";
-import { Json, createSceneEventSchema } from "../../../..";
+import { Json, createStartingLineEventSchema } from "../../../..";
 import { validateUuidUuidMapSchema } from "../../../uuid-uuid-map-schema/unit";
 
-export function validateCreateSceneEventSchema(
+export function validateCreateStartingLineEventSchema(
   description: string,
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  instanceFactory: (createSceneEvent: Json) => Json
+  instanceFactory: (createStartingLineEvent: Json) => Json
 ): void {
   describe(description, () => {
     accepts(
       `valid`,
-      instanceFactory({
-        type: `createScene`,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
+      {
+        type: `createStartingLine`,
+        sceneUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         characterEmoteUuids: {
           "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
           "b3c27180-f8f9-4bbf-94a3-b50df6056114": `d982f79e-c16e-4224-85d9-b93946257052`,
           "6afb0c21-c2e2-414e-a40d-c2fd116f82c7": `4ce28459-6d17-4f33-b63d-3de7969a84cb`,
         },
-      }),
+      },
       schema
     );
 
@@ -38,8 +38,8 @@ export function validateCreateSceneEventSchema(
       path,
       overriddenErrors,
       instanceFactory({
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
+        sceneUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
         characterEmoteUuids: {
           "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
           "b3c27180-f8f9-4bbf-94a3-b50df6056114": `d982f79e-c16e-4224-85d9-b93946257052`,
@@ -52,13 +52,13 @@ export function validateCreateSceneEventSchema(
       `type`,
       schema,
       `${path}.type`,
-      `createScene`,
+      `createStartingLine`,
       overriddenErrors,
       (type) =>
         instanceFactory({
           type,
-          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-          backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
+          sceneUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
+          lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
           characterEmoteUuids: {
             "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
             "b3c27180-f8f9-4bbf-94a3-b50df6056114": `d982f79e-c16e-4224-85d9-b93946257052`,
@@ -73,8 +73,8 @@ export function validateCreateSceneEventSchema(
       path,
       overriddenErrors,
       instanceFactory({
-        type: `createScene`,
-        backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
+        type: `createStartingLine`,
+        lineUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
         characterEmoteUuids: {
           "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
           "b3c27180-f8f9-4bbf-94a3-b50df6056114": `d982f79e-c16e-4224-85d9-b93946257052`,
@@ -90,9 +90,9 @@ export function validateCreateSceneEventSchema(
       overriddenErrors,
       (sceneUuid) =>
         instanceFactory({
-          type: `createScene`,
+          type: `createStartingLine`,
           sceneUuid,
-          backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
+          lineUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
           characterEmoteUuids: {
             "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
             "b3c27180-f8f9-4bbf-94a3-b50df6056114": `d982f79e-c16e-4224-85d9-b93946257052`,
@@ -102,13 +102,13 @@ export function validateCreateSceneEventSchema(
     );
 
     rejectsMissingProperty(
-      `backgroundUuid`,
+      `lineUuid`,
       schema,
       path,
       overriddenErrors,
       instanceFactory({
-        type: `createScene`,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        type: `createStartingLine`,
+        sceneUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
         characterEmoteUuids: {
           "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
           "b3c27180-f8f9-4bbf-94a3-b50df6056114": `d982f79e-c16e-4224-85d9-b93946257052`,
@@ -118,15 +118,15 @@ export function validateCreateSceneEventSchema(
     );
 
     validateUuidSchema(
-      `backgroundUuid`,
+      `lineUuid`,
       schema,
-      `${path}.backgroundUuid`,
+      `${path}.lineUuid`,
       overriddenErrors,
-      (backgroundUuid) =>
+      (lineUuid) =>
         instanceFactory({
-          type: `createScene`,
-          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-          backgroundUuid,
+          type: `createStartingLine`,
+          sceneUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
+          lineUuid,
           characterEmoteUuids: {
             "930c204f-28b8-4e19-9b57-4d381fc82107": `0eedaaf6-3273-41df-ac10-0b39aa20ca32`,
             "b3c27180-f8f9-4bbf-94a3-b50df6056114": `d982f79e-c16e-4224-85d9-b93946257052`,
@@ -140,11 +140,11 @@ export function validateCreateSceneEventSchema(
       schema,
       path,
       overriddenErrors,
-      instanceFactory({
-        type: `createScene`,
-        sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-        backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
-      })
+      {
+        type: `createStartingLine`,
+        sceneUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+      }
     );
 
     validateUuidUuidMapSchema(
@@ -152,29 +152,28 @@ export function validateCreateSceneEventSchema(
       schema,
       `${path}.characterEmoteUuids`,
       overriddenErrors,
-      (characterEmoteUuids) =>
-        instanceFactory({
-          type: `createScene`,
-          sceneUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
-          backgroundUuid: `45ff2bbf-7960-4be7-9742-a0d82316a9f1`,
-          characterEmoteUuids,
-        })
+      (characterEmoteUuids) => ({
+        type: `createStartingLine`,
+        sceneUuid: `382e904a-646a-4e56-b56b-bba8302a206e`,
+        lineUuid: `a366e69c-d60e-4e27-bd18-7aea8257bcdb`,
+        characterEmoteUuids,
+      })
     );
   });
 }
 
 rejectsNonObjects(
-  `createSceneEventSchema`,
-  createSceneEventSchema,
+  `createStartingLineEventSchema`,
+  createStartingLineEventSchema,
   `instance`,
   null,
   (nonObject) => nonObject
 );
 
-validateCreateSceneEventSchema(
-  `createSceneEventSchema`,
-  createSceneEventSchema,
+validateCreateStartingLineEventSchema(
+  `createStartingLineEventSchema`,
+  createStartingLineEventSchema,
   `instance`,
   null,
-  (createSceneEvent) => createSceneEvent
+  (createStartingLineEvent) => createStartingLineEvent
 );

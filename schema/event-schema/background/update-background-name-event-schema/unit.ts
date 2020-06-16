@@ -1,7 +1,12 @@
 import * as jsonschema from "jsonschema";
-import * as schemaHelpers from "../../../unit";
-import * as nameSchemaHelpers from "../../../name-schema/unit";
-import * as uuidSchemaHelpers from "../../../uuid-schema/unit";
+import {
+  accepts,
+  rejectsMissingProperty,
+  rejectsOtherThanExpectedString,
+  rejectsNonObjects,
+} from "../../../unit";
+import { validateUuidSchema } from "../../../uuid-schema/unit";
+import { validateNameSchema } from "../../../name-schema/unit";
 import { Json, updateBackgroundNameEventSchema } from "../../../..";
 
 export function validateUpdateBackgroundNameEventSchema(
@@ -12,7 +17,7 @@ export function validateUpdateBackgroundNameEventSchema(
   instanceFactory: (updateBackgroundNameEvent: Json) => Json
 ): void {
   describe(description, () => {
-    schemaHelpers.accepts(
+    accepts(
       `valid`,
       instanceFactory({
         type: `updateBackgroundName`,
@@ -22,7 +27,7 @@ export function validateUpdateBackgroundNameEventSchema(
       schema
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `type`,
       schema,
       path,
@@ -33,7 +38,7 @@ export function validateUpdateBackgroundNameEventSchema(
       })
     );
 
-    schemaHelpers.rejectsOtherThanExpectedString(
+    rejectsOtherThanExpectedString(
       `type`,
       schema,
       `${path}.type`,
@@ -47,7 +52,7 @@ export function validateUpdateBackgroundNameEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `backgroundUuid`,
       schema,
       path,
@@ -58,7 +63,7 @@ export function validateUpdateBackgroundNameEventSchema(
       })
     );
 
-    uuidSchemaHelpers.validateUuidSchema(
+    validateUuidSchema(
       `backgroundUuid`,
       schema,
       `${path}.backgroundUuid`,
@@ -71,7 +76,7 @@ export function validateUpdateBackgroundNameEventSchema(
         })
     );
 
-    schemaHelpers.rejectsMissingProperty(
+    rejectsMissingProperty(
       `name`,
       schema,
       path,
@@ -82,7 +87,7 @@ export function validateUpdateBackgroundNameEventSchema(
       })
     );
 
-    nameSchemaHelpers.validateNameSchema(
+    validateNameSchema(
       `name`,
       schema,
       `${path}.name`,
@@ -97,11 +102,12 @@ export function validateUpdateBackgroundNameEventSchema(
   });
 }
 
-schemaHelpers.rejectsNonObjects(
+rejectsNonObjects(
   `updateBackgroundNameEventSchema`,
   updateBackgroundNameEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateBackgroundNameEventSchema(
