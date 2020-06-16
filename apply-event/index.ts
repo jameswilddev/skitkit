@@ -859,5 +859,14 @@ export function applyEvent(
           },
         };
       }
+
+    case `updateName`:
+      return {
+        successful: true,
+        state: {
+          ...state,
+          name: event.name,
+        },
+      };
   }
 }

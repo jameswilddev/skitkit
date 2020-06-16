@@ -70,6 +70,10 @@ import {
   updateSceneNameEventSchema,
   UpdateSceneNameEventSchema,
 } from "./scene/update-scene-name-event-schema";
+import {
+  updateNameEventSchema,
+  UpdateNameEventSchema,
+} from "./update-name-event-schema";
 
 export const eventSchema = {
   $schema: `http://json-schema.org/draft-04/schema#`,
@@ -92,6 +96,7 @@ export const eventSchema = {
     deleteSceneEventSchema,
     updateSceneBackgroundEventSchema,
     updateSceneNameEventSchema,
+    updateNameEventSchema,
   ],
 };
 
@@ -113,4 +118,5 @@ export type EventSchema =
   | CreateSceneEventSchema
   | DeleteSceneEventSchema
   | UpdateSceneBackgroundEventSchema
-  | UpdateSceneNameEventSchema;
+  | UpdateSceneNameEventSchema
+  | UpdateNameEventSchema;

@@ -72,6 +72,10 @@ export {
   updateSceneNameEventSchema,
   UpdateSceneNameEventSchema,
 } from "./schema/event-schema/scene/update-scene-name-event-schema";
+export {
+  updateNameEventSchema,
+  UpdateNameEventSchema,
+} from "./schema/event-schema/update-name-event-schema";
 export { eventSchema, EventSchema } from "./schema/event-schema";
 export { nameSchema, NameSchema } from "./schema/name-schema";
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
