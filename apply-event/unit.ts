@@ -2,6 +2,7 @@ import { applyEvent, EventApplicationResult, EventSchema, State } from "..";
 
 describe(`applyEvent`, () => {
   const previousState: State = {
+    name: `Test Skit Name`,
     backgrounds: {
       "16d51cce-90ae-44ee-8b28-9987d0692547": {
         name: `Test Unused Background Name`,
@@ -203,6 +204,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -411,6 +413,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "357f38d8-5fbe-41d1-baf8-851d4dfccf86": {
               name: `Test Used Background Name`,
@@ -594,6 +597,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Updated Name`,
@@ -781,6 +785,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -983,6 +988,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -1195,6 +1201,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -1347,6 +1354,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -1552,6 +1560,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -1755,6 +1764,7 @@ describe(`applyEvent`, () => {
     scenario(
       `when the emote exists and is the character's last`,
       {
+        name: `Test Skit Name`,
         backgrounds: {
           "16d51cce-90ae-44ee-8b28-9987d0692547": {
             name: `Test Unused Background Name`,
@@ -1926,6 +1936,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -2107,6 +2118,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -2294,6 +2306,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -2511,6 +2524,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -2695,6 +2709,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -2880,6 +2895,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -3063,6 +3079,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -3311,6 +3328,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -3498,6 +3516,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -3659,6 +3678,7 @@ describe(`applyEvent`, () => {
     scenario(
       `when no backgrounds exist`,
       {
+        name: `Test Skit Name`,
         backgrounds: {},
         characters: {
           "b3605166-7722-40d8-bea5-084b708f232b": {
@@ -3876,6 +3896,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -4064,6 +4085,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -4252,6 +4274,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -4441,6 +4464,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -4658,6 +4682,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -4860,6 +4885,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -5033,6 +5059,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
@@ -5220,6 +5247,7 @@ describe(`applyEvent`, () => {
       {
         successful: true,
         state: {
+          name: `Test Skit Name`,
           backgrounds: {
             "16d51cce-90ae-44ee-8b28-9987d0692547": {
               name: `Test Unused Background Name`,
