@@ -6,6 +6,7 @@ export interface LocalStorageHelperInterface<T extends Json> {
   getItem(key: string): T;
   setItem(key: string, value: T): void;
   removeItem(key: string): void;
+  listKeys(): ReadonlyArray<string>;
 }
 
 export class LocalStorageHelper<T extends Json>
