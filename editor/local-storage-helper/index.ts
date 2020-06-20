@@ -3,6 +3,7 @@ import { Json } from "../../json";
 
 export interface LocalStorageHelperInterface<T extends Json> {
   tryGetItem(key: string): null | T;
+  getItem(key: string): null | T;
   setItem(key: string, value: T): void;
   removeItem(key: string): void;
 }
@@ -46,6 +47,18 @@ export class LocalStorageHelper<T extends Json>
     }
 
     return deserialized;
+  }
+
+  getItem(key: string): T {
+    const output = this.tryGetItem(key);
+
+    if (output === null) {
+      throw new Error(
+        `No value for key ${this.keyPrefix}${key} of localStorage helper ${this.name}`
+      );
+    }
+
+    return output;
   }
 
   setItem(key: string, value: T): void {

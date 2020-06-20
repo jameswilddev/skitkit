@@ -316,6 +316,260 @@ describe(`LocalStorageHelper`, () => {
     });
   });
 
+  describe(`getItem`, () => {
+    describe(`when localStorage.getItem returns null`, () => {
+      let localStorageGetItem: jasmine.Spy;
+      let localStorageSetItem: jasmine.Spy;
+      let localStorageRemoveItem: jasmine.Spy;
+      let error: Error;
+
+      beforeAll(() => {
+        localStorageGetItem = jasmine
+          .createSpy(`localStorageGetItem`)
+          .and.returnValue(null);
+        localStorageSetItem = jasmine.createSpy(`localStorageSetItem`);
+        localStorageRemoveItem = jasmine.createSpy(`localStorageRemoveItem`);
+
+        const existingLocalStorage = patchableGlobal.localStorage;
+
+        try {
+          patchableGlobal.localStorage = {
+            getItem: localStorageGetItem,
+            setItem: localStorageSetItem,
+            removeItem: localStorageRemoveItem,
+          };
+
+          const localStorageHelper = new LocalStorageHelper<Schema>(
+            `Test Helper Name`,
+            `Test Key Prefix`,
+            schema
+          );
+
+          localStorageHelper.getItem(`Test Key`);
+        } catch (ex) {
+          error = ex;
+        } finally {
+          patchableGlobal.localStorage = existingLocalStorage;
+        }
+      });
+
+      it(`throws the expected error`, () => {
+        expect(error).toEqual(
+          new Error(
+            `No value for key Test Key PrefixTest Key of localStorage helper Test Helper Name`
+          )
+        );
+      });
+
+      it(`calls localStorage.getItem once`, () => {
+        expect(localStorageGetItem).toHaveBeenCalledTimes(1);
+      });
+
+      it(`calls localStorage.getItem with the expected key`, () => {
+        expect(localStorageGetItem).toHaveBeenCalledWith(
+          `Test Key PrefixTest Key`
+        );
+      });
+
+      it(`does not call localStorage.setItem`, () => {
+        expect(localStorageSetItem).not.toHaveBeenCalled();
+      });
+
+      it(`does not call localStorage.removeItem`, () => {
+        expect(localStorageRemoveItem).not.toHaveBeenCalled();
+      });
+    });
+
+    describe(`when localStorage.getItem returns non-JSON`, () => {
+      let localStorageGetItem: jasmine.Spy;
+      let localStorageSetItem: jasmine.Spy;
+      let localStorageRemoveItem: jasmine.Spy;
+      let error: Error;
+
+      beforeAll(() => {
+        localStorageGetItem = jasmine
+          .createSpy(`localStorageGetItem`)
+          .and.returnValue(`Test Non-JSON`);
+        localStorageSetItem = jasmine.createSpy(`localStorageSetItem`);
+        localStorageRemoveItem = jasmine.createSpy(`localStorageRemoveItem`);
+
+        const existingLocalStorage = patchableGlobal.localStorage;
+
+        try {
+          patchableGlobal.localStorage = {
+            getItem: localStorageGetItem,
+            setItem: localStorageSetItem,
+            removeItem: localStorageRemoveItem,
+          };
+
+          const localStorageHelper = new LocalStorageHelper<Schema>(
+            `Test Helper Name`,
+            `Test Key Prefix`,
+            schema
+          );
+
+          localStorageHelper.getItem(`Test Key`);
+        } catch (ex) {
+          error = ex;
+        } finally {
+          patchableGlobal.localStorage = existingLocalStorage;
+        }
+      });
+
+      it(`throws the expected error`, () => {
+        expect(error).toEqual(
+          new Error(
+            `Failed to deserialize value for key Test Key PrefixTest Key of localStorage helper Test Helper Name as JSON`
+          )
+        );
+      });
+
+      it(`calls localStorage.getItem once`, () => {
+        expect(localStorageGetItem).toHaveBeenCalledTimes(1);
+      });
+
+      it(`calls localStorage.getItem with the expected key`, () => {
+        expect(localStorageGetItem).toHaveBeenCalledWith(
+          `Test Key PrefixTest Key`
+        );
+      });
+
+      it(`does not call localStorage.setItem`, () => {
+        expect(localStorageSetItem).not.toHaveBeenCalled();
+      });
+
+      it(`does not call localStorage.removeItem`, () => {
+        expect(localStorageRemoveItem).not.toHaveBeenCalled();
+      });
+    });
+
+    describe(`when localStorage.getItem returns JSON which fails schema validation`, () => {
+      let localStorageGetItem: jasmine.Spy;
+      let localStorageSetItem: jasmine.Spy;
+      let localStorageRemoveItem: jasmine.Spy;
+      let error: Error;
+
+      beforeAll(() => {
+        localStorageGetItem = jasmine
+          .createSpy(`localStorageGetItem`)
+          .and.returnValue(`{"testKeyB":4}`);
+        localStorageSetItem = jasmine.createSpy(`localStorageSetItem`);
+        localStorageRemoveItem = jasmine.createSpy(`localStorageRemoveItem`);
+
+        const existingLocalStorage = patchableGlobal.localStorage;
+
+        try {
+          patchableGlobal.localStorage = {
+            getItem: localStorageGetItem,
+            setItem: localStorageSetItem,
+            removeItem: localStorageRemoveItem,
+          };
+
+          const localStorageHelper = new LocalStorageHelper<Schema>(
+            `Test Helper Name`,
+            `Test Key Prefix`,
+            schema
+          );
+
+          localStorageHelper.getItem(`Test Key`);
+        } catch (ex) {
+          error = ex;
+        } finally {
+          patchableGlobal.localStorage = existingLocalStorage;
+        }
+      });
+
+      it(`throws the expected error`, () => {
+        expect(error).toEqual(
+          new Error(`Value for key Test Key PrefixTest Key of localStorage helper Test Helper Name failed JSON schema validation:
+ - instance requires property "testKeyA"
+ - instance.testKeyB is not of a type(s) string
+ - instance.testKeyB is not one of enum values: Test Value B`)
+        );
+      });
+
+      it(`calls localStorage.getItem once`, () => {
+        expect(localStorageGetItem).toHaveBeenCalledTimes(1);
+      });
+
+      it(`calls localStorage.getItem with the expected key`, () => {
+        expect(localStorageGetItem).toHaveBeenCalledWith(
+          `Test Key PrefixTest Key`
+        );
+      });
+
+      it(`does not call localStorage.setItem`, () => {
+        expect(localStorageSetItem).not.toHaveBeenCalled();
+      });
+
+      it(`does not call localStorage.removeItem`, () => {
+        expect(localStorageRemoveItem).not.toHaveBeenCalled();
+      });
+    });
+
+    describe(`when localStorage.getItem returns JSON which passes schema validation`, () => {
+      let localStorageGetItem: jasmine.Spy;
+      let localStorageSetItem: jasmine.Spy;
+      let localStorageRemoveItem: jasmine.Spy;
+      let result: null | Schema;
+
+      beforeAll(() => {
+        localStorageGetItem = jasmine
+          .createSpy(`localStorageGetItem`)
+          .and.returnValue(
+            `{"testKeyA":"Test Value A","testKeyB":"Test Value B"}`
+          );
+        localStorageSetItem = jasmine.createSpy(`localStorageSetItem`);
+        localStorageRemoveItem = jasmine.createSpy(`localStorageRemoveItem`);
+
+        const existingLocalStorage = patchableGlobal.localStorage;
+
+        try {
+          patchableGlobal.localStorage = {
+            getItem: localStorageGetItem,
+            setItem: localStorageSetItem,
+            removeItem: localStorageRemoveItem,
+          };
+
+          const localStorageHelper = new LocalStorageHelper<Schema>(
+            `Test Helper Name`,
+            `Test Key Prefix`,
+            schema
+          );
+
+          result = localStorageHelper.getItem(`Test Key`);
+        } finally {
+          patchableGlobal.localStorage = existingLocalStorage;
+        }
+      });
+
+      it(`returns the deserialized value`, () => {
+        expect(result).toEqual({
+          testKeyA: `Test Value A`,
+          testKeyB: `Test Value B`,
+        });
+      });
+
+      it(`calls localStorage.getItem once`, () => {
+        expect(localStorageGetItem).toHaveBeenCalledTimes(1);
+      });
+
+      it(`calls localStorage.getItem with the expected key`, () => {
+        expect(localStorageGetItem).toHaveBeenCalledWith(
+          `Test Key PrefixTest Key`
+        );
+      });
+
+      it(`does not call localStorage.setItem`, () => {
+        expect(localStorageSetItem).not.toHaveBeenCalled();
+      });
+
+      it(`does not call localStorage.removeItem`, () => {
+        expect(localStorageRemoveItem).not.toHaveBeenCalled();
+      });
+    });
+  });
+
   describe(`setItem`, () => {
     let localStorageGetItem: jasmine.Spy;
     let localStorageSetItem: jasmine.Spy;
