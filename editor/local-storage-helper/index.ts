@@ -3,7 +3,7 @@ import { Json } from "../../json";
 
 export interface LocalStorageHelperInterface<T extends Json> {
   tryGetItem(key: string): null | T;
-  getItem(key: string): null | T;
+  getItem(key: string): T;
   setItem(key: string, value: T): void;
   removeItem(key: string): void;
 }
