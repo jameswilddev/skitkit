@@ -2,7 +2,7 @@ import * as jsonschema from "jsonschema";
 import { Json } from "../../json";
 
 export interface LocalStorageHelperInterface<T extends Json> {
-  getItem(key: string): null | T;
+  tryGetItem(key: string): null | T;
   setItem(key: string, value: T): void;
   removeItem(key: string): void;
 }
@@ -15,7 +15,7 @@ export class LocalStorageHelper<T extends Json>
     public readonly schema: jsonschema.Schema
   ) {}
 
-  getItem(key: string): null | T {
+  tryGetItem(key: string): null | T {
     const json = localStorage.getItem(`${this.keyPrefix}${key}`);
 
     if (json === null) {

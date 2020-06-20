@@ -68,7 +68,7 @@ describe(`LocalStorageHelper`, () => {
     });
   });
 
-  describe(`getItem`, () => {
+  describe(`tryGetItem`, () => {
     describe(`when localStorage.getItem returns null`, () => {
       let localStorageGetItem: jasmine.Spy;
       let localStorageSetItem: jasmine.Spy;
@@ -97,7 +97,7 @@ describe(`LocalStorageHelper`, () => {
             schema
           );
 
-          result = localStorageHelper.getItem(`Test Key`);
+          result = localStorageHelper.tryGetItem(`Test Key`);
         } finally {
           patchableGlobal.localStorage = existingLocalStorage;
         }
@@ -154,7 +154,7 @@ describe(`LocalStorageHelper`, () => {
             schema
           );
 
-          localStorageHelper.getItem(`Test Key`);
+          localStorageHelper.tryGetItem(`Test Key`);
         } catch (ex) {
           error = ex;
         } finally {
@@ -217,7 +217,7 @@ describe(`LocalStorageHelper`, () => {
             schema
           );
 
-          localStorageHelper.getItem(`Test Key`);
+          localStorageHelper.tryGetItem(`Test Key`);
         } catch (ex) {
           error = ex;
         } finally {
@@ -283,7 +283,7 @@ describe(`LocalStorageHelper`, () => {
             schema
           );
 
-          result = localStorageHelper.getItem(`Test Key`);
+          result = localStorageHelper.tryGetItem(`Test Key`);
         } finally {
           patchableGlobal.localStorage = existingLocalStorage;
         }
