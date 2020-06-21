@@ -3,6 +3,7 @@ import * as path from "path";
 import MiniCssExtractPlugin = require("mini-css-extract-plugin");
 import FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 import HtmlWebpackPlugin = require("html-webpack-plugin");
+import WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
 export default {
   entry: path.join(__dirname, `index.js`),
@@ -50,6 +51,10 @@ export default {
     }),
     new MiniCssExtractPlugin({
       filename: path.join(`index.css`),
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
     }),
   ],
 };
