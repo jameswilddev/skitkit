@@ -2,9 +2,11 @@ import * as jsonschema from "jsonschema";
 import { Json } from "../../json";
 
 export interface LocalStorageHelperInterface<T extends Json> {
-  getItem(key: string): null | T;
+  tryGetItem(key: string): null | T;
+  getItem(key: string): T;
   setItem(key: string, value: T): void;
   removeItem(key: string): void;
+  listKeys(): ReadonlyArray<string>;
 }
 
 export class LocalStorageHelper<T extends Json>
@@ -15,7 +17,7 @@ export class LocalStorageHelper<T extends Json>
     public readonly schema: jsonschema.Schema
   ) {}
 
-  getItem(key: string): null | T {
+  tryGetItem(key: string): null | T {
     const json = localStorage.getItem(`${this.keyPrefix}${key}`);
 
     if (json === null) {
@@ -48,11 +50,30 @@ export class LocalStorageHelper<T extends Json>
     return deserialized;
   }
 
+  getItem(key: string): T {
+    const output = this.tryGetItem(key);
+
+    if (output === null) {
+      throw new Error(
+        `No value for key ${this.keyPrefix}${key} of localStorage helper ${this.name}`
+      );
+    }
+
+    return output;
+  }
+
   setItem(key: string, value: T): void {
     localStorage.setItem(`${this.keyPrefix}${key}`, JSON.stringify(value));
   }
 
   removeItem(key: string): void {
     localStorage.removeItem(`${this.keyPrefix}${key}`);
+  }
+
+  listKeys(): ReadonlyArray<string> {
+    return Object.keys(localStorage)
+      .filter((key) => key.startsWith(this.keyPrefix))
+      .map((key) => key.slice(this.keyPrefix.length))
+      .sort();
   }
 }

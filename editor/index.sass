@@ -25,6 +25,22 @@
 button::-moz-focus-inner
   border: 0
 
+::selection
+  background: #feb
+  color: black
+
+input[type=text]
+  border: 0.1rem solid #864
+  color: #feb
+  padding: 0.5rem 1rem
+  user-select: text
+
+  &:hover
+    border-color: #fba
+
+  &:focus
+    border-color: #feb
+
 html
   font-family: 'Heebo', sans-serif
   cursor: default
@@ -44,7 +60,7 @@ html
     height: 100%
     background: linear-gradient(to right, #422, #211)
 
-body
+#app
   font-size: 0.5cm
   overflow: auto
 
@@ -187,6 +203,12 @@ article
   text-align: center
   font-size: 0.8rem
   color: #864
+
+.modal
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%) translateY(-4.75rem)
 
 footer
   position: fixed

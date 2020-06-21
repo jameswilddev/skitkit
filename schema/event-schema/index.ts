@@ -43,6 +43,14 @@ import {
   UpdateEmoteSvgEventSchema,
 } from "./emote/update-emote-svg-event-schema";
 import {
+  createStartingLineEventSchema,
+  CreateStartingLineEventSchema,
+} from "./line/create-starting-line-event-schema";
+import {
+  updateLineCharacterEmoteEventSchema,
+  UpdateLineCharacterEmoteEventSchema,
+} from "./line/update-line-character-emote-event-schema";
+import {
   updateLineTextEventSchema,
   UpdateLineTextEventSchema,
 } from "./line/update-line-text-event-schema";
@@ -62,6 +70,10 @@ import {
   updateSceneNameEventSchema,
   UpdateSceneNameEventSchema,
 } from "./scene/update-scene-name-event-schema";
+import {
+  updateNameEventSchema,
+  UpdateNameEventSchema,
+} from "./update-name-event-schema";
 
 export const eventSchema = {
   $schema: `http://json-schema.org/draft-04/schema#`,
@@ -77,11 +89,14 @@ export const eventSchema = {
     deleteEmoteEventSchema,
     updateEmoteNameEventSchema,
     updateEmoteSvgEventSchema,
+    createStartingLineEventSchema,
+    updateLineCharacterEmoteEventSchema,
     updateLineTextEventSchema,
     createSceneEventSchema,
     deleteSceneEventSchema,
     updateSceneBackgroundEventSchema,
     updateSceneNameEventSchema,
+    updateNameEventSchema,
   ],
 };
 
@@ -97,8 +112,11 @@ export type EventSchema =
   | DeleteEmoteEventSchema
   | UpdateEmoteNameEventSchema
   | UpdateEmoteSvgEventSchema
+  | CreateStartingLineEventSchema
+  | UpdateLineCharacterEmoteEventSchema
   | UpdateLineTextEventSchema
   | CreateSceneEventSchema
   | DeleteSceneEventSchema
   | UpdateSceneBackgroundEventSchema
-  | UpdateSceneNameEventSchema;
+  | UpdateSceneNameEventSchema
+  | UpdateNameEventSchema;

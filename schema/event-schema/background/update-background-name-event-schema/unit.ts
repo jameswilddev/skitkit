@@ -106,7 +106,8 @@ rejectsNonObjects(
   `updateBackgroundNameEventSchema`,
   updateBackgroundNameEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateBackgroundNameEventSchema(

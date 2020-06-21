@@ -76,7 +76,8 @@ rejectsNonObjects(
   `deleteSceneEventSchema`,
   deleteSceneEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateDeleteSceneEventSchema(

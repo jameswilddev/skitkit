@@ -3,4 +3,3 @@ node_modules
 *.js
 *.d.ts
 editor/dist
-editor/temp

@@ -76,7 +76,8 @@ rejectsNonObjects(
   `deleteEmoteEventSchema`,
   deleteEmoteEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateDeleteEmoteEventSchema(

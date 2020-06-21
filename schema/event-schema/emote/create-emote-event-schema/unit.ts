@@ -105,7 +105,8 @@ rejectsNonObjects(
   `createEmoteEventSchema`,
   createEmoteEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateCreateEmoteEventSchema(

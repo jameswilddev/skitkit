@@ -349,6 +349,21 @@ export function applyEvent(
       } else {
         const emote = state.emotes[event.emoteUuid];
 
+        const character = state.characters[emote.characterUuid];
+
+        if (character.emoteUuids.length === 1) {
+          return {
+            successful: false,
+            error: {
+              type: `entityIsLastChild`,
+              parentEntityType: `character`,
+              parentUuid: emote.characterUuid,
+              childEntityType: `emote`,
+              childUuid: event.emoteUuid,
+            },
+          };
+        }
+
         const lines = Object.entries(state.lines).filter(
           (line) =>
             line[1].characters[emote.characterUuid].emoteUuid ===
@@ -450,6 +465,151 @@ export function applyEvent(
         };
       }
 
+    case `createStartingLine`:
+      if (!exists(`scenes`, event.sceneUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityDoesNotExist`,
+            entityType: `scene`,
+            uuid: event.sceneUuid,
+          },
+        };
+      }
+
+      if (exists(`lines`, event.lineUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityAlreadyExists`,
+            entityType: `line`,
+            uuid: event.lineUuid,
+          },
+        };
+      }
+
+      const characters: {
+        [characterUuid: string]: LineCharacterState;
+      } = {};
+
+      const scene = state.scenes[event.sceneUuid];
+
+      const nextLine = state.lines[scene.lineUuids[0]];
+
+      for (const characterUuid in state.characters) {
+        const nextLineCharacter = nextLine.characters[characterUuid];
+
+        if (
+          Object.prototype.hasOwnProperty.call(
+            event.characterEmoteUuids,
+            characterUuid
+          )
+        ) {
+          const emoteUuid = event.characterEmoteUuids[characterUuid];
+
+          if (!exists(`emotes`, emoteUuid)) {
+            characters[characterUuid] = nextLineCharacter;
+          } else {
+            const emote = state.emotes[emoteUuid];
+
+            if (emote.characterUuid !== characterUuid) {
+              return {
+                successful: false,
+                error: {
+                  type: `noRelationshipBetweenEntities`,
+                  entities: [
+                    {
+                      entityType: `character`,
+                      uuid: characterUuid,
+                    },
+                    {
+                      entityType: `emote`,
+                      uuid: emoteUuid,
+                    },
+                  ],
+                },
+              };
+            } else {
+              characters[characterUuid] = {
+                ...nextLineCharacter,
+                emoteUuid,
+              };
+            }
+          }
+        } else {
+          characters[characterUuid] = nextLineCharacter;
+        }
+      }
+
+      return {
+        successful: true,
+        state: {
+          ...state,
+          lines: {
+            ...state.lines,
+            [event.lineUuid]: {
+              sceneUuid: event.sceneUuid,
+              text: `(this line is yet to be written)`,
+              characters,
+            },
+          },
+          scenes: {
+            ...state.scenes,
+            [event.sceneUuid]: {
+              ...scene,
+              lineUuids: [event.lineUuid, ...scene.lineUuids],
+            },
+          },
+        },
+      };
+
+    case `updateLineCharacterEmote`:
+      if (!exists(`lines`, event.lineUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityDoesNotExist`,
+            entityType: `line`,
+            uuid: event.lineUuid,
+          },
+        };
+      }
+
+      if (!exists(`emotes`, event.emoteUuid)) {
+        return {
+          successful: false,
+          error: {
+            type: `entityDoesNotExist`,
+            entityType: `emote`,
+            uuid: event.emoteUuid,
+          },
+        };
+      }
+
+      const line = state.lines[event.lineUuid];
+
+      const characterUuid = state.emotes[event.emoteUuid].characterUuid;
+
+      return {
+        successful: true,
+        state: {
+          ...state,
+          lines: {
+            ...state.lines,
+            [event.lineUuid]: {
+              ...line,
+              characters: {
+                ...line.characters,
+                [characterUuid]: {
+                  ...line.characters[characterUuid],
+                  emoteUuid: event.emoteUuid,
+                },
+              },
+            },
+          },
+        },
+      };
+
     case `updateLineText`:
       if (!exists(`lines`, event.lineUuid)) {
         return {
@@ -509,17 +669,71 @@ export function applyEvent(
         } = {};
 
         for (const characterUuid in state.characters) {
-          const character = state.characters[characterUuid];
+          if (
+            Object.prototype.hasOwnProperty.call(
+              event.characterEmoteUuids,
+              characterUuid
+            )
+          ) {
+            const emoteUuid = event.characterEmoteUuids[characterUuid];
 
-          const emoteUuid = character.emoteUuids
-            .slice()
-            .sort((a, b) =>
-              state.emotes[a].name.localeCompare(state.emotes[b].name)
-            )[0];
+            if (!exists(`emotes`, emoteUuid)) {
+              const character = state.characters[characterUuid];
 
-          characters[characterUuid] = {
-            emoteUuid,
-          };
+              characters[characterUuid] = {
+                emoteUuid: character.emoteUuids
+                  .slice()
+                  .sort((a, b) =>
+                    state.emotes[a].name.localeCompare(state.emotes[b].name)
+                  )[0],
+              };
+            } else {
+              const emote = state.emotes[emoteUuid];
+
+              if (emote.characterUuid !== characterUuid) {
+                return {
+                  successful: false,
+                  error: {
+                    type: `noRelationshipBetweenEntities`,
+                    entities: [
+                      {
+                        entityType: `character`,
+                        uuid: characterUuid,
+                      },
+                      {
+                        entityType: `emote`,
+                        uuid: emoteUuid,
+                      },
+                    ],
+                  },
+                };
+              } else {
+                characters[characterUuid] = {
+                  emoteUuid,
+                };
+              }
+            }
+          } else {
+            const character = state.characters[characterUuid];
+
+            characters[characterUuid] = {
+              emoteUuid: character.emoteUuids
+                .slice()
+                .sort((a, b) =>
+                  state.emotes[a].name.localeCompare(state.emotes[b].name)
+                )[0],
+            };
+          }
+        }
+
+        let backgroundUuid: UuidSchema;
+
+        if (exists(`backgrounds`, event.backgroundUuid)) {
+          backgroundUuid = event.backgroundUuid;
+        } else {
+          backgroundUuid = Object.entries(state.backgrounds).sort((a, b) =>
+            a[1].name.localeCompare(b[1].name)
+          )[0][0];
         }
 
         return {
@@ -538,9 +752,7 @@ export function applyEvent(
               ...state.scenes,
               [event.sceneUuid]: {
                 name: `Untitled Scene`,
-                backgroundUuid: Object.entries(state.backgrounds).sort((a, b) =>
-                  a[1].name.localeCompare(b[1].name)
-                )[0][0],
+                backgroundUuid,
                 lineUuids: [event.sceneUuid],
               },
             },
@@ -647,5 +859,14 @@ export function applyEvent(
           },
         };
       }
+
+    case `updateName`:
+      return {
+        successful: true,
+        state: {
+          ...state,
+          name: event.name,
+        },
+      };
   }
 }

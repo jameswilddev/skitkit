@@ -76,7 +76,8 @@ rejectsNonObjects(
   `deleteCharacterEventSchema`,
   deleteCharacterEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateDeleteCharacterEventSchema(

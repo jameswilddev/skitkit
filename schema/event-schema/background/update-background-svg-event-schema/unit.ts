@@ -101,7 +101,8 @@ rejectsNonObjects(
   `updateBackgroundSvgEventSchema`,
   updateBackgroundSvgEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateBackgroundSvgEventSchema(

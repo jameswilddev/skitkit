@@ -107,7 +107,8 @@ rejectsNonObjects(
   `updateLineTextEventSchema`,
   updateLineTextEventSchema,
   `instance`,
-  null
+  null,
+  (nonObject) => nonObject
 );
 
 validateUpdateLineTextEventSchema(

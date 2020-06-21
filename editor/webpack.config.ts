@@ -3,12 +3,13 @@ import * as path from "path";
 import MiniCssExtractPlugin = require("mini-css-extract-plugin");
 import FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 import HtmlWebpackPlugin = require("html-webpack-plugin");
+import WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
 export default {
   entry: path.join(__dirname, `index.js`),
   output: {
-    path: path.join(__dirname, `temp`),
-    filename: `index.js`,
+    path: path.join(__dirname, `dist`),
+    filename: `[hash].js`,
   },
   module: {
     rules: [
@@ -23,7 +24,6 @@ export default {
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, `logo.svg`),
       prefix: ``,
-      outputPath: path.join(`..`, `dist`),
       favicons: {
         appName: `SkitKit`,
         appShortName: `SkitKit`,
@@ -46,13 +46,15 @@ export default {
       },
     }),
     new HtmlWebpackPlugin({
-      inject: false,
       template: path.join(__dirname, `index.pug`),
-      filename: path.join(__dirname, `dist`, `index.html`),
       title: `skitkit`,
     }),
     new MiniCssExtractPlugin({
-      filename: path.join(`index.css`),
+      filename: path.join(`[hash].css`),
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
     }),
   ],
 };
