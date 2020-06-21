@@ -9,7 +9,7 @@ export default {
   entry: path.join(__dirname, `index.js`),
   output: {
     path: path.join(__dirname, `dist`),
-    filename: `index.js`,
+    filename: `[hash].js`,
   },
   module: {
     rules: [
@@ -50,7 +50,7 @@ export default {
       title: `skitkit`,
     }),
     new MiniCssExtractPlugin({
-      filename: path.join(`index.css`),
+      filename: path.join(`[hash].css`),
     }),
     new WorkboxWebpackPlugin.GenerateSW({
       clientsClaim: true,
