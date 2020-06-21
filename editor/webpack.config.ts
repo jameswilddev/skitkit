@@ -7,7 +7,7 @@ import HtmlWebpackPlugin = require("html-webpack-plugin");
 export default {
   entry: path.join(__dirname, `index.js`),
   output: {
-    path: path.join(__dirname, `temp`),
+    path: path.join(__dirname, `dist`),
     filename: `index.js`,
   },
   module: {
@@ -23,7 +23,6 @@ export default {
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, `logo.svg`),
       prefix: ``,
-      outputPath: path.join(`..`, `dist`),
       favicons: {
         appName: `SkitKit`,
         appShortName: `SkitKit`,
@@ -46,9 +45,7 @@ export default {
       },
     }),
     new HtmlWebpackPlugin({
-      inject: false,
       template: path.join(__dirname, `index.pug`),
-      filename: path.join(__dirname, `dist`, `index.html`),
       title: `skitkit`,
     }),
     new MiniCssExtractPlugin({
