@@ -1,9 +1,9 @@
 import { History } from "..";
-import { State } from "../../../types/state";
+import { StateSchema } from "../../../schema/state-schema";
 import { applyEvent } from "../../../apply-event";
 import { stringifyEventApplicationError } from "../../../stringify-event-application-error";
 
-export function getCurrentFromHistory(history: History): State {
+export function getCurrentFromHistory(history: History): StateSchema {
   let current = history.beforeSteps;
 
   for (const step of history.doneSteps) {

@@ -78,6 +78,14 @@ export {
 } from "./schema/event-schema/update-name-event-schema";
 export { eventSchema, EventSchema } from "./schema/event-schema";
 export { nameSchema, NameSchema } from "./schema/name-schema";
+export { BackgroundStateSchema } from "./schema/state-schema/background-state-schema";
+export { CharacterStateSchema } from "./schema/state-schema/character-state-schema";
+export { EmoteStateSchema } from "./schema/state-schema/emote-state-schema";
+export { LineCharacterStateSchema } from "./schema/state-schema/line-state-schema/line-character-state";
+export { LineStateSchema } from "./schema/state-schema/line-state-schema";
+export { SceneStateSchema } from "./schema/state-schema/scene-state-schema";
+export { StateSchema } from "./schema/state-schema";
+
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
 export { uuidSchema, UuidSchema } from "./schema/uuid-schema";
 export {
@@ -87,10 +95,3 @@ export {
 export { EntityType } from "./types/entity-type";
 export { EventApplicationError } from "./types/event-application-result/event-application-error";
 export { EventApplicationResult } from "./types/event-application-result";
-export { BackgroundState } from "./types/state/background-state";
-export { CharacterState } from "./types/state/character-state";
-export { EmoteState } from "./types/state/emote-state";
-export { LineCharacterState } from "./types/state/line-state/line-character-state";
-export { LineState } from "./types/state/line-state";
-export { SceneState } from "./types/state/scene-state";
-export { State } from "./types/state";

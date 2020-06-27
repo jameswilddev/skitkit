@@ -1,18 +1,18 @@
-import { State } from "../types/state";
+import { StateSchema } from "../schema/state-schema";
 import { EventSchema } from "../schema/event-schema";
 import { UuidSchema } from "../schema/uuid-schema";
 import { EventApplicationResult } from "../types/event-application-result";
-import { BackgroundState } from "../types/state/background-state";
-import { CharacterState } from "../types/state/character-state";
-import { EmoteState } from "../types/state/emote-state";
-import { LineCharacterState } from "../types/state/line-state/line-character-state";
-import { LineState } from "../types/state/line-state";
-import { SceneState } from "../types/state/scene-state";
+import { BackgroundStateSchema } from "../schema/state-schema/background-state-schema";
+import { CharacterStateSchema } from "../schema/state-schema/character-state-schema";
+import { EmoteStateSchema } from "../schema/state-schema/emote-state-schema";
+import { LineCharacterStateSchema } from "../schema/state-schema/line-state-schema/line-character-state";
+import { LineStateSchema } from "../schema/state-schema/line-state-schema";
+import { SceneStateSchema } from "../schema/state-schema/scene-state-schema";
 
 const placeholderSvg = `<svg xmlns="http://www.w3.org/2000/svg" height="256" width="256"><defs><linearGradient y2="256" x2="256" y1="0" x1="0" id="A" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="red"/><stop offset=".375" stop-color="#ff0"/><stop offset=".5" stop-color="#0f0"/><stop offset=".625" stop-color="#0ff"/><stop offset="1" stop-color="#00f"/></linearGradient></defs><rect x="0" y="0" width="256" height="256" fill="url(#A)"/><rect x="16" y="16" width="224" height="224" fill="#fff"/><text y="128" x="128" font-size="16" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">PLACEHOLDER</text></svg>`;
 
 export function applyEvent(
-  state: State,
+  state: StateSchema,
   event: EventSchema
 ): EventApplicationResult {
   function exists(
@@ -76,7 +76,9 @@ export function applyEvent(
             },
           };
         } else {
-          const backgrounds: { [backgroundUuid: string]: BackgroundState } = {};
+          const backgrounds: {
+            [backgroundUuid: string]: BackgroundStateSchema;
+          } = {};
 
           for (const backgroundUuid in state.backgrounds) {
             if (backgroundUuid !== event.backgroundUuid) {
@@ -166,7 +168,7 @@ export function applyEvent(
           },
         };
       } else {
-        const lines: { [lineUuid: string]: LineState } = {};
+        const lines: { [lineUuid: string]: LineStateSchema } = {};
 
         for (const lineUuid in state.lines) {
           const line = state.lines[lineUuid];
@@ -215,7 +217,9 @@ export function applyEvent(
           },
         };
       } else {
-        const characters: { [characterUuid: string]: CharacterState } = {};
+        const characters: {
+          [characterUuid: string]: CharacterStateSchema;
+        } = {};
 
         for (const characterUuid in state.characters) {
           if (characterUuid !== event.characterUuid) {
@@ -223,7 +227,7 @@ export function applyEvent(
           }
         }
 
-        const emotes: { [emoteUuid: string]: EmoteState } = {};
+        const emotes: { [emoteUuid: string]: EmoteStateSchema } = {};
 
         for (const emoteUuid in state.emotes) {
           const emote = state.emotes[emoteUuid];
@@ -233,13 +237,13 @@ export function applyEvent(
           }
         }
 
-        const lines: { [sceneUuid: string]: LineState } = {};
+        const lines: { [sceneUuid: string]: LineStateSchema } = {};
 
         for (const lineUuid in state.lines) {
           const line = state.lines[lineUuid];
 
           const characters: {
-            [characterUuid: string]: LineCharacterState;
+            [characterUuid: string]: LineCharacterStateSchema;
           } = {};
 
           for (const characterUuid in line.characters) {
@@ -385,7 +389,7 @@ export function applyEvent(
           const emote = state.emotes[event.emoteUuid];
           const character = state.characters[emote.characterUuid];
 
-          const emotes: { [emoteUuid: string]: EmoteState } = {};
+          const emotes: { [emoteUuid: string]: EmoteStateSchema } = {};
 
           for (const emoteUuid in state.emotes) {
             if (emoteUuid !== event.emoteUuid) {
@@ -489,7 +493,7 @@ export function applyEvent(
       }
 
       const characters: {
-        [characterUuid: string]: LineCharacterState;
+        [characterUuid: string]: LineCharacterStateSchema;
       } = {};
 
       const scene = state.scenes[event.sceneUuid];
@@ -665,7 +669,7 @@ export function applyEvent(
         };
       } else {
         const characters: {
-          [characterUuid: string]: LineCharacterState;
+          [characterUuid: string]: LineCharacterStateSchema;
         } = {};
 
         for (const characterUuid in state.characters) {
@@ -771,7 +775,7 @@ export function applyEvent(
           },
         };
       } else {
-        const lines: { [lineUuid: string]: LineState } = {};
+        const lines: { [lineUuid: string]: LineStateSchema } = {};
 
         for (const lineUuid in state.lines) {
           const line = state.lines[lineUuid];
@@ -781,7 +785,7 @@ export function applyEvent(
           }
         }
 
-        const scenes: { [emoteUuid: string]: SceneState } = {};
+        const scenes: { [emoteUuid: string]: SceneStateSchema } = {};
 
         for (const sceneUuid in state.scenes) {
           if (sceneUuid !== event.sceneUuid) {

@@ -1,7 +1,12 @@
-import { applyEvent, EventApplicationResult, EventSchema, State } from "..";
+import {
+  applyEvent,
+  EventApplicationResult,
+  EventSchema,
+  StateSchema,
+} from "..";
 
 describe(`applyEvent`, () => {
-  const previousState: State = {
+  const previousState: StateSchema = {
     name: `Test Skit Name`,
     backgrounds: {
       "16d51cce-90ae-44ee-8b28-9987d0692547": {
@@ -159,7 +164,7 @@ describe(`applyEvent`, () => {
 
   function scenario(
     description: string,
-    state: State,
+    state: StateSchema,
     event: EventSchema,
     result: EventApplicationResult
   ): void {

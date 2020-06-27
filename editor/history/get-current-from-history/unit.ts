@@ -1,9 +1,9 @@
-import { State } from "../../../types/state";
+import { StateSchema } from "../../../schema/state-schema";
 import { getCurrentFromHistory } from ".";
 
 describe(`getCurrentFromHistory`, () => {
   describe(`when there are no done steps`, () => {
-    let state: State;
+    let state: StateSchema;
 
     beforeAll(() => {
       state = getCurrentFromHistory({
@@ -42,7 +42,7 @@ describe(`getCurrentFromHistory`, () => {
   });
 
   describe(`when there is one done step which succeeds`, () => {
-    let state: State;
+    let state: StateSchema;
 
     beforeAll(() => {
       state = getCurrentFromHistory({
@@ -137,7 +137,7 @@ describe(`getCurrentFromHistory`, () => {
   });
 
   describe(`when there are two done steps which succeed`, () => {
-    let state: State;
+    let state: StateSchema;
 
     beforeAll(() => {
       state = getCurrentFromHistory({
@@ -291,7 +291,7 @@ describe(`getCurrentFromHistory`, () => {
   });
 
   describe(`then there are three done steps which succeed`, () => {
-    let state: State;
+    let state: StateSchema;
 
     beforeAll(() => {
       state = getCurrentFromHistory({

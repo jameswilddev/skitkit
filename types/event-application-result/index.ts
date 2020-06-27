@@ -1,10 +1,10 @@
-import { State } from "../state";
+import { StateSchema } from "../../schema/state-schema";
 import { EventApplicationError } from "./event-application-error";
 
 export type EventApplicationResult =
   | {
       readonly successful: true;
-      readonly state: State;
+      readonly state: StateSchema;
     }
   | {
       readonly successful: false;
