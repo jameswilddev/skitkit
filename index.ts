@@ -78,7 +78,10 @@ export {
 } from "./schema/event-schema/update-name-event-schema";
 export { eventSchema, EventSchema } from "./schema/event-schema";
 export { nameSchema, NameSchema } from "./schema/name-schema";
-export { BackgroundStateSchema } from "./schema/state-schema/background-state-schema";
+export {
+  backgroundStateSchema,
+  BackgroundStateSchema,
+} from "./schema/state-schema/background-state-schema";
 export { CharacterStateSchema } from "./schema/state-schema/character-state-schema";
 export { EmoteStateSchema } from "./schema/state-schema/emote-state-schema";
 export { LineCharacterStateSchema } from "./schema/state-schema/line-state-schema/line-character-state";
