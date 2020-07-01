@@ -27,6 +27,14 @@ export function validateSceneStateSchema(
       schema
     );
 
+    rejectsNonObjects(
+      `non-object`,
+      schema,
+      path,
+      overriddenErrors,
+      (nonObject) => instanceFactory(nonObject)
+    );
+
     rejectsMissingProperty(
       `name`,
       schema,
@@ -116,14 +124,6 @@ export function validateSceneStateSchema(
     );
   });
 }
-
-rejectsNonObjects(
-  `sceneStateSchema`,
-  sceneStateSchema,
-  `instance`,
-  null,
-  (nonObject) => nonObject
-);
 
 validateSceneStateSchema(
   `sceneStateSchema`,

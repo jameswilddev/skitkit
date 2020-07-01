@@ -23,6 +23,14 @@ export function validateEmoteStateSchema(
       schema
     );
 
+    rejectsNonObjects(
+      `non-object`,
+      schema,
+      path,
+      overriddenErrors,
+      (nonObject) => instanceFactory(nonObject)
+    );
+
     rejectsMissingProperty(
       `characterUuid`,
       schema,
@@ -91,14 +99,6 @@ export function validateEmoteStateSchema(
     );
   });
 }
-
-rejectsNonObjects(
-  `emoteStateSchema`,
-  emoteStateSchema,
-  `instance`,
-  null,
-  (nonObject) => nonObject
-);
 
 validateEmoteStateSchema(
   `emoteStateSchema`,

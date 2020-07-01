@@ -23,6 +23,14 @@ export function validateLineCharacterStateSchema(
       schema
     );
 
+    rejectsNonObjects(
+      `non-object`,
+      schema,
+      path,
+      overriddenErrors,
+      (nonObject) => instanceFactory(nonObject)
+    );
+
     rejectsMissingProperty(
       `emoteUuid`,
       schema,
@@ -43,14 +51,6 @@ export function validateLineCharacterStateSchema(
     );
   });
 }
-
-rejectsNonObjects(
-  `lineCharacterStateSchema`,
-  lineCharacterStateSchema,
-  `instance`,
-  null,
-  (nonObject) => nonObject
-);
 
 validateLineCharacterStateSchema(
   `lineCharacterStateSchema`,

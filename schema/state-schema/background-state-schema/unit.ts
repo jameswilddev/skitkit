@@ -21,6 +21,14 @@ export function validateBackgroundStateSchema(
       schema
     );
 
+    rejectsNonObjects(
+      `non-object`,
+      schema,
+      path,
+      overriddenErrors,
+      (nonObject) => instanceFactory(nonObject)
+    );
+
     rejectsMissingProperty(
       `name`,
       schema,
@@ -61,14 +69,6 @@ export function validateBackgroundStateSchema(
     );
   });
 }
-
-rejectsNonObjects(
-  `backgroundStateSchema`,
-  backgroundStateSchema,
-  `instance`,
-  null,
-  (nonObject) => nonObject
-);
 
 validateBackgroundStateSchema(
   `backgroundStateSchema`,

@@ -25,6 +25,14 @@ export function validateCharacterStateSchema(
       schema
     );
 
+    rejectsNonObjects(
+      `non-object`,
+      schema,
+      path,
+      overriddenErrors,
+      (nonObject) => instanceFactory(nonObject)
+    );
+
     rejectsMissingProperty(
       `name`,
       schema,
@@ -78,14 +86,6 @@ export function validateCharacterStateSchema(
     );
   });
 }
-
-rejectsNonObjects(
-  `characterStateSchema`,
-  characterStateSchema,
-  `instance`,
-  null,
-  (nonObject) => nonObject
-);
 
 validateCharacterStateSchema(
   `characterStateSchema`,
