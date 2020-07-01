@@ -101,6 +101,7 @@ export {
 } from "./schema/state-schema/scene-state-schema";
 export { StateSchema } from "./schema/state-schema";
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
+export { textSchema, TextSchema } from "./schema/text-schema";
 export { uuidArraySchema, UuidArraySchema } from "./schema/uuid-array-schema";
 export { uuidSchema, UuidSchema } from "./schema/uuid-schema";
 export {
