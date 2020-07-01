@@ -82,7 +82,10 @@ export {
   backgroundStateSchema,
   BackgroundStateSchema,
 } from "./schema/state-schema/background-state-schema";
-export { CharacterStateSchema } from "./schema/state-schema/character-state-schema";
+export {
+  characterStateSchema,
+  CharacterStateSchema,
+} from "./schema/state-schema/character-state-schema";
 export {
   emoteStateSchema,
   EmoteStateSchema,
