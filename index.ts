@@ -92,7 +92,10 @@ export {
 } from "./schema/state-schema/emote-state-schema";
 export { LineCharacterStateSchema } from "./schema/state-schema/line-state-schema/line-character-state";
 export { LineStateSchema } from "./schema/state-schema/line-state-schema";
-export { SceneStateSchema } from "./schema/state-schema/scene-state-schema";
+export {
+  sceneStateSchema,
+  SceneStateSchema,
+} from "./schema/state-schema/scene-state-schema";
 export { StateSchema } from "./schema/state-schema";
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
 export { uuidArraySchema, UuidArraySchema } from "./schema/uuid-array-schema";
