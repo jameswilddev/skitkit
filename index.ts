@@ -89,6 +89,7 @@ export { LineStateSchema } from "./schema/state-schema/line-state-schema";
 export { SceneStateSchema } from "./schema/state-schema/scene-state-schema";
 export { StateSchema } from "./schema/state-schema";
 export { svgSchema, SvgSchema } from "./schema/svg-schema";
+export { uuidArraySchema, UuidArraySchema } from "./schema/uuid-array-schema";
 export { uuidSchema, UuidSchema } from "./schema/uuid-schema";
 export {
   uuidUuidMapSchema,
