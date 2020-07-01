@@ -90,7 +90,10 @@ export {
   emoteStateSchema,
   EmoteStateSchema,
 } from "./schema/state-schema/emote-state-schema";
-export { LineCharacterStateSchema } from "./schema/state-schema/line-state-schema/line-character-state";
+export {
+  lineCharacterStateSchema,
+  LineCharacterStateSchema,
+} from "./schema/state-schema/line-state-schema/line-character-state-schema";
 export { LineStateSchema } from "./schema/state-schema/line-state-schema";
 export {
   sceneStateSchema,

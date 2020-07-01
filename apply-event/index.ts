@@ -5,7 +5,7 @@ import { EventApplicationResult } from "../types/event-application-result";
 import { BackgroundStateSchema } from "../schema/state-schema/background-state-schema";
 import { CharacterStateSchema } from "../schema/state-schema/character-state-schema";
 import { EmoteStateSchema } from "../schema/state-schema/emote-state-schema";
-import { LineCharacterStateSchema } from "../schema/state-schema/line-state-schema/line-character-state";
+import { LineCharacterStateSchema } from "../schema/state-schema/line-state-schema/line-character-state-schema";
 import { LineStateSchema } from "../schema/state-schema/line-state-schema";
 import { SceneStateSchema } from "../schema/state-schema/scene-state-schema";
 

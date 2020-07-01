@@ -1,5 +1,5 @@
 import { UuidSchema } from "../../uuid-schema";
-import { LineCharacterStateSchema } from "./line-character-state";
+import { LineCharacterStateSchema } from "./line-character-state-schema";
 
 export type LineStateSchema = {
   readonly sceneUuid: UuidSchema;
