@@ -83,7 +83,10 @@ export {
   BackgroundStateSchema,
 } from "./schema/state-schema/background-state-schema";
 export { CharacterStateSchema } from "./schema/state-schema/character-state-schema";
-export { EmoteStateSchema } from "./schema/state-schema/emote-state-schema";
+export {
+  emoteStateSchema,
+  EmoteStateSchema,
+} from "./schema/state-schema/emote-state-schema";
 export { LineCharacterStateSchema } from "./schema/state-schema/line-state-schema/line-character-state";
 export { LineStateSchema } from "./schema/state-schema/line-state-schema";
 export { SceneStateSchema } from "./schema/state-schema/scene-state-schema";
