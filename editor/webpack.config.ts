@@ -47,7 +47,7 @@ export default {
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, `index.pug`),
-      title: `skitkit`,
+      title: `SkitKit`,
     }),
     new MiniCssExtractPlugin({
       filename: path.join(`[hash].css`),
