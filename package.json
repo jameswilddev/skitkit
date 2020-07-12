@@ -15,7 +15,7 @@
     "@types/mini-css-extract-plugin": "0.9.1",
     "@types/node": "13.13.12",
     "@types/rewire": "2.5.28",
-    "@types/superfine": "7.0.0",
+    "@types/superfine": "7.0.1",
     "@types/workbox-webpack-plugin": "5.1.1",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
