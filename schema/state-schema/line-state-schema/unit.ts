@@ -13,7 +13,7 @@ export function validateLineStateSchema(
   schema: jsonschema.Schema,
   path: string,
   overriddenErrors: null | ReadonlyArray<string>,
-  instanceFactory: (sceneState: Json) => Json
+  instanceFactory: (lineState: Json) => Json
 ): void {
   describe(description, () => {
     accepts(
@@ -187,5 +187,5 @@ validateLineStateSchema(
   lineStateSchema,
   `instance`,
   null,
-  (sceneState) => sceneState
+  (lineState) => lineState
 );
