@@ -94,7 +94,10 @@ export {
   lineCharacterStateSchema,
   LineCharacterStateSchema,
 } from "./schema/state-schema/line-state-schema/line-character-state-schema";
-export { LineStateSchema } from "./schema/state-schema/line-state-schema";
+export {
+  lineStateSchema,
+  LineStateSchema,
+} from "./schema/state-schema/line-state-schema";
 export {
   sceneStateSchema,
   SceneStateSchema,
