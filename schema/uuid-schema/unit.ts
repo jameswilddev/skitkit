@@ -1,5 +1,5 @@
 import * as jsonschema from "jsonschema";
-import { accepts, rejects } from "../unit";
+import { accepts, rejects, rejectsNonObjects } from "../unit";
 import { Json, uuidSchema } from "../..";
 
 export function forEachInvalidUuid(
@@ -119,3 +119,68 @@ export function validateUuidSchema(
 }
 
 validateUuidSchema(`uuidSchema`, uuidSchema, `instance`, null, (uuid) => uuid);
+
+export function validateUuidMapSchema<TValue extends Json>(
+  description: string,
+  schema: jsonschema.Schema,
+  path: string,
+  overriddenErrors: null | ReadonlyArray<string>,
+  instanceFactory: (name: Json) => Json,
+  validValueA: TValue,
+  validValueB: TValue,
+  validValueC: TValue
+): void {
+  describe(description, () => {
+    accepts(`valid empty`, instanceFactory({}), schema);
+
+    accepts(
+      `valid with one`,
+      instanceFactory({
+        "930c204f-28b8-4e19-9b57-4d381fc82107": validValueA,
+      }),
+      schema
+    );
+
+    accepts(
+      `valid with two`,
+      instanceFactory({
+        "930c204f-28b8-4e19-9b57-4d381fc82107": validValueA,
+        "b3c27180-f8f9-4bbf-94a3-b50df6056114": validValueB,
+      }),
+      schema
+    );
+
+    accepts(
+      `valid with three`,
+      instanceFactory({
+        "930c204f-28b8-4e19-9b57-4d381fc82107": validValueA,
+        "b3c27180-f8f9-4bbf-94a3-b50df6056114": validValueB,
+        "6afb0c21-c2e2-414e-a40d-c2fd116f82c7": validValueC,
+      }),
+      schema
+    );
+
+    rejectsNonObjects(
+      `non-object`,
+      schema,
+      path,
+      overriddenErrors,
+      instanceFactory
+    );
+
+    forEachInvalidUuid((description, value) => {
+      rejects(
+        `key ${description}`,
+        instanceFactory({
+          "930c204f-28b8-4e19-9b57-4d381fc82107": validValueA,
+          [value]: validValueB,
+          "6afb0c21-c2e2-414e-a40d-c2fd116f82c7": validValueC,
+        }),
+        schema,
+        overriddenErrors || [
+          `${path} additionalProperty "${value}" exists in instance when not allowed`,
+        ]
+      );
+    });
+  });
+}
