@@ -16,6 +16,7 @@
     "@types/node": "13.13.14",
     "@types/rewire": "2.5.28",
     "@types/superfine": "7.0.1",
+    "@types/uuid": "^8.0.0",
     "@types/workbox-webpack-plugin": "5.1.1",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
@@ -59,6 +60,7 @@
     "!editor"
   ],
   "dependencies": {
-    "jsonschema": "1.2.6"
+    "jsonschema": "1.2.6",
+    "uuid": "8.2.0"
   }
 }
